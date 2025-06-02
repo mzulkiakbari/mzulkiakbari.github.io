@@ -1,0 +1,304 @@
+[
+  {
+    "title": "POS System For Printing Store Alkaysan",
+    "year_created": 2023,
+    "progress": "100% Completed",
+    "technologies": [
+      "Laravel",
+      "Laravel Blade",
+      "MySQL",
+      "Bootstrap",
+      "QR Code Generator"
+    ],
+    "notes": "Demo Account | email: demo@alkaysan.co.id | password: demo123",
+    "preview_images": [
+      "https://example.com/project-a/image1.jpg",
+      "https://example.com/project-a/image2.jpg"
+    ],
+    "live_url": "https://kasir.alkaysan.co.id",
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "Authentication & Access Module",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "User login/logout by SSO",
+            "Roles: Admin, Owner, Cashier, Customer Service (CS)"
+          ]
+        },
+        {
+          "title": "Product Management",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Add/Edit/Delete products",
+            "Product units: pcs, cm, meter, minute, custom",
+            "Cost price (COGS)",
+            "Selling price",
+            "Enable price rounding for spesific products (Optional)",
+            "Product Categories",
+            "Subcategories"
+          ]
+        },
+        {
+          "title": "Sales Transactions",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Fast product search by transaction number, customer name, product name, or order note",
+            "Auto-complete search for customer name or phone number from stored customer data",
+            "Flexible quantity & unit input",
+            "Price editing permissions (only certain cashiers can edit prices and CS cannot)",
+            "Discounts per item or overall",
+            "Payment methods: Cash, Bank Transfer, QRIS",
+            "Additional notes (e.g., for custom orders)",
+            "Print/download receipt as PDF or Thermal Printer",
+            "Item QR Code on receipt to track order status",
+            "Only Admin can delete transaction items"
+          ]
+        },
+        {
+          "title": "Cashier Dashboard",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Total transactions for today",
+            "Daily and monthly sales reports",
+            "Best selling products",
+            "Product promotion predictions based on sales trends",
+            "Current cash balance",
+            "Order processing status: Not Processed, In Printing, Printed, Picked Up",
+            "Monthly sales graph",
+            "Products sales chart for this month"
+          ]
+        },
+        {
+          "title": "Reports (Daily, Weekly, Monthly, Custom Date Range)",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Sales Report",
+            "Cash In/Out Report",
+            "Financial Summary (Gross Profit, Total Sales, Total Cost)",
+            "Profit & Loss Report",
+            "Export reports to PDF or Excel"
+          ]
+        },
+        {
+          "title": "Cash/Cashflow Management",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Add non-transaction cash in/out (e.g., utility bills, supplier payments)",
+            "Cash categories (operational expenses, miscellaneous, etc.)",
+            "Cashflow table for tracking"
+          ]
+        },
+        {
+          "title": "Others",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Multi-Store Support",
+            "Dark Mode UI",
+            "Mobile Friendly (Responsive Layout)",
+            "Integrated with Admin Panel & Employee App",
+            "Order Status Tracking via QR Code",
+            "Auto Invoice Delivery to Whatsapp Customer",
+            "Order Status Notification via Whatsapp",
+            "Duplicate Prevention System",
+            "Each new store will have a separate database for better performance and data isolation (multi-tenant structure)"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Admin Panel Alkaysan",
+    "year_created": 2024,
+    "progress": "60% Progress",
+    "technologies": [
+      "Laravel",
+      "NextJS",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "notes": "Demo Account | email: demo@alkaysan.co.id | password: demo123",
+    "preview_images": [
+      "https://example.com/project-a/image1.jpg",
+      "https://example.com/project-a/image2.jpg"
+    ],
+    "live_url": "https://admin.alkaysan.co.id",
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "Authentication & Access Module",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "User login/logout by SSO",
+            "Roles: Admin, Owner"
+          ]
+        },
+        {
+          "title": "Dashboard Page",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Sales charts for all stores and custom-selected stores",
+            "Total Employees",
+            "Total Stores",
+            "Monthly Revenue Summary",
+            "Realtime employee attendance log"
+          ]
+        },
+        {
+          "title": "Store Management",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Add/edit/delete store",
+            "Configure store operational days/hours",
+            "Set store address with coordinates and radius for employee attendance of Employee App",
+            "Price editing permissions (only certain cashiers can edit prices and CS cannot)",
+            "Set store short name for use as a code in the Cashier App",
+            "Enable/disable store status"
+          ]
+        },
+        {
+          "title": "Global Product Management",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Add/edit/delete products",
+            "Option to display products to one or multiple stores using checkbox format",
+            "Automatically apply product discounts based on certain events",
+            "Same structure as product management in the POS System"
+          ]
+        },
+        {
+          "title": "Employee Management",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Add/edit/delete employees",
+            "Employee list displayed in Card UI",
+            "Assign employee roles",
+            "Assign employees to specific branches",
+            "Manage employee salaries",
+            "Manage employee benefits",
+            "Manage employee deductions",
+            "Set employee work schedules"
+          ]
+        },
+        {
+          "title": "Attendance Management",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Edit/delete employee attendance records",
+            "Attendance table by employee or by branch",
+            "Single employee attendance detail page",
+            "Employee leave request page",
+            "Manage national holidays",
+            "Export to PDF",
+            "Permission page for attendance outside store radius (e.g., field work)",
+            "Print payslips",
+            "Attendance reports"
+          ]
+        },
+        {
+          "title": "Reports",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Sales Report",
+            "Cashflow Report",
+            "Financial Summary Report",
+            "Profit & Loss Report",
+            "Export to PDF"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Employee App Alkaysan",
+    "year_created": "v1 2021 | v2 2024",
+    "progress": "v2 78% Progress",
+    "technologies": [
+      "PHP",
+      "Laravel",
+      "Python",
+      "Google Mediapipe",
+      "Face Recognition",
+      "Javascript",
+      "MySQL",
+      "SQLite",
+      "Tailwind",
+      "Expo",
+      "React Native",
+      "Google Material"
+    ],
+    "notes": "Demo Account | email: demo@alkaysan.co.id | password: demo123",
+    "preview_images": [
+      "https://example.com/project-a/image1.jpg",
+      "https://example.com/project-a/image2.jpg"
+    ],
+    "live_url": "https://app.alkaysan.co.id",
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "Authentication & Access Module",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "User login/logout by SSO",
+            "Roles: Admin, Owner, Employee"
+          ]
+        },
+        {
+          "title": "Main Features",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Activity Timeline/Log: Displays activity logs such as employee attendance, sales from the cashier app, employee tasks, and more—adjusted based on the user's role.",
+            "Attendance with Facial Recognition & Geolocation: Employees can check in using face detection and location verification within a configurable radius.",
+            "Off-Site Attendance Requests: If work requires attendance outside the workplace (e.g., fieldwork), employees can request attendance via the \"Off-Site Attendance\" button with a clear explanation. If the explanation is unclear, the admin may reject the request and mark the attendance as invalid.",
+            "Face Verification on Account Registration: Facial detection must be verified during account registration.",
+            "Individual Activity Page per Employee",
+            "Payslip Page",
+            "Leave Request Page",
+            "Loan Request Page",
+            "Overtime Request Page",
+            "Employee Attendance Report Page",
+            "Daily Task Page",
+            "Anti-Duplicate Attendance System: Employees can only check in once per session. For example, if an employee checks in at 08:10 AM, they cannot check in again that day—only check out when leaving work. The system blocks multiple check-ins on the same day."
+          ]
+        },
+        {
+          "title": "Miscellaneous",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Account Switching (Up to 3 Accounts): Allows up to 3 accounts for login on a single device. Useful for employees having device issues, enabling them to log in on a coworker’s device. Since attendance uses facial detection, it cannot be manipulated.",
+            "Multi-language Support",
+            "User-Friendly Interface",
+            "Responsive Layout",
+            "Available as Web App and Android App",
+            "Integrated with Cashier App and Admin Panel",
+            "Important Notifications via WhatsApp to Employees",
+            "Configurable Attendance & Clock-out Reminders"
+          ]
+        }
+      ]
+    }
+  }
+]

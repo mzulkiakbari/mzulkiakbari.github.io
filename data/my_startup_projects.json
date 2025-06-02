@@ -1,0 +1,152 @@
+[
+  {
+    "title": "[Mini Project] NolSpam - AI-Powered Spam Removal for Content Creator",
+    "year_created": 2025,
+    "progress": "Soon On August",
+    "technologies": [
+      "Python FastAPI",
+      "Python Numpy",
+      "SQLite",
+      "Redis",
+      "Tailwind CSS",
+      "NextJS"
+    ],
+    "notes": "This is my mini project that I am currently working on. It is an AI Tool to eliminate spam comments, especially from illegal online gambling (Judol) with target market in Indonesia.",
+    "preview_images": null,
+    "live_url": null,
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "AI-Powered Anti-Spam Tool for Social Media Platforms",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "NolSpam leverages AI to detect and automatically remove spam comments from Youtube, addressing a critical pain point for content creators and businesses."
+        },
+        {
+          "title": "Focused Market Niche with Viral Potential (Judol)",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Specializes in filtering spam from high-risk categories like illegal gambling (Judol), which are rampant in Southeast Asia, particularly Indonesia. Creating a strong regional product-market fit with high demand."
+        },
+        {
+          "title": "Saas with Monetization Potential (Service-Based or Subscription-Based)",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "With features like detailed analytics, auto reporting/blocking, and service offering, NolSpam has clear paths to monetization. Either as a subscription-based Saas tool or through managed services for influencers, agencies, and brands."
+        },
+        {
+          "title": "Secret...",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": null
+        }
+      ]
+    }
+  },
+  {
+    "title": "Goora - Menyala Kuotaku (My Data On Fire)",
+    "year_created": 2026,
+    "progress": "Soon",
+    "technologies": [
+      "Python",
+      "MongoDB",
+      "React Native",
+      "Expo",
+      "NextJS",
+      "Others"
+    ],
+    "notes": "A Data Saving & Multi User Video Platform Powered By Zoora AI (The Brain)",
+    "preview_images": null,
+    "live_url": null,
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "AI Accessibility & Inclusivity Engine (Zoora AI)",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Zoora AI revolutionizes video accessibility, offering realtime sign language translation via animated avatars, multilingual auto subtitles/dubbing, and interaction via gestures, voice, or eye movement. A breakthrough for both global and disabled audiences."
+        },
+        {
+          "title": "Hyper Personalized Video Experience",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "From mood-based recommendations to adaptive video themes and voice-tone adjusted ads, Goora positions itself as the Netflix meets Tiktok with AI-Powered user empathy, opening massive personalization and monetization potential."
+        },
+        {
+          "title": "Data Saving & Smart Compression Focus for Emerging Markets",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "With smart video compression (H.265 + AI), Goora targets low bandwidth regions like Southeast Asia, addressing one of the biggest streaming pain points making it ideal for mass adoption in mobile first economies."
+        },
+        {
+          "title": "Secret...",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": null
+        }
+      ]
+    }
+  },
+  {
+    "title": "KetikinAI/Luno AI - Your AI Assistant for Thesis & Academic Papers",
+    "year_created": 2026,
+    "progress": "Soon",
+    "technologies": [
+      "Python",
+      "MongoDB",
+      "React Native",
+      "Expo",
+      "NextJS",
+      "Others"
+    ],
+    "notes": "Helping students finish their thesis faster & cleaner with AI",
+    "preview_images": null,
+    "live_url": null,
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "Market Ready Academic SaaS with Mass Adoption Potential",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "KetikinAI addresses a massive pain point in higher education thesis writing. The platform offers real value to 10M+ university students in Indonesia alone and is easily expandable to international markets."
+        },
+        {
+          "title": "Full Stack AI Ecosystem",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Unlike typical AI tools, KetikinAI is not just a chatbot, it's a robust ecosystem with AI for formatting, writing, research, defense simulation, time management, mental wellness, and plagiarism detection, covering the entire thesis lifecycle."
+        },
+        {
+          "title": "Monetization Ready with Gamification & Community Hooks",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "With built-in referral system, premium tiers, gamificiation, and even CV Tools. KetikinAI is built for virality, retention, and monetization. Especially among budget conscious students."
+        },
+        {
+          "title": "Secret...",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": null
+        }
+      ]
+    }
+  }
+]

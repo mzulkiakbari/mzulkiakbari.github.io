@@ -1,0 +1,115 @@
+[
+  {
+    "title": "Python Data Science & Machine Learning",
+    "year_created": 2020,
+    "progress": "Completed 100%",
+    "total_courses": 4,
+    "technologies": [
+      "Python",
+      "Numpy",
+      "Machine Learning"
+    ],
+    "notes": "This courses by LPK Baba Studio",
+    "preview_images": null,
+    "live_url": "https://drive.google.com/file/d/1HHYPr1GRjEJAyP9tv2qS-whUxh4ik6Mb/view?usp=sharing",
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "Create a Mobile Digital Media",
+          "type": "text",
+          "symbol": null,
+          "items": null
+        },
+        {
+          "title": "Building Database",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": null
+        },
+        {
+          "title": "Collaborating with Colleagues and Clients",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": null
+        },
+        {
+          "title": "Understanding the Operations of a Electronic Database",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": null
+        }
+      ]
+    }
+  },
+  {
+    "title": "Graphic Designer",
+    "year_created": 2021,
+    "progress": "Completed 100%",
+    "total_courses": 1,
+    "technologies": [
+      "Adobe Illustrator",
+      "Adobe Photoshop"
+    ],
+    "notes": "This courses by Vokraf",
+    "preview_images": null,
+    "live_url": "https://drive.google.com/file/d/1sQt8A-yGdNFwn57yhxu8Eakw6bOteLm1/view?usp=sharing",
+    "description": null
+  },
+  {
+    "title": "Introduction to Artificial Intelligence (AI)",
+    "year_created": 2025,
+    "progress": "On Progress 18%",
+    "total_courses": 4,
+    "technologies": [
+      "ChatGPT",
+      "Business Transformation",
+      "Ethical Standards And Conduct",
+      "Computer Vision",
+      "Artificial Intelligence",
+      "Artificial Intelligence and Machine Learning (AI/ML)",
+      "Machine Learning"
+    ],
+    "notes": "This courses by IBM",
+    "preview_images": null,
+    "live_url": null,
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "Introduction and Applications of AI",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "In this module, you will learn the definition of AI and the basics of generative AI. You will explore the impact, applications, and use cases of AI and how it is transforming our lives. Additionally, you will discover common tools and applications of generative AI. You will learn about AI agents and smart assistants and their common use cases. Finally, you will examine how AI is reshaping various industries and sectors."
+        },
+        {
+          "title": "AI Concepts, Terminology, and Application Domains",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "In this module, you will learn about the core concepts of AI, covering deep learning, machine learning, and neural networks. You’ll explore generative AI models, including large language models (LLMs), and their capabilities. Additionally, you’ll explore the development and application of AI in various domains like natural language processing (NLP), computer vision, and robotics, discovering how advancements in these areas drive diverse innovations and use cases."
+        },
+        {
+          "title": "Business and Career Transformation Through AI",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "In this module, you will explore the development of AI in business-relevant domains, including AI agents and robotics. You will discover the transformative impact of AI, especially generative AI, on business operations. You'll learn about the benefits AI offers to organizations and examine various use cases. Additionally, you'll discover how AI can revolutionize your work and work environment. The module also covers career opportunities in the AI domain. You'll examine key considerations for organizations looking to adopt AI and learn different frameworks and approaches used for AI implementation. This includes an in-depth look at IBM's AI Ladder framework."
+        },
+        {
+          "title": "Issues, Concerns, and Ethical Considerations",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "This module focuses on AI ethics and governance and addresses prevalent concerns and issues surrounding the AI landscape. In this module, you’ll learn about the fundamental principles of AI ethics and how to implement them. The module also discusses the specific ethical considerations related to generative AI. You will also learn how AI ethics are enforced through governance and regulations. This module includes a final project and a graded quiz to assess your understanding of the course concepts."
+        }
+      ]
+    }
+  }
+]
