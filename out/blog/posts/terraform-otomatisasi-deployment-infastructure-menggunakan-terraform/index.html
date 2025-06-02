@@ -1,0 +1,771 @@
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width"/><title>Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform</title><meta name="description" content="Pada pembahasan kali ini saya akan mencoba menggunakan Terraform untuk mendeploy infrastructure pada Google Cloud Platform (GCP)"/><meta charSet="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta property="og:url" content="https://mzulkiakbari.alkaysan.co.id/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform"/><meta property="og:type" content="website"/><meta property="og:title" content="Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform"/><meta property="og:description" content="Pada pembahasan kali ini saya akan mencoba menggunakan Terraform untuk mendeploy infrastructure pada Google Cloud Platform (GCP)"/><meta property="og:image" content="https://mzulkiakbari.alkaysan.co.id/images/posts/Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform.png"/><meta name="twitter:card" content="summary_large_image"/><meta property="twitter:url" content="mzulkiakbari.alkaysan.co.id"/><meta property="twitter:url" content="https://mzulkiakbari.alkaysan.co.id"/><meta name="twitter:title" content="Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform"/><meta name="twitter:description" content="Pada pembahasan kali ini saya akan mencoba menggunakan Terraform untuk mendeploy infrastructure pada Google Cloud Platform (GCP)"/><meta name="twitter:image" content="https://mzulkiakbari.alkaysan.co.id/images/posts/Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform.png"/><meta name="next-head-count" content="16"/><link rel="preload" href="/_next/static/media/d4588198199bb568-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/d9f3c95379e06bee-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/69092ab74bbd1e40-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/0caac7c63f5eb5d1-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/css/25b4d693e296668c.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/25b4d693e296668c.css" crossorigin="" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-efdab446b2c4fcf1.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/framework-0c7baedefba6b077.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/main-27940f348921b949.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/_app-741c7cd74d12f3f2.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/675-f5ea2ef57a5d96b0.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/492-4e28a1fd2e5c03eb.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/40-9ef566776ff1e478.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/blog/posts/%5Bslug%5D-429f38b7df5aacad.js" defer="" crossorigin=""></script><script src="/_next/static/kPye74dNv48A-A3nRZwbH/_buildManifest.js" defer="" crossorigin=""></script><script src="/_next/static/kPye74dNv48A-A3nRZwbH/_ssgManifest.js" defer="" crossorigin=""></script></head><body><div id="__next"><div class="__className_839cd4"><header class="absolute left-0 top-0 z-10 flex w-full items-center bg-transparent  transition duration-300 ease-in-out"><div class="container"><div class="relative flex items-center justify-between"><div class="px-4"><a class="block py-5 text-lg font-bold lowercase text-dark dark:text-white" href="/">Zul.</a></div><div class="flex items-center px-4"><button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden "><span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span><span class="hamburger-line transition duration-300 ease-in-out"></span><span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span></button><nav class="hidden  transition duration-300 ease-in-out absolute right-0 top-full w-full max-w-full rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"><ul class="block lg:flex"><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/dashboard/"><li>Dashboard</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/about-me/"><li>About Me</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/experiences/"><li>Experiences</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/skills/"><li>Skills</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/education/"><li>Education</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/certifications/"><li>Certifications</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/my-projects/"><li>My Projects</li></a><li class="mt-3 flex items-center pl-7 lg:mt-0 lg:pl-5"><div class="flex"><label for="dark-toggle" class="cursor-pointer"><div class="group toggle-icon rounded-full p-1 hover:bg-blue-200/60"><svg viewBox="0 0 24 24" width="24" height="24" class="transition duration-300 ease-in-out text-dark"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><span class="absolute top-[4.2rem] -right-6 scale-0 rounded bg-dark p-2 text-xs text-white group-hover:scale-100 whitespace-normal transition duration-100 ease-in-out font-bold">✨ Dark Mode</span></div></label></div></li></ul></nav></div></div></div></header><main><div class="pb-36 pt-24 transition duration-300 ease-in-out dark:bg-dark"><div class="container"><div class="mx-auto px-4 sm:px-6 md:px-4 lg:max-w-6xl lg:px-8 xl:max-w-7xl"><div class="-mt-24 lg:mt-[-9rem] border-b border-dark/20 dark:border-white/20"><div class="relative isolate pt-14"><div class="absolute inset-x-0 midnight:hidden -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true"><div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-cyan-800/90 to-cyan-800/90 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path:polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div></div><div class="pt-16 sm:pt-16 md:pt-16 md:pb-0 max-w-screen-2xl mx-auto overflow-hidden lg:grid lg:grid-cols-12 lg:items-center lg:pt-40 lg:pb-28"><div class="col-span-6 sm:px-6 lg:pl-0 max-w-2xl col-start-2 lg:px-0 ml-0 lg:ml-[-1rem] xl:ml-[-0.5rem] lg:flex-auto lg:pr-16"><h1 class="lg:max-w-lg text-2xl font-bold tracking-tighter text-foreground sm:text-3xl lg:text-4xl/[2.5rem]">Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform</h1><p class="mt-2 lg:max-w-xl leading-relaxed text-slate-400 sm:mt-4 sm:text-lg sm:leading-7">Pada pembahasan kali ini saya akan mencoba menggunakan Terraform untuk mendeploy infrastructure pada Google Cloud Platform (GCP)</p><div class="flex items-center justify-between"><div class="flex items-center gap-x-1 mt-4"><a class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs tracking-tight font-medium transition-colors focus:outline-none border-cyan-500/40 bg-cyan-500/10 text-cyan-500 hover:bg-cyan-500/20" href="/blog/tag/cloud/">Cloud</a></div></div><div class="my-8 flex items-center justify-between gap-x-2"><div class="tracking-tighter text-sm text-muted-foreground"><div class="flex"><div class="mr-4 flex-shrink-0"><div class="LazyLoad is-visible"><img class="rounded-full w-12 h-12 transition duration-300 ease-in-out hover:scale-110" src="/images/posts/author/arman.png" loading="lazy" style="opacity:1"/></div></div><div><h4 class="text-lg font-semibold text-foreground">Arman Dwi Pangestu</h4><p class="mt-1 text-slate-400"><span>1 April 2024</span><span class="mx-1">•</span><span>1<!-- --> menit baca</span></p></div></div></div></div></div><div class="mt-6 sm:mt-8 lg:mr-4 lg:mt-0 col-span-5 lg:flex-shrink-0 lg:flex-grow mb-7"><div data-radix-aspect-ratio-wrapper="" style="position:relative;width:100%;padding-bottom:56.25%"><div class="grid place-content-center overflow-hidden border border-dark/20 dark:border-white/20 rounded-lg font-mono text-xl font-medium tracking-tighter text-accent-foreground dark:shadow-xl" style="position:absolute;inset:0px"><img loading="lazy" width="1280" height="720" decoding="async" data-nimg="1" class="object-cover object-center w-full h-full rounded-md transition duration-300 ease-in-out hover:scale-110" style="color:transparent" src="/images/posts/Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform.png"/></div></div></div></div></div></div><div class="w-full rounded-lg mx-auto mb-5 md:max-w-3xl lg:max-w-5xl transition duration-300 ease-in-out prose prose-pre:mt-0 prose-pre:rounded-t-none prose-pre:rounded-b-lg prose-code:text-[#696a73] prose-code:dark:text-[#8B99AE] prose-code:font-bold prose-code:bg-[#E6ECF3] prose-code:dark:bg-[#0f1419] prose-code:py-1 prose-code:px-2 prose-code:rounded-md prose-table:border-collapse prose-blockquote:border-amber-500 prose-blockquote:bg-amber-300 prose-blockquote:bg-opacity-10 prose-blockquote:text-slate-500 prose-blockquote:dark:text-slate-400 prose-blockquote:not-italic prose-blockquote:px-5 prose-blockquote:py-2 prose-blockquote:rounded prose-headings:text-dark prose-headings:dark:text-white prose-strong:text-dark prose-strong:dark:text-white prose-p:text-accents-3 prose-p:dark:text-slate-400 prose-hr:border-slate-400 prose-li:text-accents-3 prose-li:dark:text-slate-400 prose-img:rounded prose-img:w-full prose-pre:bg-[#E6ECF3] prose-pre:dark:bg-[#0f1419]"><aside><nav><h2>Daftar Isi:</h2><ul><li data-depth="2" class="ml-4"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#pendahuluan">Pendahuluan</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#set-up-terraform-dan-cloud-shell">Set up Terraform dan Cloud Shell</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#install-terraform">Install Terraform</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#initialize-terraform">Initialize Terraform</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#membuat-network-dengan-nama-mynetwork-dan-resources">Membuat Network Dengan Nama mynetwork dan Resources</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#konfigurasi-mynetwork">Konfigurasi mynetwork</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#konfigurasi-aturan-firewall">Konfigurasi Aturan Firewall</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#konfigurasi-compute-engine-vm-instance">Konfigurasi Compute Engine (VM) instance</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#membuat-mynetwork-dan-resource">Membuat mynetwork dan resource</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#verifikasi-deployment-kalian">Verifikasi deployment kalian</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#verifikasi-network-kalian-di-cloud-console">Verifikasi network kalian di Cloud Console</a></li><li data-depth="3" class="ml-8"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#verifikasi-vm-instances-di-cloud-console">Verifikasi VM instances di Cloud Console</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/terraform-otomatisasi-deployment-infastructure-menggunakan-terraform/#penutup">Penutup</a></li></ul></nav></aside><div><h2 id="pendahuluan">Pendahuluan</h2>
+<p>Apa itu Terraform? Terraform adalah tools yang menawarkan Infrastructure as Code (<code>IaC</code>). Dengan menggunakan Terraform ini kita bisa membuat infrastructure menjadi lebih safely, dan predictable create, change, dan improve infrastructure.</p>
+<h2 id="set-up-terraform-dan-cloud-shell">Set up Terraform dan Cloud Shell</h2>
+<p>Konfigurasi Cloud Shell environment kalian untuk menggunakan Terraform.</p>
+<h3 id="install-terraform">Install Terraform</h3>
+<p>Terraform sudah terintegrasi secara bawaan pada Cloud Shell, untuk memastikan versi berapa yang di install ikuti langkah berikut ini.</p>
+<ol>
+<li>Pada Cloud Console UI, click <code>Activate Cloud Shell</code> (menu ini berada di pojok kanan atas dengan icon terminal).</li>
+<li>Jika terdapat prompt, click <code>Konfirmasi</code></li>
+<li>Setelah masuk kedalam Cloud Shell, jalankan perintah berikut ini:</li>
+</ol>
+<pre><code class="language-bash">terraform --version
+</code></pre>
+<p>Maka akan muncul output kurang lebih seperti ini:</p>
+<pre><code class="language-bash">Terraform v1.3.3
+</code></pre>
+<ol start="4">
+<li>Buat folder untuk konfigurasi Terraform dengan perintah berikut ini:</li>
+</ol>
+<pre><code class="language-bash">mkdir tfinfra
+</code></pre>
+<ol start="5">
+<li><p>Pada Cloud Shell, click <code>Open editor</code> untuk membuka code editor yang terintegrasi dengan Cloud Shell.</p>
+</li>
+<li><p>Pada panel sebelah kiri dari kode editor, expand the <code>tfinfra</code> folder.</p>
+</li>
+</ol>
+<h3 id="initialize-terraform">Initialize Terraform</h3>
+<p>Terraform menggunakan sebuah plugin-based arsitektur untuk men-support numerous infrastructure dan service provider yang tersedia. Setiap &quot;provider&quot; tersebut mempunyai encapsulated binary distributed terpisah dari Terraform itu sendiri. Initialize Terraform untuk menggunakan Google sebagai provider.</p>
+<ol>
+<li>Buat sebuah file baru di dalam folder <code>tfinfra</code> dengan cara click kanan di folder nya dan pilih <code>New File</code></li>
+<li>Berikan nama untuk file baru tersebut dengan <code>provider.tf</code>, kemudian buka file nya.</li>
+<li>Tuliskan kode berikut ini kedalam file <code>provider.tf</code>.</li>
+</ol>
+<pre><code class="language-tf">provider &quot;google&quot; {}
+</code></pre>
+<ol start="4">
+<li>Untuk menyimpan <code>provider.tf</code>, click <code>File</code> &gt; <code>Save</code>.</li>
+<li>Untuk melakukan initialize Terraform, jalankan perintah berikut ini:</li>
+</ol>
+<pre><code class="language-bash">cd tfinfra
+terraform init
+</code></pre>
+<p>Maka akan muncul output kurang lebih seperti ini:</p>
+<pre><code class="language-bash">Initializing the backend...
+
+Initializing provider plugins...
+- Finding latest version of hashicorp/google...
+- Installing hashicorp/google v5.22.0...
+- Installed hashicorp/google v5.22.0 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run &quot;terraform init&quot; in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running &quot;terraform plan&quot; to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+</code></pre>
+<p>Sekarang kalian sudah siap untuk bekerja dengan Terraform di Cloud Shell.</p>
+<h2 id="membuat-network-dengan-nama-mynetwork-dan-resources">Membuat Network Dengan Nama mynetwork dan Resources</h2>
+<p>Buat sebuah auto mode network dengan nama <code>mynetwork</code> beserta dengan aturan firewall nya dan dua buah Compute Engine (VM) instances dengan nama (<code>mynet_us_vm</code> dan <code>mynet_eu_vm</code>).</p>
+<h3 id="konfigurasi-mynetwork">Konfigurasi mynetwork</h3>
+<p>Buat sebuah konfigurasi baru, dan definisikan konfigurasi <code>mynetwork</code>.</p>
+<ol>
+<li>Buat sebuah file baru di dalam folder <code>tfinfra</code> dengan cara click kanan di folder nya dan pilih <code>New File</code></li>
+<li>Berikan nama untuk file baru tersebut dengan <code>mynetwork.tf</code>, kemudian buka file nya.</li>
+<li>Tuliskan kode berikut ini kedalam file <code>mynetwork.tf</code>.</li>
+</ol>
+<blockquote>
+<p><strong>Catatan</strong>: Template konfigurasi</p>
+<pre><code class="language-tf"># Create the mynetwork network
+resource [RESOURCE_TYPE] &quot;mynetwork&quot; {
+name = [RESOURCE_NAME]
+# RESOURCE properties go here
+}
+</code></pre>
+<p>Gunakan base template adalah sesuatu yang bagus untuk starting point untuk setiap Google Cloud resource. Field <code>name</code> mengizinkan kalian untuk memberikan nama pada resource, dan field <code>type</code> mengizinkan kalian untuk men-spesifikasikan Google Cloud resource yang ingin kalian buat. Kalian juga bisa mendefinisikan <code>properties</code>, tapi ini optional untuk beberapa resources.</p>
+</blockquote>
+<ol start="4">
+<li>Pada file <code>mynetwork.tf</code>, ganti <code>[RESOURCE_TYPE]</code> dengan <code>&quot;google_compute_network&quot;</code></li>
+</ol>
+<blockquote>
+<p><strong>Catatan</strong>: <code>google_cloud_network</code> adalah sebuah resource VPC network. Resource ini tersedia di <a href="https://www.terraform.io/docs/providers/google/index.html">Google Cloud provider documentation</a>. Untuk mempelajari lebih lanjut mengenai resource ini secara spesifik kalian bisa baca disini <a href="https://www.terraform.io/docs/providers/google/r/compute_network">Terraform documentation</a>.</p>
+</blockquote>
+<ol start="5">
+<li>Pada file <code>mynetwork.tf</code>, ganti <code>[RESOURCE_NAME]</code> dengan <code>&quot;mynetwork&quot;</code></li>
+<li>Dan tambahkan property ini di file <code>mynetwork.tf</code></li>
+</ol>
+<pre><code class="language-tf">auto_create_subnetworks = &quot;true&quot;
+</code></pre>
+<p>Dengan mendefinisikan property auto mode network otomatis diatas, maka akan membuat sebuah subnetwork pada masing-masing region nya.</p>
+<ol start="7">
+<li>Verifikasi file <code>mynetwork.tf</code> hasilnya seperti ini</li>
+</ol>
+<pre><code class="language-tf">resource &quot;google_compute_network&quot; &quot;mynetwork&quot; {
+    name = &quot;mynetwork&quot;
+    auto_create_subnetworks = &quot;true&quot;
+}
+</code></pre>
+<ol start="8">
+<li>Untuk menyimpan <code>mynetwork.tf</code>, click <code>File</code> &gt; <code>Save</code>.</li>
+</ol>
+<h3 id="konfigurasi-aturan-firewall">Konfigurasi Aturan Firewall</h3>
+<p>Definisikan sebuah aturan firewall untuk mengizinkan traffic <code>HTTP</code>, <code>SSH</code>, <code>RDP</code>, dan <code>ICMP</code> pada network <code>mynetwork</code>.</p>
+<ol>
+<li>Tambahkan kode berikut ini di baris paling bawah pada file <code>mynetwork.tf</code></li>
+</ol>
+<blockquote>
+<p><strong>Catatan</strong>: <code>google_compute_firewall</code> adalah resource untuk aturan firewall. Untuk mempelajari resource ini dengan lebih spesifik kalian bisa baca disini <a href="https://www.terraform.io/docs/providers/google/r/compute_firewall">Terraform documentation</a>.</p>
+<p>Karena aturan firewall ini bergantung pada network ini, maka mendefinisikan konfigurasi <code>google_compute_network.mynetwork.self_link</code> reference untuk men-instruksikan Terraform untuk menyelesaikan resource ini dalam urutan yang ketergantungan. Pada kasus ini, sebuah network akan dibuat terlebih dahulu sebelum aturan firewall nya.</p>
+</blockquote>
+<pre><code class="language-tf">resource &quot;google_compute_firewall&quot; &quot;mynetwork-allow-http-ssh-rdp-icmp&quot; {
+    name = &quot;mynetwork-allow-http-ssh-rdp-icmp&quot;
+    network = google_compute_network.mynetwork.self_link
+
+    allow {
+        protocol = &quot;tcp&quot;
+        ports = [&quot;22&quot;, &quot;80&quot;, &quot;3389&quot;]
+    }
+
+    allow {
+        protocol = &quot;icmp&quot;
+    }
+    source_ranges = [&quot;0.0.0.0/0&quot;]
+}
+</code></pre>
+<ol start="2">
+<li>Verifikasi file <code>mynetwork.tf</code> hasilnya seperti ini</li>
+</ol>
+<pre><code class="language-tf">resource &quot;google_compute_network&quot; &quot;mynetwork&quot; {
+    name = &quot;mynetwork&quot;
+    auto_create_subnetworks = &quot;true&quot;
+}
+
+resource &quot;google_compute_firewall&quot; &quot;mynetwork-allow-http-ssh-rdp-icmp&quot; {
+    name = &quot;mynetwork-allow-http-ssh-rdp-icmp&quot;
+    network = google_compute_network.mynetwork.self_link
+
+    allow {
+        protocol = &quot;tcp&quot;
+        ports = [&quot;22&quot;, &quot;80&quot;, &quot;3389&quot;]
+    }
+
+    allow {
+        protocol = &quot;icmp&quot;
+    }
+    source_ranges = [&quot;0.0.0.0/0&quot;]
+}
+</code></pre>
+<ol start="3">
+<li>Untuk menyimpan <code>mynetwork.tf</code>, click <code>File</code> &gt; <code>Save</code>.</li>
+</ol>
+<h3 id="konfigurasi-compute-engine-vm-instance">Konfigurasi Compute Engine (VM) instance</h3>
+<p>Definisikan VM instance dengan membuat sebuah VM instance <code>module</code>. Sebuah module akan menjadi konfigurasi yang reusable di dalam sebuah folder. Kalian bisa gunakan module untuk kedua VM yang akan dibuat kali ini.</p>
+<ol>
+<li>Buat sebuah folder baru di dalam <code>tfinfra</code>, click kanan pada folder <code>tfinfra</code>, kemudian click <code>File</code> &gt; <code>New Folder</code>.</li>
+<li>Berikan nama untuk subfolder tersebut dengan <code>instance</code>.</li>
+<li>Selanjutnya buat sebuah file baru di subfolder tersebut dengan nama <code>main.tf</code></li>
+</ol>
+<p>Maka seharusnya sekarang struktur folder nya akan seperti ini</p>
+<pre><code class="language-bash"> tfinfra
+├──  instance
+│  └──  main.tf
+├──  mynetwork.tf
+└──  provider.tf
+</code></pre>
+<ol start="4">
+<li>Tambahkan kode berikut ini kedalam file <code>main.tf</code></li>
+</ol>
+<blockquote>
+<p><strong>Catatan</strong>: <code>google_compute_instance</code> adalah sebuah resource compute engine (VM). Untuk mempelajari resource ini dengan lebih spesifik kalian bisa baca disini <a href="https://www.terraform.io/docs/providers/google/r/compute_instance">Terraform documentation</a>.</p>
+<p>Dikarenakan kita akan menggunakan module ini untuk membuat dua VM, kalian definisikan nama instance nya sebagai sebuah input variable. Dengan ini maka mengizinkan untuk control nama dari VM yang akan dibuat dari variable <code>mynetwork.tf</code> nantinya ketika dipanggil. Untuk mempelajari mengenai input variable kalian bisa baca disini <a href="https://learn.hashicorp.com/terraform/getting-started/variables">Terraform: Define Input Variables Guide</a>.</p>
+<pre><code class="language-tf">name = &quot;${var.instance_name}&quot;
+zone = &quot;${var.instance_zone}&quot;
+machine_type = &quot;${var.instance_type}&quot;
+</code></pre>
+<p>VM ini akan menggunakan sistem operasi Debian 11, oleh karena itu pada konfigurasi <code>boot_disk</code> image yang digunakan adalah <code>debian-cloud/debian-11</code></p>
+<pre><code class="language-tf"> boot_disk {
+   initialize_params {
+     image = &quot;debian-cloud/debian-11&quot;
+     }
+ }
+</code></pre>
+<p>Pada bagian network interface untuk VM yang akan dibuat, kita akan gunakan input variable juga. Dan untuk empty atau blank konfigurasi pada <code>access_config</code> maka akan menghasilkan ephemeral external IP address (Dynamic IP Public). Jika kalian ingin membuat sebuah VM instance hanya menggunakan internal IP address (IP Local), maka hapus konfigurasi <code>access_config</code>. Untuk mempelajari lebih lanjut, lihat disini <a href="https://www.terraform.io/docs/providers/google/r/compute_instance">Terraform documentation</a>.</p>
+</blockquote>
+<pre><code class="language-tf">resource &quot;google_compute_instance&quot; &quot;vm_instance&quot; {
+    name = &quot;${var.instance_name}&quot;
+    zone = &quot;${var.instance_zone}&quot;
+    machine_type = &quot;${var.instance_type}&quot;
+    boot_disk {
+        initialize_params {
+            image = &quot;debian-cloud/debian-11&quot;
+        }
+    }
+    network_interface {
+        network = &quot;${var.instance_network}&quot;
+        access_config {
+            # This property defines the network interface by providing the network name as an input
+            # variable and the access configuration. Leaving the access configuration empty results
+            # in an ephemeral external IP address (required in this lab). To create instances with
+            # only an internal IP address, remove the `access_config` section.
+            # Allocate a one-to-one NAT IP to the instance
+        }
+    }
+}
+</code></pre>
+<ol start="5">
+<li>Buat sebuah file baru lagi didalam folder <code>instance</code> dengan nama <code>variables.tf</code></li>
+</ol>
+<p>Maka seharusnya sekarang struktur folder nya akan seperti ini</p>
+<pre><code class="language-bash"> tfinfra
+├──  instance
+│  ├──  main.tf
+│  └──  variables.tf
+├──  mynetwork.tf
+└──  provider.tf
+</code></pre>
+<ol start="6">
+<li>Tambahkan kode berikut ini kedalam file <code>variables.tf</code></li>
+</ol>
+<blockquote>
+<p><strong>Catatan</strong>: Dengan memberikan <code>instance_type</code> default value, maka kalian membuat variable nya menjadi optional. Sedangkan variable <code>instacnce_name</code>, <code>instance_zone</code>, dan <code>instance_network</code> adalah required, dan kalian akan definisikan variable tersebut pada file <code>mynetwork.tf</code>.</p>
+</blockquote>
+<pre><code class="language-tf">variable &quot;instance_name&quot; {}
+variable &quot;instance_zone&quot; {}
+variable &quot;instance_type&quot; {
+    default = &quot;e2-micro&quot;
+}
+variable &quot;instance_network&quot; {}
+</code></pre>
+<ol start="7">
+<li>Tambahkan kode berikut ini di baris paling bawah kedalam file <code>mynetwork.tf</code> untuk membuat sebuah VM instances</li>
+</ol>
+<pre><code class="language-tf"># Create the mynet-us-vm instance
+module &quot;mynet-us-vm&quot; {
+    source = &quot;./instance&quot;
+    instance_name = &quot;mynet-us-vm&quot;
+    instance_zone = &quot;us-central1-a&quot;
+    instance_network = google_compute_network.mynetwork.self_link
+}
+
+# Create the mynet-eu-vm instance
+module &quot;mynet-eu-vm&quot; {
+    source = &quot;./instance&quot;
+    instance_name = &quot;mynet-eu-vm&quot;
+    instance_zone = &quot;europe-west1-a&quot;
+    instance_network = google_compute_network.mynetwork.self_link
+}
+</code></pre>
+<p>Resource ini memanfaatkan module dari folder <code>instance</code> dan memberikan <code>instance_name</code>, <code>instance_zone</code>, dan <code>instance_network</code> sebagai input. Karena instance ini bergantun pada jaringan VPC, kalian gunakan reference <code>google_compute_network.mynetwork.self_link</code> untuk men-instruksikan Terraform menyelesaikan resource ini dalam urutan dependency. Dalam hal ini, network akan dibuat terlebih dahulu sebelum instance nya.</p>
+<blockquote>
+<p><strong>Catatan</strong>: Benefit menuliskan sbeuah Terraform module adalah kode akan bisa di reused pada berbagai macam konfigurasi. Dari pada menulis module kalian sendiri, kalian juga bisa memanfaatkan module yang ada di <a href="https://registry.terraform.io/browse?provider=google&verified=true">Terraform Module registry</a></p>
+</blockquote>
+<ol start="8">
+<li>Verifikasi file <code>mynetwork.tf</code> hasilnya seperti ini</li>
+</ol>
+<pre><code class="language-tf">resource &quot;google_compute_network&quot; &quot;mynetwork&quot; {
+    name = &quot;mynetwork&quot;
+    auto_create_subnetworks = &quot;true&quot;
+}
+
+resource &quot;google_compute_firewall&quot; &quot;mynetwork-allow-http-ssh-rdp-icmp&quot; {
+    name = &quot;mynetwork-allow-http-ssh-rdp-icmp&quot;
+    network = google_compute_network.mynetwork.self_link
+
+    allow {
+        protocol = &quot;tcp&quot;
+        ports = [&quot;22&quot;, &quot;80&quot;, &quot;3389&quot;]
+    }
+
+    allow {
+        protocol = &quot;icmp&quot;
+    }
+    source_ranges = [&quot;0.0.0.0/0&quot;]
+}
+
+# Create the mynet-us-vm instance
+module &quot;mynet-us-vm&quot; {
+    source = &quot;./instance&quot;
+    instance_name = &quot;mynet-us-vm&quot;
+    instance_zone = &quot;us-central1-a&quot;
+    instance_network = google_compute_network.mynetwork.self_link
+}
+
+# Create the mynet-eu-vm instance
+module &quot;mynet-eu-vm&quot; {
+    source = &quot;./instance&quot;
+    instance_name = &quot;mynet-eu-vm&quot;
+    instance_zone = &quot;europe-west1-a&quot;
+    instance_network = google_compute_network.mynetwork.self_link
+}
+</code></pre>
+<h3 id="membuat-mynetwork-dan-resource">Membuat mynetwork dan resource</h3>
+<p>Setelah konfigurasi semua selesai sekarang waktunya menerapkan konfigurasi nya</p>
+<ol>
+<li>Untuk re-write Terraform konfigurasi file menjadi cannonical format dan style, jalankan perintah berikut ini.</li>
+</ol>
+<pre><code class="language-bash">terraform fmt
+</code></pre>
+<p>Hasilnya kurang lebih akan seperti ini:</p>
+<pre><code class="language-bash">mynetwork.tf
+provider.tf
+</code></pre>
+<blockquote>
+<p><strong>Catatan</strong>: Jika kalian mendapatkan error, lihat lagi langkah sebelumnya untuk memastikan bahwa konfigurasi kalian sesuai. Jika kalian tidak bisa troubleshoot masalah konfigurasi nya, kalian bisa lihat di repository saya berikut ini <a href="https://github.com/armandwipangestu/example-terraform-infra">github.com/armandwipangestu/example-terraform-infra</a></p>
+</blockquote>
+<ol start="2">
+<li>Initialize Terraform, jalankan perintah berikut ini:</li>
+</ol>
+<pre><code class="language-bash">terraform init
+</code></pre>
+<p>Hasilnya kurang lebih akan seperti ini:</p>
+<pre><code class="language-bash">Initializing the backend...
+Initializing modules...
+- mynet-eu-vm in instance
+- mynet-us-vm in instance
+
+Initializing provider plugins...
+- Reusing previous version of hashicorp/google from the dependency lock file
+- Using previously-installed hashicorp/google v5.22.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running &quot;terraform plan&quot; to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+</code></pre>
+<ol start="3">
+<li>Untuk membuat execute plan, jalankan perintah berikut ini:</li>
+</ol>
+<pre><code class="language-bash">terraform plan
+</code></pre>
+<p>Hasilnya kurang lebih seperti ini:</p>
+<pre><code class="language-bash">Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp will be created
+  + resource &quot;google_compute_firewall&quot; &quot;mynetwork-allow-http-ssh-rdp-icmp&quot; {
+      + creation_timestamp = (known after apply)
+      + destination_ranges = (known after apply)
+      + direction          = (known after apply)
+      + enable_logging     = (known after apply)
+      + id                 = (known after apply)
+      + name               = &quot;mynetwork-allow-http-ssh-rdp-icmp&quot;
+      + network            = (known after apply)
+      + priority           = 1000
+      + project            = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + self_link          = (known after apply)
+      + source_ranges      = [
+          + &quot;0.0.0.0/0&quot;,
+        ]
+
+      + allow {
+          + ports    = [
+              + &quot;22&quot;,
+              + &quot;80&quot;,
+              + &quot;3389&quot;,
+            ]
+          + protocol = &quot;tcp&quot;
+        }
+      + allow {
+          + ports    = []
+          + protocol = &quot;icmp&quot;
+        }
+    }
+
+  # google_compute_network.mynetwork will be created
+  + resource &quot;google_compute_network&quot; &quot;mynetwork&quot; {
+      + auto_create_subnetworks                   = true
+      + delete_default_routes_on_create           = false
+      + gateway_ipv4                              = (known after apply)
+      + id                                        = (known after apply)
+      + internal_ipv6_range                       = (known after apply)
+      + mtu                                       = (known after apply)
+      + name                                      = &quot;mynetwork&quot;
+      + network_firewall_policy_enforcement_order = &quot;AFTER_CLASSIC_FIREWALL&quot;
+      + numeric_id                                = (known after apply)
+      + project                                   = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + routing_mode                              = (known after apply)
+      + self_link                                 = (known after apply)
+    }
+
+  # module.mynet-eu-vm.google_compute_instance.vm_instance will be created
+  + resource &quot;google_compute_instance&quot; &quot;vm_instance&quot; {
+      + can_ip_forward       = false
+      + cpu_platform         = (known after apply)
+      + current_status       = (known after apply)
+      + deletion_protection  = false
+      + effective_labels     = (known after apply)
+      + guest_accelerator    = (known after apply)
+      + id                   = (known after apply)
+      + instance_id          = (known after apply)
+      + label_fingerprint    = (known after apply)
+      + machine_type         = &quot;e2-micro&quot;
+      + metadata_fingerprint = (known after apply)
+      + min_cpu_platform     = (known after apply)
+      + name                 = &quot;mynet-eu-vm&quot;
+      + project              = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + self_link            = (known after apply)
+      + tags_fingerprint     = (known after apply)
+      + terraform_labels     = (known after apply)
+      + zone                 = &quot;europe-west1-d&quot;
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = &quot;READ_WRITE&quot;
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + image                  = &quot;debian-cloud/debian-11&quot;
+              + labels                 = (known after apply)
+              + provisioned_iops       = (known after apply)
+              + provisioned_throughput = (known after apply)
+              + size                   = (known after apply)
+              + type                   = (known after apply)
+            }
+        }
+
+      + network_interface {
+          + internal_ipv6_prefix_length = (known after apply)
+          + ipv6_access_type            = (known after apply)
+          + ipv6_address                = (known after apply)
+          + name                        = (known after apply)
+          + network                     = (known after apply)
+          + network_ip                  = (known after apply)
+          + stack_type                  = (known after apply)
+          + subnetwork                  = (known after apply)
+          + subnetwork_project          = (known after apply)
+
+          + access_config {
+              + nat_ip       = (known after apply)
+              + network_tier = (known after apply)
+            }
+        }
+    }
+
+  # module.mynet-us-vm.google_compute_instance.vm_instance will be created
+  + resource &quot;google_compute_instance&quot; &quot;vm_instance&quot; {
+      + can_ip_forward       = false
+      + cpu_platform         = (known after apply)
+      + current_status       = (known after apply)
+      + deletion_protection  = false
+      + effective_labels     = (known after apply)
+      + guest_accelerator    = (known after apply)
+      + id                   = (known after apply)
+      + instance_id          = (known after apply)
+      + label_fingerprint    = (known after apply)
+      + machine_type         = &quot;e2-micro&quot;
+      + metadata_fingerprint = (known after apply)
+      + min_cpu_platform     = (known after apply)
+      + name                 = &quot;mynet-us-vm&quot;
+      + project              = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + self_link            = (known after apply)
+      + tags_fingerprint     = (known after apply)
+      + terraform_labels     = (known after apply)
+      + zone                 = &quot;us-west1-c&quot;
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = &quot;READ_WRITE&quot;
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + image                  = &quot;debian-cloud/debian-11&quot;
+              + labels                 = (known after apply)
+              + provisioned_iops       = (known after apply)
+              + provisioned_throughput = (known after apply)
+              + size                   = (known after apply)
+              + type                   = (known after apply)
+            }
+        }
+
+      + network_interface {
+          + internal_ipv6_prefix_length = (known after apply)
+          + ipv6_access_type            = (known after apply)
+          + ipv6_address                = (known after apply)
+          + name                        = (known after apply)
+          + network                     = (known after apply)
+          + network_ip                  = (known after apply)
+          + stack_type                  = (known after apply)
+          + subnetwork                  = (known after apply)
+          + subnetwork_project          = (known after apply)
+
+          + access_config {
+              + nat_ip       = (known after apply)
+              + network_tier = (known after apply)
+            }
+        }
+    }
+
+Plan: 4 to add, 0 to change, 0 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn&#39;t use the -out option to save this plan, so Terraform can&#39;t guarantee to take exactly these actions if you run &quot;terraform apply&quot; now.
+</code></pre>
+<p>Terraform menentukan kebutuhan 4 resource akan di tambahkan:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mynetwork</td>
+<td>VPC network</td>
+</tr>
+<tr>
+<td>mynetwork-allow-http-ssh-rdp-icmp</td>
+<td>Firewall rule to allow HTTP, SSH, RDP, and ICMP</td>
+</tr>
+<tr>
+<td>mynet-us-vm</td>
+<td>VM instance in <code>us-central1-a</code></td>
+</tr>
+<tr>
+<td>mynet-eu-vm</td>
+<td>VM instance in <code>europe-west1-a</code></td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li>Untuk apply perubahan yang diinginkan, jalankan perintah berikut ini:</li>
+</ol>
+<pre><code class="language-bash">terraform apply
+</code></pre>
+<ol start="5">
+<li>Konfirmasi aksi dari planned tersebut dengan mengetik <code>yes</code> dan tekan <code>ENTER</code></li>
+</ol>
+<p>Hasilnya kurang lebih seperti ini:</p>
+<pre><code class="language-bash">Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp will be created
+  + resource &quot;google_compute_firewall&quot; &quot;mynetwork-allow-http-ssh-rdp-icmp&quot; {
+      + creation_timestamp = (known after apply)
+      + destination_ranges = (known after apply)
+      + direction          = (known after apply)
+      + enable_logging     = (known after apply)
+      + id                 = (known after apply)
+      + name               = &quot;mynetwork-allow-http-ssh-rdp-icmp&quot;
+      + network            = (known after apply)
+      + priority           = 1000
+      + project            = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + self_link          = (known after apply)
+      + source_ranges      = [
+          + &quot;0.0.0.0/0&quot;,
+        ]
+
+      + allow {
+          + ports    = [
+              + &quot;22&quot;,
+              + &quot;80&quot;,
+              + &quot;3389&quot;,
+            ]
+          + protocol = &quot;tcp&quot;
+        }
+      + allow {
+          + ports    = []
+          + protocol = &quot;icmp&quot;
+        }
+    }
+
+  # google_compute_network.mynetwork will be created
+  + resource &quot;google_compute_network&quot; &quot;mynetwork&quot; {
+      + auto_create_subnetworks                   = true
+      + delete_default_routes_on_create           = false
+      + gateway_ipv4                              = (known after apply)
+      + id                                        = (known after apply)
+      + internal_ipv6_range                       = (known after apply)
+      + mtu                                       = (known after apply)
+      + name                                      = &quot;mynetwork&quot;
+      + network_firewall_policy_enforcement_order = &quot;AFTER_CLASSIC_FIREWALL&quot;
+      + numeric_id                                = (known after apply)
+      + project                                   = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + routing_mode                              = (known after apply)
+      + self_link                                 = (known after apply)
+    }
+
+  # module.mynet-eu-vm.google_compute_instance.vm_instance will be created
+  + resource &quot;google_compute_instance&quot; &quot;vm_instance&quot; {
+      + can_ip_forward       = false
+      + cpu_platform         = (known after apply)
+      + current_status       = (known after apply)
+      + deletion_protection  = false
+      + effective_labels     = (known after apply)
+      + guest_accelerator    = (known after apply)
+      + id                   = (known after apply)
+      + instance_id          = (known after apply)
+      + label_fingerprint    = (known after apply)
+      + machine_type         = &quot;e2-micro&quot;
+      + metadata_fingerprint = (known after apply)
+      + min_cpu_platform     = (known after apply)
+      + name                 = &quot;mynet-eu-vm&quot;
+      + project              = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + self_link            = (known after apply)
+      + tags_fingerprint     = (known after apply)
+      + terraform_labels     = (known after apply)
+      + zone                 = &quot;europe-west1-d&quot;
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = &quot;READ_WRITE&quot;
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + image                  = &quot;debian-cloud/debian-11&quot;
+              + labels                 = (known after apply)
+              + provisioned_iops       = (known after apply)
+              + provisioned_throughput = (known after apply)
+              + size                   = (known after apply)
+              + type                   = (known after apply)
+            }
+        }
+
+      + network_interface {
+          + internal_ipv6_prefix_length = (known after apply)
+          + ipv6_access_type            = (known after apply)
+          + ipv6_address                = (known after apply)
+          + name                        = (known after apply)
+          + network                     = (known after apply)
+          + network_ip                  = (known after apply)
+          + stack_type                  = (known after apply)
+          + subnetwork                  = (known after apply)
+          + subnetwork_project          = (known after apply)
+
+          + access_config {
+              + nat_ip       = (known after apply)
+              + network_tier = (known after apply)
+            }
+        }
+    }
+
+  # module.mynet-us-vm.google_compute_instance.vm_instance will be created
+  + resource &quot;google_compute_instance&quot; &quot;vm_instance&quot; {
+      + can_ip_forward       = false
+      + cpu_platform         = (known after apply)
+      + current_status       = (known after apply)
+      + deletion_protection  = false
+      + effective_labels     = (known after apply)
+      + guest_accelerator    = (known after apply)
+      + id                   = (known after apply)
+      + instance_id          = (known after apply)
+      + label_fingerprint    = (known after apply)
+      + machine_type         = &quot;e2-micro&quot;
+      + metadata_fingerprint = (known after apply)
+      + min_cpu_platform     = (known after apply)
+      + name                 = &quot;mynet-us-vm&quot;
+      + project              = &quot;qwiklabs-gcp-02-3b9f810276c7&quot;
+      + self_link            = (known after apply)
+      + tags_fingerprint     = (known after apply)
+      + terraform_labels     = (known after apply)
+      + zone                 = &quot;us-west1-c&quot;
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = &quot;READ_WRITE&quot;
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + image                  = &quot;debian-cloud/debian-11&quot;
+              + labels                 = (known after apply)
+              + provisioned_iops       = (known after apply)
+              + provisioned_throughput = (known after apply)
+              + size                   = (known after apply)
+              + type                   = (known after apply)
+            }
+        }
+
+      + network_interface {
+          + internal_ipv6_prefix_length = (known after apply)
+          + ipv6_access_type            = (known after apply)
+          + ipv6_address                = (known after apply)
+          + name                        = (known after apply)
+          + network                     = (known after apply)
+          + network_ip                  = (known after apply)
+          + stack_type                  = (known after apply)
+          + subnetwork                  = (known after apply)
+          + subnetwork_project          = (known after apply)
+
+          + access_config {
+              + nat_ip       = (known after apply)
+              + network_tier = (known after apply)
+            }
+        }
+    }
+
+Plan: 4 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only &#39;yes&#39; will be accepted to approve.
+
+  Enter a value: yes
+
+google_compute_network.mynetwork: Creating...
+google_compute_network.mynetwork: Still creating... [10s elapsed]
+google_compute_network.mynetwork: Still creating... [20s elapsed]
+google_compute_network.mynetwork: Still creating... [30s elapsed]
+google_compute_network.mynetwork: Still creating... [40s elapsed]
+google_compute_network.mynetwork: Still creating... [50s elapsed]
+google_compute_network.mynetwork: Creation complete after 54s [id=projects/qwiklabs-gcp-02-3b9f810276c7/global/networks/mynetwork]
+module.mynet-eu-vm.google_compute_instance.vm_instance: Creating...
+module.mynet-us-vm.google_compute_instance.vm_instance: Creating...
+google_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp: Creating...
+module.mynet-us-vm.google_compute_instance.vm_instance: Still creating... [10s elapsed]
+module.mynet-eu-vm.google_compute_instance.vm_instance: Still creating... [10s elapsed]
+google_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp: Still creating... [10s elapsed]
+google_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp: Creation complete after 12s [id=projects/qwiklabs-gcp-02-3b9f810276c7/global/firewalls/mynetwork-allow-http-ssh-rdp-icmp]
+module.mynet-us-vm.google_compute_instance.vm_instance: Creation complete after 19s [id=projects/qwiklabs-gcp-02-3b9f810276c7/zones/us-west1-c/instances/mynet-us-vm]
+module.mynet-eu-vm.google_compute_instance.vm_instance: Still creating... [20s elapsed]
+module.mynet-eu-vm.google_compute_instance.vm_instance: Creation complete after 24s [id=projects/qwiklabs-gcp-02-3b9f810276c7/zones/europe-west1-d/instances/mynet-eu-vm]
+
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+</code></pre>
+<h2 id="verifikasi-deployment-kalian">Verifikasi deployment kalian</h2>
+<p>Pada Cloud Console, verifikasi resource yang sudah kalian buat menggunakan Terraform.</p>
+<h3 id="verifikasi-network-kalian-di-cloud-console">Verifikasi network kalian di Cloud Console</h3>
+<ol>
+<li>Pada Cloud Console UI, pergi ke <code>Navigation Menu</code> &gt; <code>VPC network</code> &gt; <code>VPC networks</code>.</li>
+<li>Kalian bisa lihat VPC network dengan nama <code>mynetwork</code> beserta dengan subnetwork nya di setiap region.</li>
+<li>Lihat aturan firewall yang sudah dibuat di <code>Navigation Menu</code> &gt; <code>VPC network</code> &gt; <code>Firewall</code></li>
+<li>Kalian bisa lihat aturan firewall dengan nama <code>mynetwork-allow-http-ssh-rdp-icmp</code> pada network <code>mynetwork</code>.</li>
+</ol>
+<h3 id="verifikasi-vm-instances-di-cloud-console">Verifikasi VM instances di Cloud Console</h3>
+<ol>
+<li>Pada Cloud Console UI, pergi ke <code>Navigation Menu</code> &gt; <code>Compute Engine</code> &gt; <code>VM instances</code></li>
+<li>Kalian bisa lihat terdapat dua buah instances dengan nama <code>mynet-us-vm</code> dan <code>mynet-eu-vm</code>.</li>
+<li>Copy internal IP address <code>mynet-eu-vm</code> untuk kita lakukan test koneksi menggunakan <code>ping</code> di instance <code>mynet-us-vm</code> untuk mengecek apakah firewall nya berajalan dengan baik atau tidak.</li>
+<li>Pada bagian <code>mynet-us-vm</code>, click <code>SSH</code> untuk me-remote nya.</li>
+<li>Test konektivitas ke <code>mynet-eu-vm</code> menggunakan internal IP address</li>
+</ol>
+<blockquote>
+<p><strong>Catatan</strong>: Ini seharusnya akan bekerja dengan baik karena kedua VM tersebut masih dalam satu network, dan aturan firewall yang sudah dibuat mengizinkan ICMP traffic!</p>
+</blockquote>
+<pre><code class="language-bash">ping -c 3 &lt;Enter mynet-eu-vm&#39;s internal IP here&gt;
+</code></pre>
+<h2 id="penutup">Penutup</h2>
+<p>Selamat, kalian sudah membuat Terraform konfigurasi dengan sebuah module untuk mengotomatisasi deployment infrastruktur di Google Cloud.
+Saat konfigurasi kalian berubah, Terraform dapat membuat plan eksekusi tambahan, yang memungkinkan kalian membangun keseluruhan konfigurasi langkah demi langkah.</p>
+<p>Module instane memungkinkan kalian menggunakan kembali konfigurasi resource yang sama untuk beberapa resource dengan menyediakan property sebagai input variable.
+Kalian bisa memanfaatkan konfigurasi dan module yang kalian buat sebagai starting point di masa yang akan datang.</p>
+</div></div></div></div></div></main><div class="fixed bottom-9 right-7 md:bottom-10 md:right-10 z-[999] transition-all duration-300 bottom-[-50px] opacity-0"><button class="block bg-black dark:bg-white py-3 px-3.5 text-lg hover:opacity-80 hover:shadow-lg rounded-full transition-transform duration-300 "><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="text-white dark:text-dark" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"></path></svg></button></div><footer class="relative w-full border-t border-dark/20 dark:border-white/20 pt-12 transition duration-300 ease-in-out dark:bg-dark dark:opacity-90 lg:pt-20"><div class="absolute inset-x-0 top-4 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"><div class="aspect-[1500/632] w-[69.25rem] flex-none bg-gradient-to-r from-cyan-600 to-cyan-800 opacity-25 dark:block" style="clip-path:polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div></div><div class="mx-auto max-w-7xl px-6 pb-8 lg:px-8"><div class="xl:grid xl:grid-cols-2 xl:gap-8"><div class="space-y-2"><h2 class="flex h-10 shrink-0 items-center text-xl md:text-3xl font-bold focus:outline-none dark:text-white mb-5">zul.</h2><h3 class="mb-2 text-lg font-bold text-accents-300 dark:text-white/80">Contact Me</h3><a href="mailto:muhammadzulkiakbari@gmail.com" class="hover:text-primary text-accents-300 dark:text-white/80 dark:hover:text-primary"><span>muhammadzulkiakbari@gmail.com</span></a><div class="flex gap-x-1"><a href="https://github.com/mzulkiakbari" target="_blank" class="group mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-400 dark:border-slate-300 text-slate-400 dark:text-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" class="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><span class="absolute mt-20 scale-0 rounded bg-primary text-white p-2 text-xs group-hover:scale-100 whitespace-normal transition duration-300 ease-in-out font-bold">GitHub</span></a><a href="https://www.instagram.com/mzulkiakbari" target="_blank" class="group mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-400 dark:border-slate-300 text-slate-400 dark:text-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg><span class="absolute mt-20 scale-0 rounded bg-primary text-white p-2 text-xs group-hover:scale-100 whitespace-normal transition duration-300 ease-in-out font-bold">Instagram</span></a><a href="https://www.linkedin.com/in/mzulkiakbar" target="_blank" class="group mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-400 dark:border-slate-300 text-slate-400 dark:text-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg><span class="absolute mt-20 scale-0 rounded bg-primary text-white p-2 text-xs group-hover:scale-100 whitespace-normal transition duration-300 ease-in-out font-bold">LinkedIn</span></a></div></div><div class="mt-16 grid gap-8 sm:grid-cols-2 xl:mt-0"><div class="gap-8"><div><h3 class="leading text-xl font-bold dark:text-white">Links</h3><ul role="list" class="mt-6 space-y-4"><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/dashboard/">Dashboard</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/about-me/">About Me</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/experiences/">Experiences</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/skills/">Skills</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/education/">Education</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/certifications/">Certifications</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/my-projects/">My Projects</a></li></ul></div></div></div></div><div class="mt-16 flex items-center justify-center border-t border-dark pt-8 dark:border-white/10 sm:mt-20 lg:mt-24"><p class="text-accents-300 dark:text-white/80 text-xs leading-5">© Copyright <!-- -->2025<!-- --> zul. All rights reserved.</p></div></div></footer></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{"frontmatter":{"published":true,"title":"Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform","tag":"Cloud","date":"April 01 2024","excerpt":"Pada pembahasan kali ini saya akan mencoba menggunakan Terraform untuk mendeploy infrastructure pada Google Cloud Platform (GCP)","cover_image":"/images/posts/Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"},"slug":"terraform-otomatisasi-deployment-infastructure-menggunakan-terraform","content":"\r\n## Pendahuluan\r\n\r\nApa itu Terraform? Terraform adalah tools yang menawarkan Infrastructure as Code (`IaC`). Dengan menggunakan Terraform ini kita bisa membuat infrastructure menjadi lebih safely, dan predictable create, change, dan improve infrastructure.\r\n\r\n## Set up Terraform dan Cloud Shell\r\n\r\nKonfigurasi Cloud Shell environment kalian untuk menggunakan Terraform.\r\n\r\n### Install Terraform\r\n\r\nTerraform sudah terintegrasi secara bawaan pada Cloud Shell, untuk memastikan versi berapa yang di install ikuti langkah berikut ini.\r\n\r\n1. Pada Cloud Console UI, click `Activate Cloud Shell` (menu ini berada di pojok kanan atas dengan icon terminal).\r\n2. Jika terdapat prompt, click `Konfirmasi`\r\n3. Setelah masuk kedalam Cloud Shell, jalankan perintah berikut ini:\r\n\r\n```bash\r\nterraform --version\r\n```\r\n\r\nMaka akan muncul output kurang lebih seperti ini:\r\n\r\n```bash\r\nTerraform v1.3.3\r\n```\r\n\r\n4. Buat folder untuk konfigurasi Terraform dengan perintah berikut ini:\r\n\r\n```bash\r\nmkdir tfinfra\r\n```\r\n\r\n5. Pada Cloud Shell, click `Open editor` untuk membuka code editor yang terintegrasi dengan Cloud Shell.\r\n\r\n6. Pada panel sebelah kiri dari kode editor, expand the `tfinfra` folder.\r\n\r\n### Initialize Terraform\r\n\r\nTerraform menggunakan sebuah plugin-based arsitektur untuk men-support numerous infrastructure dan service provider yang tersedia. Setiap \"provider\" tersebut mempunyai encapsulated binary distributed terpisah dari Terraform itu sendiri. Initialize Terraform untuk menggunakan Google sebagai provider.\r\n\r\n1. Buat sebuah file baru di dalam folder `tfinfra` dengan cara click kanan di folder nya dan pilih `New File`\r\n2. Berikan nama untuk file baru tersebut dengan `provider.tf`, kemudian buka file nya.\r\n3. Tuliskan kode berikut ini kedalam file `provider.tf`.\r\n\r\n```tf\r\nprovider \"google\" {}\r\n```\r\n\r\n4. Untuk menyimpan `provider.tf`, click `File` \u003e `Save`.\r\n5. Untuk melakukan initialize Terraform, jalankan perintah berikut ini:\r\n\r\n```bash\r\ncd tfinfra\r\nterraform init\r\n```\r\n\r\nMaka akan muncul output kurang lebih seperti ini:\r\n\r\n```bash\r\nInitializing the backend...\r\n\r\nInitializing provider plugins...\r\n- Finding latest version of hashicorp/google...\r\n- Installing hashicorp/google v5.22.0...\r\n- Installed hashicorp/google v5.22.0 (signed by HashiCorp)\r\n\r\nTerraform has created a lock file .terraform.lock.hcl to record the provider\r\nselections it made above. Include this file in your version control repository\r\nso that Terraform can guarantee to make the same selections by default when\r\nyou run \"terraform init\" in the future.\r\n\r\nTerraform has been successfully initialized!\r\n\r\nYou may now begin working with Terraform. Try running \"terraform plan\" to see\r\nany changes that are required for your infrastructure. All Terraform commands\r\nshould now work.\r\n\r\nIf you ever set or change modules or backend configuration for Terraform,\r\nrerun this command to reinitialize your working directory. If you forget, other\r\ncommands will detect it and remind you to do so if necessary.\r\n```\r\n\r\nSekarang kalian sudah siap untuk bekerja dengan Terraform di Cloud Shell.\r\n\r\n## Membuat Network Dengan Nama mynetwork dan Resources\r\n\r\nBuat sebuah auto mode network dengan nama `mynetwork` beserta dengan aturan firewall nya dan dua buah Compute Engine (VM) instances dengan nama (`mynet_us_vm` dan `mynet_eu_vm`).\r\n\r\n### Konfigurasi mynetwork\r\n\r\nBuat sebuah konfigurasi baru, dan definisikan konfigurasi `mynetwork`.\r\n\r\n1. Buat sebuah file baru di dalam folder `tfinfra` dengan cara click kanan di folder nya dan pilih `New File`\r\n2. Berikan nama untuk file baru tersebut dengan `mynetwork.tf`, kemudian buka file nya.\r\n3. Tuliskan kode berikut ini kedalam file `mynetwork.tf`.\r\n\r\n\u003e **Catatan**: Template konfigurasi\r\n\u003e\r\n\u003e ```tf\r\n\u003e # Create the mynetwork network\r\n\u003e resource [RESOURCE_TYPE] \"mynetwork\" {\r\n\u003e name = [RESOURCE_NAME]\r\n\u003e # RESOURCE properties go here\r\n\u003e }\r\n\u003e ```\r\n\u003e\r\n\u003e Gunakan base template adalah sesuatu yang bagus untuk starting point untuk setiap Google Cloud resource. Field `name` mengizinkan kalian untuk memberikan nama pada resource, dan field `type` mengizinkan kalian untuk men-spesifikasikan Google Cloud resource yang ingin kalian buat. Kalian juga bisa mendefinisikan `properties`, tapi ini optional untuk beberapa resources.\r\n\r\n4. Pada file `mynetwork.tf`, ganti `[RESOURCE_TYPE]` dengan `\"google_compute_network\"`\r\n\r\n\u003e **Catatan**: `google_cloud_network` adalah sebuah resource VPC network. Resource ini tersedia di [Google Cloud provider documentation](https://www.terraform.io/docs/providers/google/index.html). Untuk mempelajari lebih lanjut mengenai resource ini secara spesifik kalian bisa baca disini [Terraform documentation](https://www.terraform.io/docs/providers/google/r/compute_network).\r\n\r\n5. Pada file `mynetwork.tf`, ganti `[RESOURCE_NAME]` dengan `\"mynetwork\"`\r\n6. Dan tambahkan property ini di file `mynetwork.tf`\r\n\r\n```tf\r\nauto_create_subnetworks = \"true\"\r\n```\r\n\r\nDengan mendefinisikan property auto mode network otomatis diatas, maka akan membuat sebuah subnetwork pada masing-masing region nya.\r\n\r\n7. Verifikasi file `mynetwork.tf` hasilnya seperti ini\r\n\r\n```tf\r\nresource \"google_compute_network\" \"mynetwork\" {\r\n    name = \"mynetwork\"\r\n    auto_create_subnetworks = \"true\"\r\n}\r\n```\r\n\r\n8. Untuk menyimpan `mynetwork.tf`, click `File` \u003e `Save`.\r\n\r\n### Konfigurasi Aturan Firewall\r\n\r\nDefinisikan sebuah aturan firewall untuk mengizinkan traffic `HTTP`, `SSH`, `RDP`, dan `ICMP` pada network `mynetwork`.\r\n\r\n1. Tambahkan kode berikut ini di baris paling bawah pada file `mynetwork.tf`\r\n\r\n\u003e **Catatan**: `google_compute_firewall` adalah resource untuk aturan firewall. Untuk mempelajari resource ini dengan lebih spesifik kalian bisa baca disini [Terraform documentation](https://www.terraform.io/docs/providers/google/r/compute_firewall).\r\n\u003e\r\n\u003e Karena aturan firewall ini bergantung pada network ini, maka mendefinisikan konfigurasi `google_compute_network.mynetwork.self_link` reference untuk men-instruksikan Terraform untuk menyelesaikan resource ini dalam urutan yang ketergantungan. Pada kasus ini, sebuah network akan dibuat terlebih dahulu sebelum aturan firewall nya.\r\n\r\n```tf\r\nresource \"google_compute_firewall\" \"mynetwork-allow-http-ssh-rdp-icmp\" {\r\n    name = \"mynetwork-allow-http-ssh-rdp-icmp\"\r\n    network = google_compute_network.mynetwork.self_link\r\n\r\n    allow {\r\n        protocol = \"tcp\"\r\n        ports = [\"22\", \"80\", \"3389\"]\r\n    }\r\n\r\n    allow {\r\n        protocol = \"icmp\"\r\n    }\r\n    source_ranges = [\"0.0.0.0/0\"]\r\n}\r\n```\r\n\r\n2. Verifikasi file `mynetwork.tf` hasilnya seperti ini\r\n\r\n```tf\r\nresource \"google_compute_network\" \"mynetwork\" {\r\n    name = \"mynetwork\"\r\n    auto_create_subnetworks = \"true\"\r\n}\r\n\r\nresource \"google_compute_firewall\" \"mynetwork-allow-http-ssh-rdp-icmp\" {\r\n    name = \"mynetwork-allow-http-ssh-rdp-icmp\"\r\n    network = google_compute_network.mynetwork.self_link\r\n\r\n    allow {\r\n        protocol = \"tcp\"\r\n        ports = [\"22\", \"80\", \"3389\"]\r\n    }\r\n\r\n    allow {\r\n        protocol = \"icmp\"\r\n    }\r\n    source_ranges = [\"0.0.0.0/0\"]\r\n}\r\n```\r\n\r\n3. Untuk menyimpan `mynetwork.tf`, click `File` \u003e `Save`.\r\n\r\n### Konfigurasi Compute Engine (VM) instance\r\n\r\nDefinisikan VM instance dengan membuat sebuah VM instance `module`. Sebuah module akan menjadi konfigurasi yang reusable di dalam sebuah folder. Kalian bisa gunakan module untuk kedua VM yang akan dibuat kali ini.\r\n\r\n1. Buat sebuah folder baru di dalam `tfinfra`, click kanan pada folder `tfinfra`, kemudian click `File` \u003e `New Folder`.\r\n2. Berikan nama untuk subfolder tersebut dengan `instance`.\r\n3. Selanjutnya buat sebuah file baru di subfolder tersebut dengan nama `main.tf`\r\n\r\nMaka seharusnya sekarang struktur folder nya akan seperti ini\r\n\r\n```bash\r\n tfinfra\r\n├──  instance\r\n│  └──  main.tf\r\n├──  mynetwork.tf\r\n└──  provider.tf\r\n```\r\n\r\n4. Tambahkan kode berikut ini kedalam file `main.tf`\r\n\r\n\u003e **Catatan**: `google_compute_instance` adalah sebuah resource compute engine (VM). Untuk mempelajari resource ini dengan lebih spesifik kalian bisa baca disini [Terraform documentation](https://www.terraform.io/docs/providers/google/r/compute_instance).\r\n\u003e\r\n\u003e Dikarenakan kita akan menggunakan module ini untuk membuat dua VM, kalian definisikan nama instance nya sebagai sebuah input variable. Dengan ini maka mengizinkan untuk control nama dari VM yang akan dibuat dari variable `mynetwork.tf` nantinya ketika dipanggil. Untuk mempelajari mengenai input variable kalian bisa baca disini [Terraform: Define Input Variables Guide](https://learn.hashicorp.com/terraform/getting-started/variables).\r\n\u003e\r\n\u003e ```tf\r\n\u003e name = \"${var.instance_name}\"\r\n\u003e zone = \"${var.instance_zone}\"\r\n\u003e machine_type = \"${var.instance_type}\"\r\n\u003e ```\r\n\u003e\r\n\u003e VM ini akan menggunakan sistem operasi Debian 11, oleh karena itu pada konfigurasi `boot_disk` image yang digunakan adalah `debian-cloud/debian-11`\r\n\u003e\r\n\u003e ```tf\r\n\u003e  boot_disk {\r\n\u003e    initialize_params {\r\n\u003e      image = \"debian-cloud/debian-11\"\r\n\u003e      }\r\n\u003e  }\r\n\u003e ```\r\n\u003e\r\n\u003e Pada bagian network interface untuk VM yang akan dibuat, kita akan gunakan input variable juga. Dan untuk empty atau blank konfigurasi pada `access_config` maka akan menghasilkan ephemeral external IP address (Dynamic IP Public). Jika kalian ingin membuat sebuah VM instance hanya menggunakan internal IP address (IP Local), maka hapus konfigurasi `access_config`. Untuk mempelajari lebih lanjut, lihat disini [Terraform documentation](https://www.terraform.io/docs/providers/google/r/compute_instance).\r\n\r\n```tf\r\nresource \"google_compute_instance\" \"vm_instance\" {\r\n    name = \"${var.instance_name}\"\r\n    zone = \"${var.instance_zone}\"\r\n    machine_type = \"${var.instance_type}\"\r\n    boot_disk {\r\n        initialize_params {\r\n            image = \"debian-cloud/debian-11\"\r\n        }\r\n    }\r\n    network_interface {\r\n        network = \"${var.instance_network}\"\r\n        access_config {\r\n            # This property defines the network interface by providing the network name as an input\r\n            # variable and the access configuration. Leaving the access configuration empty results\r\n            # in an ephemeral external IP address (required in this lab). To create instances with\r\n            # only an internal IP address, remove the `access_config` section.\r\n            # Allocate a one-to-one NAT IP to the instance\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n5. Buat sebuah file baru lagi didalam folder `instance` dengan nama `variables.tf`\r\n\r\nMaka seharusnya sekarang struktur folder nya akan seperti ini\r\n\r\n```bash\r\n tfinfra\r\n├──  instance\r\n│  ├──  main.tf\r\n│  └──  variables.tf\r\n├──  mynetwork.tf\r\n└──  provider.tf\r\n```\r\n\r\n6. Tambahkan kode berikut ini kedalam file `variables.tf`\r\n\r\n\u003e **Catatan**: Dengan memberikan `instance_type` default value, maka kalian membuat variable nya menjadi optional. Sedangkan variable `instacnce_name`, `instance_zone`, dan `instance_network` adalah required, dan kalian akan definisikan variable tersebut pada file `mynetwork.tf`.\r\n\r\n```tf\r\nvariable \"instance_name\" {}\r\nvariable \"instance_zone\" {}\r\nvariable \"instance_type\" {\r\n    default = \"e2-micro\"\r\n}\r\nvariable \"instance_network\" {}\r\n```\r\n\r\n7. Tambahkan kode berikut ini di baris paling bawah kedalam file `mynetwork.tf` untuk membuat sebuah VM instances\r\n\r\n```tf\r\n# Create the mynet-us-vm instance\r\nmodule \"mynet-us-vm\" {\r\n    source = \"./instance\"\r\n    instance_name = \"mynet-us-vm\"\r\n    instance_zone = \"us-central1-a\"\r\n    instance_network = google_compute_network.mynetwork.self_link\r\n}\r\n\r\n# Create the mynet-eu-vm instance\r\nmodule \"mynet-eu-vm\" {\r\n    source = \"./instance\"\r\n    instance_name = \"mynet-eu-vm\"\r\n    instance_zone = \"europe-west1-a\"\r\n    instance_network = google_compute_network.mynetwork.self_link\r\n}\r\n```\r\n\r\nResource ini memanfaatkan module dari folder `instance` dan memberikan `instance_name`, `instance_zone`, dan `instance_network` sebagai input. Karena instance ini bergantun pada jaringan VPC, kalian gunakan reference `google_compute_network.mynetwork.self_link` untuk men-instruksikan Terraform menyelesaikan resource ini dalam urutan dependency. Dalam hal ini, network akan dibuat terlebih dahulu sebelum instance nya.\r\n\r\n\u003e **Catatan**: Benefit menuliskan sbeuah Terraform module adalah kode akan bisa di reused pada berbagai macam konfigurasi. Dari pada menulis module kalian sendiri, kalian juga bisa memanfaatkan module yang ada di [Terraform Module registry](https://registry.terraform.io/browse?provider=google\u0026verified=true)\r\n\r\n8. Verifikasi file `mynetwork.tf` hasilnya seperti ini\r\n\r\n```tf\r\nresource \"google_compute_network\" \"mynetwork\" {\r\n    name = \"mynetwork\"\r\n    auto_create_subnetworks = \"true\"\r\n}\r\n\r\nresource \"google_compute_firewall\" \"mynetwork-allow-http-ssh-rdp-icmp\" {\r\n    name = \"mynetwork-allow-http-ssh-rdp-icmp\"\r\n    network = google_compute_network.mynetwork.self_link\r\n\r\n    allow {\r\n        protocol = \"tcp\"\r\n        ports = [\"22\", \"80\", \"3389\"]\r\n    }\r\n\r\n    allow {\r\n        protocol = \"icmp\"\r\n    }\r\n    source_ranges = [\"0.0.0.0/0\"]\r\n}\r\n\r\n# Create the mynet-us-vm instance\r\nmodule \"mynet-us-vm\" {\r\n    source = \"./instance\"\r\n    instance_name = \"mynet-us-vm\"\r\n    instance_zone = \"us-central1-a\"\r\n    instance_network = google_compute_network.mynetwork.self_link\r\n}\r\n\r\n# Create the mynet-eu-vm instance\r\nmodule \"mynet-eu-vm\" {\r\n    source = \"./instance\"\r\n    instance_name = \"mynet-eu-vm\"\r\n    instance_zone = \"europe-west1-a\"\r\n    instance_network = google_compute_network.mynetwork.self_link\r\n}\r\n```\r\n\r\n### Membuat mynetwork dan resource\r\n\r\nSetelah konfigurasi semua selesai sekarang waktunya menerapkan konfigurasi nya\r\n\r\n1. Untuk re-write Terraform konfigurasi file menjadi cannonical format dan style, jalankan perintah berikut ini.\r\n\r\n```bash\r\nterraform fmt\r\n```\r\n\r\nHasilnya kurang lebih akan seperti ini:\r\n\r\n```bash\r\nmynetwork.tf\r\nprovider.tf\r\n```\r\n\r\n\u003e **Catatan**: Jika kalian mendapatkan error, lihat lagi langkah sebelumnya untuk memastikan bahwa konfigurasi kalian sesuai. Jika kalian tidak bisa troubleshoot masalah konfigurasi nya, kalian bisa lihat di repository saya berikut ini [github.com/armandwipangestu/example-terraform-infra](https://github.com/armandwipangestu/example-terraform-infra)\r\n\r\n2. Initialize Terraform, jalankan perintah berikut ini:\r\n\r\n```bash\r\nterraform init\r\n```\r\n\r\nHasilnya kurang lebih akan seperti ini:\r\n\r\n```bash\r\nInitializing the backend...\r\nInitializing modules...\r\n- mynet-eu-vm in instance\r\n- mynet-us-vm in instance\r\n\r\nInitializing provider plugins...\r\n- Reusing previous version of hashicorp/google from the dependency lock file\r\n- Using previously-installed hashicorp/google v5.22.0\r\n\r\nTerraform has been successfully initialized!\r\n\r\nYou may now begin working with Terraform. Try running \"terraform plan\" to see\r\nany changes that are required for your infrastructure. All Terraform commands\r\nshould now work.\r\n\r\nIf you ever set or change modules or backend configuration for Terraform,\r\nrerun this command to reinitialize your working directory. If you forget, other\r\ncommands will detect it and remind you to do so if necessary.\r\n```\r\n\r\n3. Untuk membuat execute plan, jalankan perintah berikut ini:\r\n\r\n```bash\r\nterraform plan\r\n```\r\n\r\nHasilnya kurang lebih seperti ini:\r\n\r\n```bash\r\nTerraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:\r\n  + create\r\n\r\nTerraform will perform the following actions:\r\n\r\n  # google_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp will be created\r\n  + resource \"google_compute_firewall\" \"mynetwork-allow-http-ssh-rdp-icmp\" {\r\n      + creation_timestamp = (known after apply)\r\n      + destination_ranges = (known after apply)\r\n      + direction          = (known after apply)\r\n      + enable_logging     = (known after apply)\r\n      + id                 = (known after apply)\r\n      + name               = \"mynetwork-allow-http-ssh-rdp-icmp\"\r\n      + network            = (known after apply)\r\n      + priority           = 1000\r\n      + project            = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + self_link          = (known after apply)\r\n      + source_ranges      = [\r\n          + \"0.0.0.0/0\",\r\n        ]\r\n\r\n      + allow {\r\n          + ports    = [\r\n              + \"22\",\r\n              + \"80\",\r\n              + \"3389\",\r\n            ]\r\n          + protocol = \"tcp\"\r\n        }\r\n      + allow {\r\n          + ports    = []\r\n          + protocol = \"icmp\"\r\n        }\r\n    }\r\n\r\n  # google_compute_network.mynetwork will be created\r\n  + resource \"google_compute_network\" \"mynetwork\" {\r\n      + auto_create_subnetworks                   = true\r\n      + delete_default_routes_on_create           = false\r\n      + gateway_ipv4                              = (known after apply)\r\n      + id                                        = (known after apply)\r\n      + internal_ipv6_range                       = (known after apply)\r\n      + mtu                                       = (known after apply)\r\n      + name                                      = \"mynetwork\"\r\n      + network_firewall_policy_enforcement_order = \"AFTER_CLASSIC_FIREWALL\"\r\n      + numeric_id                                = (known after apply)\r\n      + project                                   = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + routing_mode                              = (known after apply)\r\n      + self_link                                 = (known after apply)\r\n    }\r\n\r\n  # module.mynet-eu-vm.google_compute_instance.vm_instance will be created\r\n  + resource \"google_compute_instance\" \"vm_instance\" {\r\n      + can_ip_forward       = false\r\n      + cpu_platform         = (known after apply)\r\n      + current_status       = (known after apply)\r\n      + deletion_protection  = false\r\n      + effective_labels     = (known after apply)\r\n      + guest_accelerator    = (known after apply)\r\n      + id                   = (known after apply)\r\n      + instance_id          = (known after apply)\r\n      + label_fingerprint    = (known after apply)\r\n      + machine_type         = \"e2-micro\"\r\n      + metadata_fingerprint = (known after apply)\r\n      + min_cpu_platform     = (known after apply)\r\n      + name                 = \"mynet-eu-vm\"\r\n      + project              = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + self_link            = (known after apply)\r\n      + tags_fingerprint     = (known after apply)\r\n      + terraform_labels     = (known after apply)\r\n      + zone                 = \"europe-west1-d\"\r\n\r\n      + boot_disk {\r\n          + auto_delete                = true\r\n          + device_name                = (known after apply)\r\n          + disk_encryption_key_sha256 = (known after apply)\r\n          + kms_key_self_link          = (known after apply)\r\n          + mode                       = \"READ_WRITE\"\r\n          + source                     = (known after apply)\r\n\r\n          + initialize_params {\r\n              + image                  = \"debian-cloud/debian-11\"\r\n              + labels                 = (known after apply)\r\n              + provisioned_iops       = (known after apply)\r\n              + provisioned_throughput = (known after apply)\r\n              + size                   = (known after apply)\r\n              + type                   = (known after apply)\r\n            }\r\n        }\r\n\r\n      + network_interface {\r\n          + internal_ipv6_prefix_length = (known after apply)\r\n          + ipv6_access_type            = (known after apply)\r\n          + ipv6_address                = (known after apply)\r\n          + name                        = (known after apply)\r\n          + network                     = (known after apply)\r\n          + network_ip                  = (known after apply)\r\n          + stack_type                  = (known after apply)\r\n          + subnetwork                  = (known after apply)\r\n          + subnetwork_project          = (known after apply)\r\n\r\n          + access_config {\r\n              + nat_ip       = (known after apply)\r\n              + network_tier = (known after apply)\r\n            }\r\n        }\r\n    }\r\n\r\n  # module.mynet-us-vm.google_compute_instance.vm_instance will be created\r\n  + resource \"google_compute_instance\" \"vm_instance\" {\r\n      + can_ip_forward       = false\r\n      + cpu_platform         = (known after apply)\r\n      + current_status       = (known after apply)\r\n      + deletion_protection  = false\r\n      + effective_labels     = (known after apply)\r\n      + guest_accelerator    = (known after apply)\r\n      + id                   = (known after apply)\r\n      + instance_id          = (known after apply)\r\n      + label_fingerprint    = (known after apply)\r\n      + machine_type         = \"e2-micro\"\r\n      + metadata_fingerprint = (known after apply)\r\n      + min_cpu_platform     = (known after apply)\r\n      + name                 = \"mynet-us-vm\"\r\n      + project              = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + self_link            = (known after apply)\r\n      + tags_fingerprint     = (known after apply)\r\n      + terraform_labels     = (known after apply)\r\n      + zone                 = \"us-west1-c\"\r\n\r\n      + boot_disk {\r\n          + auto_delete                = true\r\n          + device_name                = (known after apply)\r\n          + disk_encryption_key_sha256 = (known after apply)\r\n          + kms_key_self_link          = (known after apply)\r\n          + mode                       = \"READ_WRITE\"\r\n          + source                     = (known after apply)\r\n\r\n          + initialize_params {\r\n              + image                  = \"debian-cloud/debian-11\"\r\n              + labels                 = (known after apply)\r\n              + provisioned_iops       = (known after apply)\r\n              + provisioned_throughput = (known after apply)\r\n              + size                   = (known after apply)\r\n              + type                   = (known after apply)\r\n            }\r\n        }\r\n\r\n      + network_interface {\r\n          + internal_ipv6_prefix_length = (known after apply)\r\n          + ipv6_access_type            = (known after apply)\r\n          + ipv6_address                = (known after apply)\r\n          + name                        = (known after apply)\r\n          + network                     = (known after apply)\r\n          + network_ip                  = (known after apply)\r\n          + stack_type                  = (known after apply)\r\n          + subnetwork                  = (known after apply)\r\n          + subnetwork_project          = (known after apply)\r\n\r\n          + access_config {\r\n              + nat_ip       = (known after apply)\r\n              + network_tier = (known after apply)\r\n            }\r\n        }\r\n    }\r\n\r\nPlan: 4 to add, 0 to change, 0 to destroy.\r\n\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\n\r\nNote: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run \"terraform apply\" now.\r\n```\r\n\r\nTerraform menentukan kebutuhan 4 resource akan di tambahkan:\r\n\r\n| Name                              | Description                                     |\r\n| --------------------------------- | ----------------------------------------------- |\r\n| mynetwork                         | VPC network                                     |\r\n| mynetwork-allow-http-ssh-rdp-icmp | Firewall rule to allow HTTP, SSH, RDP, and ICMP |\r\n| mynet-us-vm                       | VM instance in `us-central1-a`                  |\r\n| mynet-eu-vm                       | VM instance in `europe-west1-a`                 |\r\n\r\n4. Untuk apply perubahan yang diinginkan, jalankan perintah berikut ini:\r\n\r\n```bash\r\nterraform apply\r\n```\r\n\r\n5. Konfirmasi aksi dari planned tersebut dengan mengetik `yes` dan tekan `ENTER`\r\n\r\nHasilnya kurang lebih seperti ini:\r\n\r\n```bash\r\nTerraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:\r\n  + create\r\n\r\nTerraform will perform the following actions:\r\n\r\n  # google_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp will be created\r\n  + resource \"google_compute_firewall\" \"mynetwork-allow-http-ssh-rdp-icmp\" {\r\n      + creation_timestamp = (known after apply)\r\n      + destination_ranges = (known after apply)\r\n      + direction          = (known after apply)\r\n      + enable_logging     = (known after apply)\r\n      + id                 = (known after apply)\r\n      + name               = \"mynetwork-allow-http-ssh-rdp-icmp\"\r\n      + network            = (known after apply)\r\n      + priority           = 1000\r\n      + project            = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + self_link          = (known after apply)\r\n      + source_ranges      = [\r\n          + \"0.0.0.0/0\",\r\n        ]\r\n\r\n      + allow {\r\n          + ports    = [\r\n              + \"22\",\r\n              + \"80\",\r\n              + \"3389\",\r\n            ]\r\n          + protocol = \"tcp\"\r\n        }\r\n      + allow {\r\n          + ports    = []\r\n          + protocol = \"icmp\"\r\n        }\r\n    }\r\n\r\n  # google_compute_network.mynetwork will be created\r\n  + resource \"google_compute_network\" \"mynetwork\" {\r\n      + auto_create_subnetworks                   = true\r\n      + delete_default_routes_on_create           = false\r\n      + gateway_ipv4                              = (known after apply)\r\n      + id                                        = (known after apply)\r\n      + internal_ipv6_range                       = (known after apply)\r\n      + mtu                                       = (known after apply)\r\n      + name                                      = \"mynetwork\"\r\n      + network_firewall_policy_enforcement_order = \"AFTER_CLASSIC_FIREWALL\"\r\n      + numeric_id                                = (known after apply)\r\n      + project                                   = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + routing_mode                              = (known after apply)\r\n      + self_link                                 = (known after apply)\r\n    }\r\n\r\n  # module.mynet-eu-vm.google_compute_instance.vm_instance will be created\r\n  + resource \"google_compute_instance\" \"vm_instance\" {\r\n      + can_ip_forward       = false\r\n      + cpu_platform         = (known after apply)\r\n      + current_status       = (known after apply)\r\n      + deletion_protection  = false\r\n      + effective_labels     = (known after apply)\r\n      + guest_accelerator    = (known after apply)\r\n      + id                   = (known after apply)\r\n      + instance_id          = (known after apply)\r\n      + label_fingerprint    = (known after apply)\r\n      + machine_type         = \"e2-micro\"\r\n      + metadata_fingerprint = (known after apply)\r\n      + min_cpu_platform     = (known after apply)\r\n      + name                 = \"mynet-eu-vm\"\r\n      + project              = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + self_link            = (known after apply)\r\n      + tags_fingerprint     = (known after apply)\r\n      + terraform_labels     = (known after apply)\r\n      + zone                 = \"europe-west1-d\"\r\n\r\n      + boot_disk {\r\n          + auto_delete                = true\r\n          + device_name                = (known after apply)\r\n          + disk_encryption_key_sha256 = (known after apply)\r\n          + kms_key_self_link          = (known after apply)\r\n          + mode                       = \"READ_WRITE\"\r\n          + source                     = (known after apply)\r\n\r\n          + initialize_params {\r\n              + image                  = \"debian-cloud/debian-11\"\r\n              + labels                 = (known after apply)\r\n              + provisioned_iops       = (known after apply)\r\n              + provisioned_throughput = (known after apply)\r\n              + size                   = (known after apply)\r\n              + type                   = (known after apply)\r\n            }\r\n        }\r\n\r\n      + network_interface {\r\n          + internal_ipv6_prefix_length = (known after apply)\r\n          + ipv6_access_type            = (known after apply)\r\n          + ipv6_address                = (known after apply)\r\n          + name                        = (known after apply)\r\n          + network                     = (known after apply)\r\n          + network_ip                  = (known after apply)\r\n          + stack_type                  = (known after apply)\r\n          + subnetwork                  = (known after apply)\r\n          + subnetwork_project          = (known after apply)\r\n\r\n          + access_config {\r\n              + nat_ip       = (known after apply)\r\n              + network_tier = (known after apply)\r\n            }\r\n        }\r\n    }\r\n\r\n  # module.mynet-us-vm.google_compute_instance.vm_instance will be created\r\n  + resource \"google_compute_instance\" \"vm_instance\" {\r\n      + can_ip_forward       = false\r\n      + cpu_platform         = (known after apply)\r\n      + current_status       = (known after apply)\r\n      + deletion_protection  = false\r\n      + effective_labels     = (known after apply)\r\n      + guest_accelerator    = (known after apply)\r\n      + id                   = (known after apply)\r\n      + instance_id          = (known after apply)\r\n      + label_fingerprint    = (known after apply)\r\n      + machine_type         = \"e2-micro\"\r\n      + metadata_fingerprint = (known after apply)\r\n      + min_cpu_platform     = (known after apply)\r\n      + name                 = \"mynet-us-vm\"\r\n      + project              = \"qwiklabs-gcp-02-3b9f810276c7\"\r\n      + self_link            = (known after apply)\r\n      + tags_fingerprint     = (known after apply)\r\n      + terraform_labels     = (known after apply)\r\n      + zone                 = \"us-west1-c\"\r\n\r\n      + boot_disk {\r\n          + auto_delete                = true\r\n          + device_name                = (known after apply)\r\n          + disk_encryption_key_sha256 = (known after apply)\r\n          + kms_key_self_link          = (known after apply)\r\n          + mode                       = \"READ_WRITE\"\r\n          + source                     = (known after apply)\r\n\r\n          + initialize_params {\r\n              + image                  = \"debian-cloud/debian-11\"\r\n              + labels                 = (known after apply)\r\n              + provisioned_iops       = (known after apply)\r\n              + provisioned_throughput = (known after apply)\r\n              + size                   = (known after apply)\r\n              + type                   = (known after apply)\r\n            }\r\n        }\r\n\r\n      + network_interface {\r\n          + internal_ipv6_prefix_length = (known after apply)\r\n          + ipv6_access_type            = (known after apply)\r\n          + ipv6_address                = (known after apply)\r\n          + name                        = (known after apply)\r\n          + network                     = (known after apply)\r\n          + network_ip                  = (known after apply)\r\n          + stack_type                  = (known after apply)\r\n          + subnetwork                  = (known after apply)\r\n          + subnetwork_project          = (known after apply)\r\n\r\n          + access_config {\r\n              + nat_ip       = (known after apply)\r\n              + network_tier = (known after apply)\r\n            }\r\n        }\r\n    }\r\n\r\nPlan: 4 to add, 0 to change, 0 to destroy.\r\n\r\nDo you want to perform these actions?\r\n  Terraform will perform the actions described above.\r\n  Only 'yes' will be accepted to approve.\r\n\r\n  Enter a value: yes\r\n\r\ngoogle_compute_network.mynetwork: Creating...\r\ngoogle_compute_network.mynetwork: Still creating... [10s elapsed]\r\ngoogle_compute_network.mynetwork: Still creating... [20s elapsed]\r\ngoogle_compute_network.mynetwork: Still creating... [30s elapsed]\r\ngoogle_compute_network.mynetwork: Still creating... [40s elapsed]\r\ngoogle_compute_network.mynetwork: Still creating... [50s elapsed]\r\ngoogle_compute_network.mynetwork: Creation complete after 54s [id=projects/qwiklabs-gcp-02-3b9f810276c7/global/networks/mynetwork]\r\nmodule.mynet-eu-vm.google_compute_instance.vm_instance: Creating...\r\nmodule.mynet-us-vm.google_compute_instance.vm_instance: Creating...\r\ngoogle_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp: Creating...\r\nmodule.mynet-us-vm.google_compute_instance.vm_instance: Still creating... [10s elapsed]\r\nmodule.mynet-eu-vm.google_compute_instance.vm_instance: Still creating... [10s elapsed]\r\ngoogle_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp: Still creating... [10s elapsed]\r\ngoogle_compute_firewall.mynetwork-allow-http-ssh-rdp-icmp: Creation complete after 12s [id=projects/qwiklabs-gcp-02-3b9f810276c7/global/firewalls/mynetwork-allow-http-ssh-rdp-icmp]\r\nmodule.mynet-us-vm.google_compute_instance.vm_instance: Creation complete after 19s [id=projects/qwiklabs-gcp-02-3b9f810276c7/zones/us-west1-c/instances/mynet-us-vm]\r\nmodule.mynet-eu-vm.google_compute_instance.vm_instance: Still creating... [20s elapsed]\r\nmodule.mynet-eu-vm.google_compute_instance.vm_instance: Creation complete after 24s [id=projects/qwiklabs-gcp-02-3b9f810276c7/zones/europe-west1-d/instances/mynet-eu-vm]\r\n\r\nApply complete! Resources: 4 added, 0 changed, 0 destroyed.\r\n```\r\n\r\n## Verifikasi deployment kalian\r\n\r\nPada Cloud Console, verifikasi resource yang sudah kalian buat menggunakan Terraform.\r\n\r\n### Verifikasi network kalian di Cloud Console\r\n\r\n1. Pada Cloud Console UI, pergi ke `Navigation Menu` \u003e `VPC network` \u003e `VPC networks`.\r\n2. Kalian bisa lihat VPC network dengan nama `mynetwork` beserta dengan subnetwork nya di setiap region.\r\n3. Lihat aturan firewall yang sudah dibuat di `Navigation Menu` \u003e `VPC network` \u003e `Firewall`\r\n4. Kalian bisa lihat aturan firewall dengan nama `mynetwork-allow-http-ssh-rdp-icmp` pada network `mynetwork`.\r\n\r\n### Verifikasi VM instances di Cloud Console\r\n\r\n1. Pada Cloud Console UI, pergi ke `Navigation Menu` \u003e `Compute Engine` \u003e `VM instances`\r\n2. Kalian bisa lihat terdapat dua buah instances dengan nama `mynet-us-vm` dan `mynet-eu-vm`.\r\n3. Copy internal IP address `mynet-eu-vm` untuk kita lakukan test koneksi menggunakan `ping` di instance `mynet-us-vm` untuk mengecek apakah firewall nya berajalan dengan baik atau tidak.\r\n4. Pada bagian `mynet-us-vm`, click `SSH` untuk me-remote nya.\r\n5. Test konektivitas ke `mynet-eu-vm` menggunakan internal IP address\r\n\r\n\u003e **Catatan**: Ini seharusnya akan bekerja dengan baik karena kedua VM tersebut masih dalam satu network, dan aturan firewall yang sudah dibuat mengizinkan ICMP traffic!\r\n\r\n```bash\r\nping -c 3 \u003cEnter mynet-eu-vm's internal IP here\u003e\r\n```\r\n\r\n## Penutup\r\n\r\nSelamat, kalian sudah membuat Terraform konfigurasi dengan sebuah module untuk mengotomatisasi deployment infrastruktur di Google Cloud.\r\nSaat konfigurasi kalian berubah, Terraform dapat membuat plan eksekusi tambahan, yang memungkinkan kalian membangun keseluruhan konfigurasi langkah demi langkah.\r\n\r\nModule instane memungkinkan kalian menggunakan kembali konfigurasi resource yang sama untuk beberapa resource dengan menyediakan property sebagai input variable.\r\nKalian bisa memanfaatkan konfigurasi dan module yang kalian buat sebagai starting point di masa yang akan datang.\r\n","posts":[{"slug":"cloud-run-github-actions","frontmatter":{"published":true,"title":"Cloud Run - Implementasi DevOps CI/CD Pipeline Menggunakan GitHub Actions","tag":"DevOps","date":"May 06 2024","excerpt":"Pada artikel ini kita akan melakukan deployment simpel app Express.js menggunakan Cloud Run dan meng-implementasikan CI/CD Pipeline menggunakan GitHub Actions","cover_image":"/images/posts/Cloud Run - Implementasi DevOps CI CD Pipeline Menggunakan GitHub Actions.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"terraform-otomatisasi-deployment-infastructure-menggunakan-terraform","frontmatter":{"published":true,"title":"Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform","tag":"Cloud","date":"April 01 2024","excerpt":"Pada pembahasan kali ini saya akan mencoba menggunakan Terraform untuk mendeploy infrastructure pada Google Cloud Platform (GCP)","cover_image":"/images/posts/Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"tutorial-docker-instalasi-windows-11","frontmatter":{"published":false,"title":"Tutorial Docker - Instalasi Windows 11","tag":"SysAdmin","date":"February 17 2024","excerpt":"Test Thumbnail","cover_image":"/images/posts/Tutorial Docker - Instalasi Windows 11.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"vmware-workstation-player-instalasi-linux-debian","frontmatter":{"published":true,"title":"VMware Workstation Player - Instalasi Linux Debian","tag":"SysAdmin","date":"February 17 2024","excerpt":"Pada artikel kali ini kita akan mencoba melakukan instalasi Linux Debian pada Virtual Machine yang sudah dibuat pada pembahasan sebelumnya.","cover_image":"/images/posts/VMware Workstation Player - Instalasi Linux Debian.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"vmware-workstation-player-membuat-virtual-machine","frontmatter":{"published":true,"title":"VMware Workstation Player - Membuat Virtual Machine (VM)","tag":"SysAdmin","date":"February 17 2024","excerpt":"Pada artikel kali ini kita akan mencoba membuat sebuah Virtual Machine dengan sistem operasi Linux dengan distro nya adalah Debian pada VMware Workstation Player","cover_image":"/images/posts/VMware Workstation Player - Membuat Virtual Machine.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"vmware-workstation-player-instalasi-di-windows11","frontmatter":{"published":true,"title":"VMware Workstation Player - Instalasi di Windows 11","tag":"SysAdmin","date":"February 8 2024","excerpt":"Pada artikel kali ini kita akan mencoba menginstall VMware Workstation Player pada sistem operasi Windows 11","cover_image":"/images/posts/VMware Workstation Player - Instalasi di Windows 11.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-has-one-through","frontmatter":{"published":false,"title":"Laravel Eloquent - Relationship Has One Through","tag":"Programming","date":"February 4 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Has One Through","cover_image":"/images/posts/Laravel Eloquent - Relationship Has One Through.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-advanced-has-one-of-many","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Advanced Has One of Many","tag":"Programming","date":"January 30 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Advanced Has One of Many","cover_image":"/images/posts/Laravel Eloquent - Relationship Advanced Has One of Many.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-has-one-of-many","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Has One of Many","tag":"Programming","date":"January 28 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Has One of Many","cover_image":"/images/posts/Laravel Eloquent - Relationship Has One of Many.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-where-belongs-to","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Where Belongs To","tag":"Programming","date":"January 24 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Where Belongs To","cover_image":"/images/posts/Laravel Eloquent - Relationship Where Belongs To.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-default-models","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Default Models","tag":"Programming","date":"January 22 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Default Models","cover_image":"/images/posts/Laravel Eloquent - Relationship Default Models.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-one-to-many","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship One to Many","tag":"Programming","date":"January 22 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship untuk tipe One to Many atau hasMany","cover_image":"/images/posts/Laravel Eloquent - Relationship One to Many.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-one-to-one","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship One to One","tag":"Programming","date":"January 20 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship untuk tipe One to One atau hasOne","cover_image":"/images/posts/Laravel Eloquent - Relationship One to One.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-authorization","frontmatter":{"published":true,"title":"Laravel 8 - #23 - Authorization","tag":"Programming","date":"January 7 2024","excerpt":"Pada pembahasan kali ini, kita akan membuat feature terakhir dari sistem blog kita, feature tersebut yaitu Authorization atau Otorisasi, setelah sebelumnya kita sudah membuat feature Autentikasi untuk login dan registrasi, sekarang kita akan membuat agar user yang tadi sudah berhasil registrasi dan juga login itu memiliki peran yang berbeda. Contohnya adalah terdapat user biasa dan juga user administrator.","cover_image":"/images/posts/Laravel 8 - Authorization.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-preview-update-dan-delete-image","frontmatter":{"published":true,"title":"Laravel 8 - #22 - Preview, Update dan Delete Image","tag":"Programming","date":"January 6 2024","excerpt":"Pada pembahasan kali ini kita akan melanjutkan feature pengelolaan gambar pada blog post kita sebelumnya, kali ini kita akan menerapkan 3 buah feature, yaitu preview, update dan delete image.","cover_image":"/images/posts/Laravel 8 - Preview, Update dan Delete Image.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-upload-image","frontmatter":{"published":true,"title":"Laravel 8 - #21 - Upload Image","tag":"Programming","date":"January 6 2024","excerpt":"Pada pembahasan kali ini kita akan mencoba menambahkan sebuah feature untuk melengkapi CRUD dari blog kita, yaitu menambahkan feature upload gambar yang dimana nantinya user dapat mengupload gambar sendiri dari komputer nya untuk menggantikan gambar yang sebelumnya kita ambil dari API nya Unsplash.","cover_image":"/images/posts/Laravel 8 - Upload Image.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-update-dan-delete-post","frontmatter":{"published":true,"title":"Laravel 8 - #20 - Update dan Delete Post","tag":"Programming","date":"January 4 2024","excerpt":"Pada pembahasan kali ini kita akan melengkapi aplikasi blog sederhana kita, setelah sebelumnya kita berhasil menambahkan feature CREATE dan READ data, kali ini kita akan melengkapi lagi dengan menambahkan feature UPDATE dan DELETE, sehingga feature CRUD nya sudah bisa dijalankan semua.","cover_image":"/images/posts/Laravel 8 - Update dan Delete Post.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-validation-dan-insert-post","frontmatter":{"published":true,"title":"Laravel 8 - #19 - Validation dan Insert Post","tag":"Programming","date":"January 4 2024","excerpt":"Setelah sebelumnya kita berhasil membuat sebuah form untuk create blog post kita, pada pembahasan kali ini kita akan mencoba untuk melengkapi nya dengan feature validasi pada form nya dan insert kedalam databasenya.","cover_image":"/images/posts/Laravel 8 - Validation dan Insert Post.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-create-post-form","frontmatter":{"published":true,"title":"Laravel 8 - #18 - Create Post Form","tag":"Programming","date":"January 3 2024","excerpt":"Kali ini kita akan melanjutkan kembali pembuatan feature CRUD pada aplikasi sistem blog sederhana kita, setelah sebelumnya kita berhasil membuat tampilan UI untuk bagian Dashboard kita sambil juga menampilkan data post dari user yang sudah berhasil login, feature tersebut sebetulnya sudah masuk kedalam CRUD yaitu bagian READ nya. Nah, sekarang tersisa 3 lagi yaitu CREATE, UPDATE dan DELETE.","cover_image":"/images/posts/Laravel 8 - Create Post Form.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-dashboard-ui","frontmatter":{"published":true,"title":"Laravel 8 - #17 - Dashboard UI","tag":"Programming","date":"January 2 2024","excerpt":"Setelah sebelumya kita sudah berhasil menambahkan feature login dan registrasi pada aplikasi blog sistem kita. Kali ini kita akan masuk kedalam dashboard dalam aplikasi kita, dimana nantinya kita bisa menambahkan feature pengelolaan postingan kita atau blog post kita seperti menambah, melihat detail, mengubah dan menghapus atau istilah nya disebut dengan CRUD (Create, Read, Update dan Delete) Operation.","cover_image":"/images/posts/Laravel 8 - Dashboard UI.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-user-login-dan-middleware","frontmatter":{"published":true,"title":"Laravel 8 - #16 - User Login dan Middleware","tag":"Programming","date":"January 1 2024","excerpt":"Pada pembahasan kali ini kita akan melanjutkan pembahasan mengenai aplikasi blog kita, setelah sebelumnya kita berhasil membuat feature registrasi untuk user kita. Nah, sekarang saatnya kita akan membuat dan meng-aplikasikan feature login nya, sehingga nantinya user yang berhasil registrasi itu bisa masuk kedalam aplikasi kita. Selain kita membuat feature login, kita juga akan sambil mempelajari featrue `middleware` yang ada didalam Laravel.","cover_image":"/images/posts/Laravel 8 - User Login dan Middleware.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-user-registration","frontmatter":{"published":true,"title":"Laravel 8 - #15 - User Registration","tag":"Programming","date":"December 31 2023","excerpt":"Pada pembahasan kali ini kita akan membuat feature registrasi untuk aplikasi blog laravel kita.","cover_image":"/images/posts/Laravel 8 - User Registration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-view-login-dan-registration","frontmatter":{"published":true,"title":"Laravel 8 - #14 - View Login dan Registration","tag":"Programming","date":"December 31 2023","excerpt":"Pada pembahasan kali ini kita akan membuat view untuk feature login dan registration. Seperti biasa disini kita akan menggunakan bantuan framework frontend yaitu Bootstrap untuk bagian komponen nya.","cover_image":"/images/posts/Laravel 8 - View Login dan Registration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-searching-dan-pagination","frontmatter":{"published":true,"title":"Laravel 8 - #13 - Searching dan Pagination","tag":"Programming","date":"December 30 2023","excerpt":"Pada pembahasan kali ini kita akan menambahkan 2 feature keren kedalam aplikasi blog kita yaitu Searching dan Pagination.","cover_image":"/images/posts/Laravel 8 - Searching dan Pagination.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-redesign-ui","frontmatter":{"published":true,"title":"Laravel 8 - #12 - Redesign UI","tag":"Programming","date":"December 29 2023","excerpt":"Pada pembahasan kali ini kita akan istirahat terlebih dahulu untuk mempelajari feature-feature utama yang ada didalam Laravel. Pada pembahasan kali ini kita akan mencoba memperbaiki tampilan halaman web blog kita agar lebih fresh lagi dan lebih mudah untuk digunakan.","cover_image":"/images/posts/Laravel 8 - Redesign UI.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-n1-problem","frontmatter":{"published":true,"title":"Laravel 8 - #11 - N+1 Problem","tag":"Programming","date":"December 28 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu problem pada query database kita yang sangat berpengaruh terhadap performa aplikasi. Problem tersebut dinamakan N+1 Problem","cover_image":"/images/posts/Laravel 8 - N1 Problem.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-factory-dan-faker","frontmatter":{"published":true,"title":"Laravel 8 - #10 - Factory dan Faker","tag":"Programming","date":"December 27 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu yang tidak kalah menarik yaitu Factory dan Faker pada Laravel, feature tersebut akan sangat berguna jika kita sedang mendevelop sesuatu yang berhubungan dengan dummy data.","cover_image":"/images/posts/Laravel 8 - Factory dan Faker.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-database-seeder","frontmatter":{"published":true,"title":"Laravel 8 - #9 - Database Seeder","tag":"Programming","date":"December 26 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu feature yang tidak kalah keren pada Laravel yaitu Seeder","cover_image":"/images/posts/Laravel 8 - Database Seeder.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-post-category-dan-eloquent-relationship","frontmatter":{"published":true,"title":"Laravel 8 - #8 - Post Category dan Eloquent Relationship","tag":"Programming","date":"December 25 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu yang sangat menarik yaitu mengenai keterhubungan antar tabel atau didalam Laravel itu disebut nya dengan `Eloquent Relationship` (bagaimana hubungan antar model). Sehingga nantinya pada studi kasus sistem blog kita akan menerapkan sebuah category pada setiap post di blog kita.","cover_image":"/images/posts/Laravel 8 - Post Category dan Eloquent Relationship.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-post-model-dan-route-model-binding","frontmatter":{"published":true,"title":"Laravel 8 - #7 - Post Model dan Route Model Binding","tag":"Programming","date":"December 24 2023","excerpt":"Pada pembahasan kali ini kita akan membahas kembali mengenai model didalam Laravel, yang dimana akan kita perbaiki model `Post` kita yang sebelumnya dibuat secara manual, kali ini kita akan coba buat agar model nya dengan cara yang benar yaitu dengan merepresentasikan class model nya sebagai tabel didalam database. Hal tersebut nantinya kita juga harus membuat sebuah migrasi untuk tabel Post tersebut.","cover_image":"/images/posts/Laravel 8 - Post Model dan Route Model Binding.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-database-migration-dan-eloquent","frontmatter":{"published":true,"title":"Laravel 8 - #6 - Database, Migration dan Eloquent","tag":"Programming","date":"December 23 2023","excerpt":"Laravel, sebagai salah satu framework PHP yang paling populer, menyediakan pendekatan yang kuat dan efisien dalam mengelola basis data. Dalam artikel ini, kita akan menjelajahi aspek-aspek kunci terkait database di Laravel, dengan penekanan khusus pada konsep migrasi (migration) dan Eloquent, sistem ORM bawaan Laravel.","cover_image":"/images/posts/Laravel 8 - Database, Migration dan Eloquent.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-model-collection-dan-controller","frontmatter":{"published":true,"title":"Laravel 8 - #5 - Model, Collection dan Controller","tag":"Programming","date":"December 22 2023","excerpt":"Aplikasi yang sudah dibangun sebelumnya itu semua proses nya masih ditangani komponen `routes` kita, contohnya ketika kita melakukan request ke halaman `/posts` untuk menampilkan semua data dari blog post kita dilakukan di dalam routes, begitu pula dengan proses menampilkan halaman views, itu juga dilakukan di dalam routes. Hal tersebut tidak tepat, karena jika kita ingin menerapkan konsep MVC (Model, View, Controller) maka 2 proses tersebut seharusnya kita pisahkan sesuai dengan komponen nya.","cover_image":"/images/posts/Laravel 8 - Model, Collection dan Controller.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-blade-templating-engine","frontmatter":{"published":true,"title":"Laravel 8 - #4 - Blade Templating Engine","tag":"Programming","date":"December 21 2023","excerpt":"Templating Engine adalah sebuah fitur atau tools untuk membantu kita dalam mengelola tampilan halaman web, khususnya untuk sebuah framework dan untuk framework laravel, templating engine nya dinamakan dengan Blade.","cover_image":"/images/posts/Laravel 8 - Blade Templating Engine.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-struktur-folder-routes-dan-view","frontmatter":{"published":true,"title":"Laravel 8 - #3 - Struktur Folder, Routes dan View","tag":"Programming","date":"December 21 2023","excerpt":"Bagaimana struktur folder, routes dan view pada aplikasi Laravel?","cover_image":"/images/posts/Laravel 8 - Struktur Folder, Routes dan View.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-instalasi-dan-konfigurasi","frontmatter":{"published":true,"title":"Laravel 8 - #2 - Instalasi dan Konfigurasi","tag":"Programming","date":"December 20 2023","excerpt":"Bagaimana cara instalasi dan konfigurasi Laravel pada sistem operasi Windows, macOS dan Linux?","cover_image":"/images/posts/Laravel 8 - Instalasi dan Konfigurasi.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-apa-itu-laravel","frontmatter":{"published":true,"title":"Laravel 8 - #1 - Apa itu Laravel?","tag":"Programming","date":"December 19 2023","excerpt":"Introduction Laravel 8, apa sih Laravel itu? Apa itu Web Application Framework? Siapa pembuat Laravel? Tujuan Laravel dibuat?","cover_image":"/images/posts/Laravel 8 - Apa itu Laravel.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-\u0026-github-menambahkan-ssh-key","frontmatter":{"published":true,"title":"Git \u0026 GitHub - Menambahkan SSH Key","tag":"Git","date":"October 31 2023","excerpt":"GitHub saat ini wajib menggunakan SSH Public atau Private keypair untuk melakukan autentikasi dari local (git) ke remote (github), oleh karena itu pada artikel kali ini saya akan membahas bagaimana cara generate SSH key nya.","cover_image":"/images/posts/Git Github - SSH key.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cloud-computing","frontmatter":{"published":false,"title":"Testing Heading","tag":"Cloud","date":"October 29 2023","excerpt":"Ini adalah testing heading","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"test","frontmatter":{"published":false,"title":"Testing Heading","tag":"Programming","date":"October 29 2023","excerpt":"Ini adalah testing heading","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"typescript-belajar-typescript","frontmatter":{"published":true,"title":"TypeScript - Belajar TypeScript","tag":"Programming","date":"October 16 2023","excerpt":"Pada artikel kali ini, saya akan membahas mengenai typescript","cover_image":"/images/posts/TypeScript - Belajar TypeScript.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"css-belajar-css","frontmatter":{"published":false,"title":"CSS - Belajar CSS","tag":"Programming","date":"October 10 2023","excerpt":"Pada artikel ini Saya akan membahas mengenai CSS seperti anatomi, penempatan dan lainnya","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"sistem-basis-data-1","frontmatter":{"published":false,"title":"Sistem Basis Data - 1","tag":"Programming","date":"October 6 2023","excerpt":"Pada artikel kali ini, saya akan membuat series untuk membahas mengenai Sistem Basis Data","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cacti-install-cacti-di-ubuntu-server","frontmatter":{"published":true,"title":"Cacti - Instalasi dan Konfigurasi Monitoring Traffic Menggunakan Cacti di Ubuntu Server","tag":"SysAdmin","date":"August 30 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi cacti pada sistem operasi Ubuntu Server 22.04","cover_image":"/images/posts/Cacti - Install Cacti di Ubuntu.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"ubuntu-instalasi-dan-konfigurasi-lemp-stack","frontmatter":{"published":false,"title":"Ubuntu - Instalasi dan Konfigurasi LEMP Stack","tag":"Linux","date":"August 30 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi LEMP atau Linux, Nginx, MariaDB, dan PHP pada sistem operasi Ubuntu Server 22.04","cover_image":"/images/posts/Ubuntu - Instalasi dan Konfigurasi LEMP Stack.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"monitoring-instalasi-dan-konfigurasi-monitoring-server-menggunakan-grafana-dan-prometheus","frontmatter":{"published":true,"title":"Monitoring - Instalasi dan Konfigurasi Monitoring Server Menggunakan Grafana dan Prometheus","tag":"SysAdmin","date":"August 25 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi untuk monitoring server menggunakan Grafana dan Prometheus","cover_image":"/images/posts/Monitoring - Grafana dan Prometheus.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"email-instalasi-dan-konfigurasi-mail-server-dengan-postfix-dovecot-roundcube","frontmatter":{"published":true,"title":"Email - Instalasi dan Konfigurasi Mail Server dengan Postfix, Dovecot dan Roundcube","tag":"SysAdmin","date":"August 23 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi untuk mail server menggunakan Postfix, Dovecot dan Roundcube","cover_image":"/images/posts/Email - Instalasi dan Konfigurasi Mail Server dengan Postfix Dovecot dan Roundcube.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"protokol-email-yang-perlu-diketahui","frontmatter":{"published":true,"title":"Email - Protokol Email Yang Wajib Diketahui","tag":"SysAdmin","date":"August 15 2023","excerpt":"Pada artikel ini kita akan membahas protokol email apa saja yang wajib diketahui","cover_image":"/images/posts/Email - Protokol Email Yang Wajib Diketahui.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-authoritative-server-sebagai-recursor-untuk-client-dan-melayani-public-domain","frontmatter":{"published":true,"title":"PowerDNS - Authoritative Server Sebagai Recursor Untuk Client dan Melayani Public Domains","tag":"SysAdmin","date":"August 01 2023","excerpt":"Pada artikel ini saya akan melakukan konfigurasi DNS Server (PowerDNS) Authoritative Server agar berfungsi sebagai recursor untuk client dan sekaligus melayani public domains","cover_image":"/images/posts/PowerDNS - Authoritative As Recursor for Clients and serving public domains.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"domain-pointing-ke-vps","frontmatter":{"published":true,"title":"Domain - Pointing ke VPS","tag":"SysAdmin","date":"July 21 2023","excerpt":"Pada artikel ini saya akan melakukan konfigurasi domain dari registrar agar mengarah ke VPS","cover_image":"/images/posts/Domain - Pointing ke VPS.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-master-dan-slave","frontmatter":{"published":true,"title":"PowerDNS - Konfigurasi Master dan Slave","tag":"SysAdmin","date":"July 14 2023","excerpt":"Pada artikel ini saya akan melakukan konfigurasi master dan slave pada 2 DNS Server","cover_image":"/images/posts/PowerDNS - Master Slave.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-menambahkan-records","frontmatter":{"published":true,"title":"PowerDNS - Menambahkan DNS Records pada DNS Server","tag":"SysAdmin","date":"July 12 2023","excerpt":"Pada artikel ini saya akan menambahkan DNS Records pada DNS Server yang berjalan menggunakan PowerDNS dan backend nya menggunakan MySQL","cover_image":"/images/posts/PowerDNS - Menambahkan Record.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"dns-cara-kerja-dan-jenis-jenis-record","frontmatter":{"published":true,"title":"DNS - Apa itu DNS? Pengertian, Fungsi dan Cara Kerja","tag":"SysAdmin","date":"July 11 2023","excerpt":"Pada artikel ini kita akan membahas apa itu DNS, bagaimana cara kerja DNS dan jenis - jenis record pada DNS","cover_image":"/images/posts/DNS - Jenis Jenis DNS Record.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-instalasi","frontmatter":{"published":true,"title":"PowerDNS - Install PowerDNS di Ubuntu Server","tag":"SysAdmin","date":"July 04 2023","excerpt":"Pada artikel ini saya akan membuat langkah - langkah instalasi PowerDNS pada sistem operasi Ubuntu Server","cover_image":"/images/posts/PowerDNS - Install PowerDNS di Ubuntu Server.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cpanel-error-401","frontmatter":{"published":true,"title":"cPanel - Cara memperbaiki error 401 pada WHM cPanel","tag":"SysAdmin","date":"June 27 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi server untuk mengatasi error 401 ketika mengakses WHM cPanel","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"proxmox-installation-process","frontmatter":{"published":true,"title":"Proxmox - #1 Installation Process","tag":"SysAdmin","date":"June 26 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Proxmox VE","cover_image":"/images/posts/Proxmox - Installation Process.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"ubuntu-server-instalasi-ubuntu-server","frontmatter":{"published":true,"title":"Ubuntu Server - Instalasi Ubuntu Server 22.04","tag":"Linux","date":"June 21 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi pada sistem operasi ubuntu server 22.04","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerbeam-m5-400-sebagai-client","frontmatter":{"published":false,"title":"Ubiquiti - PowerBeam M5 400 Sebagai Client (Station Mode)","tag":"Networking","date":"April 23 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi pada perangkat antena wireless dari merek Ubiquiti yaitu PowerBeam M5 400 dengan mode station","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"codeigniter-hosting-di-cpanel","frontmatter":{"published":true,"title":"Codeigniter - Hosting di cPanel","tag":"Programming","date":"March 21 2023","excerpt":"Pada artikel ini kita akan melakukan hosting program codeigniter di cPanel","cover_image":"/images/posts/Codeigniter - Hosting di cPanel.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"archlinux-install-xdebug","frontmatter":{"published":true,"title":"Arch Linux - Install Xdebug","tag":"Linux","date":"March 01 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Xdebug untuk PHP dan berjalan di web server Apache","cover_image":"/images/posts/Arch Linux - Install Xdebug.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"xampp-phpmyadmin-allow-ip-from-remote-access","frontmatter":{"title":"XAMPP - Phpmyadmin Allow Ip From Remote Access","tag":"Setup","date":"Februrary 13 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi phpmyadmin agar dapat diakses melalui ip address","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png","published":true}},{"slug":"codeigniter-configurasi-dasar","frontmatter":{"published":true,"title":"Codeigniter - Configurasi Dasar","tag":"Programming","date":"February 4 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi dasar pada Framework Codeigniter","cover_image":"/images/posts/Codeigniter - Basic Configuration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"xampp-menambahkan-xdebug","frontmatter":{"published":true,"title":"XAMPP - Menambahkan Xdebug","tag":"Programming","date":"January 25 2023","excerpt":"Pada artikel ini kita akan mencoba menambahkan Xdebug pada configurasi Apache di XAMPP","cover_image":"/images/posts/XAMPP - Install Xdebug.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"archlinux-apache-config-untuk-htaccess","frontmatter":{"published":true,"title":"Arch Linux - Mengaktifkan Mod Rewrite Pada Configurasi Apache","tag":"Linux","date":"January 24 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi apache untuk enable .htaccess","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"php-js-select-option-form-input","frontmatter":{"published":true,"title":"PHP JS - Select Option Form Input","tag":"Programming","date":"January 24 2023","excerpt":"Pada artikel ini kita akan menggabungkan PHP dan JS untuk menangani select option pada form input","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powershell-install-neovim-dengan-scoop","frontmatter":{"published":true,"title":"PowerShell - Install Neovim Menggunakan Scoop","tag":"Setup","date":"January 24 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Neovim menggunakan Scoop","cover_image":"/images/posts/neovim.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powershell-install-oh-my-posh","frontmatter":{"published":true,"title":"PowerShell - Install Oh-My-Posh","tag":"Setup","date":"January 24 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Oh-My-Posh","cover_image":"/images/posts/ohmyposh.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"olt-command","frontmatter":{"published":true,"title":"OLT - List Perintah atau Command pada OLT","tag":"Networking","date":"January 18 2023","excerpt":"Artikel yang berisi kumpulan perintah atau command untuk perangkat OLT","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"olt-registrasi-onu","frontmatter":{"published":true,"title":"OLT - Registrasi ONU","tag":"Networking","date":"January 18 2023","excerpt":"Pada artikel ini kita akan mencoba melakukan registrasi ONU di OLT","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"php-object-oriented-programming","frontmatter":{"published":true,"title":"PHP - Object Oriented Programming","tag":"Programming","date":"January 18 2023","excerpt":"Object Oriented Programming atau biasa disingkat OOP merupakan sebuah paradigma pada bahasa pemrograman","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cara-membuat-vlan-pada-interface-router-cisco","frontmatter":{"published":true,"title":"Cisco - Cara Membuat VLAN Pada Interface Router Cisco","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan mencoba membuat VLAN pada interface router cisco","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-\u0026-github-kembali-ke-commit-sebelumnya","frontmatter":{"published":true,"title":"Git - Kembali Ke Commit Sebelumnya","tag":"Git","date":"January 17 2023","excerpt":"Pada artikel ini kita akan mencoba berpindah ke commit sebelumnya pada git","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-\u0026-github-multiple-user-account","frontmatter":{"published":true,"title":"Git \u0026 GitHub - Multiple User Account","tag":"Git","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi agar Git \u0026 GitHub dapat multiple user akun","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-squash-commit","frontmatter":{"published":true,"title":"Git - Squash Commit","tag":"Git","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan Squash pada Commit di Git","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"konfigurasi-vlan-access-pada-switch-cisco","frontmatter":{"published":true,"title":"Cisco - Konfigurasi VLAN Access Pada Switch Cisco","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi VLAN Access pada Switch Cisco","cover_image":"/images/posts/Cisco - Konfigurasi VLAN Access Pada Switch Cisco.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"konfigurasi-vlan-trunk-pada-switch-cisco","frontmatter":{"published":true,"title":"Cisco - Konfigurasi VLAN Trunk Pada Switch Cisco","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi VLAN Trunk pada Switch Cisco","cover_image":"/images/posts/Cisco - Konfigurasi VLAN Trunk Pada Switch Cisco.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"mikrotik-basic-configuration","frontmatter":{"published":true,"title":"Mikrotik - Basic Configuration","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan mencoba basic configuration pada Router Mikrotik","cover_image":"/images/posts/Mikrotik - Basic Configuration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}}]},"__N_SSG":true},"page":"/blog/posts/[slug]","query":{"slug":"terraform-otomatisasi-deployment-infastructure-menggunakan-terraform"},"buildId":"kPye74dNv48A-A3nRZwbH","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

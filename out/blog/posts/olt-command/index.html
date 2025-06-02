@@ -1,0 +1,498 @@
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width"/><title>OLT - List Perintah atau Command pada OLT</title><meta name="description" content="Artikel yang berisi kumpulan perintah atau command untuk perangkat OLT"/><meta charSet="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta property="og:url" content="https://mzulkiakbari.alkaysan.co.id/blog/posts/olt-command"/><meta property="og:type" content="website"/><meta property="og:title" content="OLT - List Perintah atau Command pada OLT"/><meta property="og:description" content="Artikel yang berisi kumpulan perintah atau command untuk perangkat OLT"/><meta property="og:image" content="https://mzulkiakbari.alkaysan.co.id/images/posts/default.png"/><meta name="twitter:card" content="summary_large_image"/><meta property="twitter:url" content="mzulkiakbari.alkaysan.co.id"/><meta property="twitter:url" content="https://mzulkiakbari.alkaysan.co.id"/><meta name="twitter:title" content="OLT - List Perintah atau Command pada OLT"/><meta name="twitter:description" content="Artikel yang berisi kumpulan perintah atau command untuk perangkat OLT"/><meta name="twitter:image" content="https://mzulkiakbari.alkaysan.co.id/images/posts/default.png"/><meta name="next-head-count" content="16"/><link rel="preload" href="/_next/static/media/d4588198199bb568-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/d9f3c95379e06bee-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/69092ab74bbd1e40-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/0caac7c63f5eb5d1-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/css/25b4d693e296668c.css" as="style" crossorigin=""/><link rel="stylesheet" href="/_next/static/css/25b4d693e296668c.css" crossorigin="" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-efdab446b2c4fcf1.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/framework-0c7baedefba6b077.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/main-27940f348921b949.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/_app-741c7cd74d12f3f2.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/675-f5ea2ef57a5d96b0.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/492-4e28a1fd2e5c03eb.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/40-9ef566776ff1e478.js" defer="" crossorigin=""></script><script src="/_next/static/chunks/pages/blog/posts/%5Bslug%5D-429f38b7df5aacad.js" defer="" crossorigin=""></script><script src="/_next/static/kPye74dNv48A-A3nRZwbH/_buildManifest.js" defer="" crossorigin=""></script><script src="/_next/static/kPye74dNv48A-A3nRZwbH/_ssgManifest.js" defer="" crossorigin=""></script></head><body><div id="__next"><div class="__className_839cd4"><header class="absolute left-0 top-0 z-10 flex w-full items-center bg-transparent  transition duration-300 ease-in-out"><div class="container"><div class="relative flex items-center justify-between"><div class="px-4"><a class="block py-5 text-lg font-bold lowercase text-dark dark:text-white" href="/">Zul.</a></div><div class="flex items-center px-4"><button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden "><span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span><span class="hamburger-line transition duration-300 ease-in-out"></span><span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span></button><nav class="hidden  transition duration-300 ease-in-out absolute right-0 top-full w-full max-w-full rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"><ul class="block lg:flex"><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/dashboard/"><li>Dashboard</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/about-me/"><li>About Me</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/experiences/"><li>Experiences</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/skills/"><li>Skills</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/education/"><li>Education</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/certifications/"><li>Certifications</li></a><a class="group mx-2  flex cursor-pointer rounded-full px-4 py-2 text-base transition duration-300 hover:bg-blue-200/60 hover:text-cyan-600 hover:dark:bg-cyan-300/20 hover:dark:text-cyan-600 text-accents-300 dark:text-slate-400" href="/my-projects/"><li>My Projects</li></a><li class="mt-3 flex items-center pl-7 lg:mt-0 lg:pl-5"><div class="flex"><label for="dark-toggle" class="cursor-pointer"><div class="group toggle-icon rounded-full p-1 hover:bg-blue-200/60"><svg viewBox="0 0 24 24" width="24" height="24" class="transition duration-300 ease-in-out text-dark"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><span class="absolute top-[4.2rem] -right-6 scale-0 rounded bg-dark p-2 text-xs text-white group-hover:scale-100 whitespace-normal transition duration-100 ease-in-out font-bold">✨ Dark Mode</span></div></label></div></li></ul></nav></div></div></div></header><main><div class="pb-36 pt-24 transition duration-300 ease-in-out dark:bg-dark"><div class="container"><div class="mx-auto px-4 sm:px-6 md:px-4 lg:max-w-6xl lg:px-8 xl:max-w-7xl"><div class="-mt-24 lg:mt-[-9rem] border-b border-dark/20 dark:border-white/20"><div class="relative isolate pt-14"><div class="absolute inset-x-0 midnight:hidden -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true"><div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-cyan-800/90 to-cyan-800/90 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path:polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div></div><div class="pt-16 sm:pt-16 md:pt-16 md:pb-0 max-w-screen-2xl mx-auto overflow-hidden lg:grid lg:grid-cols-12 lg:items-center lg:pt-40 lg:pb-28"><div class="col-span-6 sm:px-6 lg:pl-0 max-w-2xl col-start-2 lg:px-0 ml-0 lg:ml-[-1rem] xl:ml-[-0.5rem] lg:flex-auto lg:pr-16"><h1 class="lg:max-w-lg text-2xl font-bold tracking-tighter text-foreground sm:text-3xl lg:text-4xl/[2.5rem]">OLT - List Perintah atau Command pada OLT</h1><p class="mt-2 lg:max-w-xl leading-relaxed text-slate-400 sm:mt-4 sm:text-lg sm:leading-7">Artikel yang berisi kumpulan perintah atau command untuk perangkat OLT</p><div class="flex items-center justify-between"><div class="flex items-center gap-x-1 mt-4"><a class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs tracking-tight font-medium transition-colors focus:outline-none border-cyan-500/40 bg-cyan-500/10 text-cyan-500 hover:bg-cyan-500/20" href="/blog/tag/networking/">Networking</a></div></div><div class="my-8 flex items-center justify-between gap-x-2"><div class="tracking-tighter text-sm text-muted-foreground"><div class="flex"><div class="mr-4 flex-shrink-0"><div class="LazyLoad is-visible"><img class="rounded-full w-12 h-12 transition duration-300 ease-in-out hover:scale-110" src="/images/posts/author/arman.png" loading="lazy" style="opacity:1"/></div></div><div><h4 class="text-lg font-semibold text-foreground">Arman Dwi Pangestu</h4><p class="mt-1 text-slate-400"><span>18 Januari 2023</span><span class="mx-1">•</span><span>1<!-- --> menit baca</span></p></div></div></div></div></div><div class="mt-6 sm:mt-8 lg:mr-4 lg:mt-0 col-span-5 lg:flex-shrink-0 lg:flex-grow mb-7"><div data-radix-aspect-ratio-wrapper="" style="position:relative;width:100%;padding-bottom:56.25%"><div class="grid place-content-center overflow-hidden border border-dark/20 dark:border-white/20 rounded-lg font-mono text-xl font-medium tracking-tighter text-accent-foreground dark:shadow-xl" style="position:absolute;inset:0px"><img loading="lazy" width="1280" height="720" decoding="async" data-nimg="1" class="object-cover object-center w-full h-full rounded-md transition duration-300 ease-in-out hover:scale-110" style="color:transparent" src="/images/posts/default.png"/></div></div></div></div></div></div><div class="w-full rounded-lg mx-auto mb-5 md:max-w-3xl lg:max-w-5xl transition duration-300 ease-in-out prose prose-pre:mt-0 prose-pre:rounded-t-none prose-pre:rounded-b-lg prose-code:text-[#696a73] prose-code:dark:text-[#8B99AE] prose-code:font-bold prose-code:bg-[#E6ECF3] prose-code:dark:bg-[#0f1419] prose-code:py-1 prose-code:px-2 prose-code:rounded-md prose-table:border-collapse prose-blockquote:border-amber-500 prose-blockquote:bg-amber-300 prose-blockquote:bg-opacity-10 prose-blockquote:text-slate-500 prose-blockquote:dark:text-slate-400 prose-blockquote:not-italic prose-blockquote:px-5 prose-blockquote:py-2 prose-blockquote:rounded prose-headings:text-dark prose-headings:dark:text-white prose-strong:text-dark prose-strong:dark:text-white prose-p:text-accents-3 prose-p:dark:text-slate-400 prose-hr:border-slate-400 prose-li:text-accents-3 prose-li:dark:text-slate-400 prose-img:rounded prose-img:w-full prose-pre:bg-[#E6ECF3] prose-pre:dark:bg-[#0f1419]"><aside><nav><h2>Daftar Isi:</h2><ul><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#cek-ont-uptime-dan-history">Cek ONT Uptime dan History</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#cek-detail-config-di-interface-ke-arah-ont">Cek Detail Config di Interface ke arah ONT</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#cek-signal-fiber-optic">Cek Signal Fiber Optic</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-mac-perangkat-yang-terhubung-ke-onu">Menampilkan MAC Perangkat Yang Terhubung ke ONU</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#cara-mengecek-wan-ip-address-onu">Cara Mengecek WAN IP Address ONU</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-semua-state-olt">Menampilkan Semua State OLT</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-state-satu-olt">Menampilkan State Satu OLT</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-signal-rx-download-satu-olt">Menampilkan Signal RX (Download) Satu OLT</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-signal-tx-upload-satu-olt">Menampilkan Signal TX (Upload) Satu OLT</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-status-interface-xgei-10g">Menampilkan Status Interface xgei (10G)</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-informasi-interface-ethernet-lan">Menampilkan Informasi Interface Ethernet (LAN)</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#masuk-ke-mode-pon-management">Masuk ke mode PON Management</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menampilkan-informasi-pon-management">Menampilkan Informasi PON Management</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menghapus-vlan-pada-port-ethernet">Menghapus VLAN pada Port Ethernet</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menambahkan-vlan-dengan-mode-trunk-pada-port-ethernet">Menambahkan VLAN dengan mode trunk pada port Ethernet</a></li><li data-depth="2" class="ml-4"><a href="/blog/posts/olt-command/#menambahkan-vlan-pada-interface-ethernet">Menambahkan VLAN pada Interface Ethernet</a></li></ul></nav></aside><div><h2 id="cek-ont-uptime-dan-history">Cek ONT Uptime dan History</h2>
+<blockquote>
+<p><strong>Catatan</strong>:</p>
+<p>GPON ONU pada OLT mempunyai format berikut ini</p>
+<pre><code class="language-shell">gpon-onu_W/X/Y:Z
+</code></pre>
+<ul>
+<li><code>W</code> = Mengacu pada nomor slot fisik di OLT</li>
+<li><code>X</code> = Card number</li>
+<li><code>Y</code> = Nomor Port atau PON</li>
+<li><code>Z</code> = Index ONU</li>
+</ul>
+</blockquote>
+<p>Pada perangkat OLT kita bisa mengecek status detail dari perangkat ONU atau ONT, perintah berikut ini menghasilkan sebuah output mengenai detail perangkat diantaranya terdapat status <code>uptime</code> atau total nyala perangkat.</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show gpon onu detail-info gpon-onu_1/1/1:1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">ONU interface:         gpon-onu_1/1/1:1
+  Name:                Client
+  Type:                F609
+  State:               ready
+  Admin state:         enable
+  Phase state:         working
+  Authentication mode: sn
+  SN Bind:             enable with SN check
+  Serial number:       XXXXXXXXXX
+  Password:
+  Device ID:
+  Description:         ONU-1:1
+  Vport mode:          gemport
+  DBA Mode:            Hybrid
+  ONU Status:          enable
+  OMCI BW Profile:     enable
+  Line Profile:        N/A
+  Service Profile:     N/A
+  Alarm Profile:       N/A
+  Performance Profile: N/A
+  ONU Distance:        3703m
+  Online Duration:     34h 45m 21s
+  FEC:                 none
+  1PPS+ToD:            disable
+------------------------------------------
+       Authpass Time          OfflineTime             Cause
+   1   2022-09-05 14:04:42    0000-00-00 00:00:00
+   2   0000-00-00 00:00:00    0000-00-00 00:00:00
+   3   0000-00-00 00:00:00    0000-00-00 00:00:00
+   4   0000-00-00 00:00:00    0000-00-00 00:00:00
+   5   0000-00-00 00:00:00    0000-00-00 00:00:00
+   6   0000-00-00 00:00:00    0000-00-00 00:00:00
+   7   0000-00-00 00:00:00    0000-00-00 00:00:00
+   8   0000-00-00 00:00:00    0000-00-00 00:00:00
+   9   0000-00-00 00:00:00    0000-00-00 00:00:00
+  10   0000-00-00 00:00:00    0000-00-00 00:00:00
+</code></pre>
+<h2 id="cek-detail-config-di-interface-ke-arah-ont">Cek Detail Config di Interface ke arah ONT</h2>
+<p>Untuk mengecek status konfigurasi interface ke arah ONU atau ONT, dapat menggunakan perintah dibawah ini</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show running-config interface gpon-onu_1/1/1:1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">Building configuration...
+!
+interface gpon-onu_1/1/1:1
+  name Client
+  tcont 1 profile UPTO-75M
+  tcont 2 profile UP-1M
+  gemport 1 name internet unicast tcont 1 dir both
+  gemport 1 traffic-limit downstream UPTO-75M
+  gemport 2 name mgmt unicast tcont 2 dir both
+  switchport mode hybrid vport 2
+  switchport mode hybrid vport 1
+  service-port 1 vport 1 user-vlan xxx vlan xxx
+  service-port 2 vport 2 user-vlan yyy vlan yyy
+  pppoe-plus enable vport 2
+!
+end
+</code></pre>
+<h2 id="cek-signal-fiber-optic">Cek Signal Fiber Optic</h2>
+<p>Untuk mengecek redaman atau sinyal fiber optic dari sebuah ONU atau ONT kita bisa mengecek nya menggunakan perintah dibawah ini</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show pon power attenuation gpon-onu_1/1/1:1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">           OLT                  ONU              Attenuation
+--------------------------------------------------------------------------
+ up      Rx :-20.241(dbm)      Tx:2.423(dbm)        22.664(dB)
+
+ down    Tx :5.369(dbm)        Rx:-16.676(dbm)      22.045(dB)
+</code></pre>
+<h2 id="menampilkan-mac-perangkat-yang-terhubung-ke-onu">Menampilkan MAC Perangkat Yang Terhubung ke ONU</h2>
+<p>Tentunya kita membutuhkan pengecekan MAC Address yang terhubung ke perangkat ONU atau ONT kita, kita bisa melihat MAC Address yang terhubung tersebut mengggunakan perintah dibawah ini. Untuk mengecek vendor perangkat yang digunakan, kalian bisa menggunakan website berikut ini <a href="https://macvendors.com/">macvendors.com</a></p>
+<p><img src="https://i.ibb.co/2PkrY21/image.png" alt="image"></p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show mac gpon onu gpon-onu_1/1/1:1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">Total mac address : 1
+
+Mac address      Vlan   Type      Port                         Vc
+------------------------------------------------------------------------
+8cdc.0294.a5cd   88     Dynamic   gpon-onu_1/1/1:1          vport 2
+</code></pre>
+<h2 id="cara-mengecek-wan-ip-address-onu">Cara Mengecek WAN IP Address ONU</h2>
+<p>Untuk melihat status IP Address untuk arah <code>WAN</code> (Wide Area Network) dari sebuah ONU atau ONT, gunakan perintah berikut ini</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show gpon remote-onu wan-ip gpon-onu_1/1/1:1
+</code></pre>
+<ul>
+<li>Ouput</li>
+</ul>
+<pre><code class="language-shell">WAN id:         1
+Mode:           PPPoE
+Authentication: auto
+User name:      XXXXXXXXXX
+Password:       XXXXXXXXXX
+Status:         connected
+Ping response:  enable
+Traceroute response: disable
+VLAN tag mode:  tag
+CVLAN:          88
+CVLAN priority: 0
+SVLAN:          0
+Current IP:     172.16.202.74
+Current mask:   255.255.255.255
+Current gateway:172.16.202.1
+Current primary DNS: 8.8.8.8
+Current secondary DNS: 8.8.4.4
+Domain name:
+Host name:      omci_ipv4_pppoe_1
+MAC address:    xxxx.xxxx.xxxx
+IP host id:     1
+</code></pre>
+<h2 id="menampilkan-semua-state-olt">Menampilkan Semua State OLT</h2>
+<p>Pada OLT kita bisa mengecek state atau keadaan seluruh perangkat ONU atau ONT, perintah dibawah ini akan mengecek semua PON.</p>
+<p>Sebagai contoh dibawah ini OLT mempunyai 2 PON, maka output total nya akan menghasilkan 2 PON, yaitu <code>gpon-onu_1/1/1</code> dan <code>gpon-onu_1/1/2</code></p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show gpon onu state
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">OnuIndex               Admin State  OMCC State   O7 State     Phase State
+----------------------------------------------------------------------------
+gpon-onu_1/1/1:1       enable       enable       operation    working
+gpon-onu_1/1/1:2       enable       enable       operation    working
+gpon-onu_1/1/1:3       enable       disable      unknown      LOS
+gpon-onu_1/1/1:5       enable       enable       operation    working
+gpon-onu_1/1/1:6       enable       enable       operation    working
+gpon-onu_1/1/1:7       enable       enable       operation    working
+gpon-onu_1/1/1:8       enable       disable      unknown      DyingGasp
+gpon-onu_1/1/1:9       enable       disable      unknown      DyingGasp
+gpon-onu_1/1/1:10      enable       disable      unknown      LOS
+gpon-onu_1/1/1:12      enable       enable       operation    working
+gpon-onu_1/1/1:13      enable       enable       operation    working
+gpon-onu_1/1/1:14      enable       enable       operation    working
+gpon-onu_1/1/2:1       enable       disable      unknown      DyingGasp
+gpon-onu_1/1/2:2       enable       disable      unknown      DyingGasp
+gpon-onu_1/1/2:3       enable       enable       operation    working
+gpon-onu_1/1/2:4       enable       enable       operation    working
+gpon-onu_1/1/2:6       enable       enable       operation    working
+gpon-onu_1/1/2:7       enable       disable      unknown      LOS
+gpon-onu_1/1/2:8       enable       enable       operation    working
+gpon-onu_1/1/2:14      enable       enable       operation    working
+gpon-onu_1/1/2:15      enable       disable      unknown      LOS
+gpon-onu_1/1/2:18      enable       disable      unknown      DyingGasp
+gpon-onu_1/1/2:20      enable       disable      unknown      DyingGasp
+gpon-onu_1/1/2:21      enable       disable      unknown      LOS
+gpon-onu_1/1/2:22      enable       disable      unknown      DyingGasp
+gpon-onu_1/1/2:23      enable       enable       operation    working
+gpon-onu_1/1/2:26      enable       enable       operation    working
+gpon-onu_1/1/2:27      enable       enable       operation    working
+</code></pre>
+<h2 id="menampilkan-state-satu-olt">Menampilkan State Satu OLT</h2>
+<p>Apabila pada perintah sebelumnya mengecek state atau keadaan seluruh PON, maka pada perintah kali ini kita bisa men-target kan PON mana yang ingin di cek, untuk melakukannya kalian bisa menggunakan perintah dibawah ini.</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show gpon onu state gpon-olt_1/1/1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">OnuIndex               Admin State  OMCC State   O7 State     Phase State
+----------------------------------------------------------------------------
+gpon-onu_1/1/1:1       enable       enable       operation    working
+gpon-onu_1/1/1:2       enable       enable       operation    working
+gpon-onu_1/1/1:3       enable       disable      unknown      LOS
+gpon-onu_1/1/1:5       enable       enable       operation    working
+gpon-onu_1/1/1:6       enable       enable       operation    working
+gpon-onu_1/1/1:7       enable       enable       operation    working
+gpon-onu_1/1/1:8       enable       disable      unknown      DyingGasp
+gpon-onu_1/1/1:9       enable       disable      unknown      DyingGasp
+gpon-onu_1/1/1:10      enable       disable      unknown      LOS
+gpon-onu_1/1/1:12      enable       enable       operation    working
+gpon-onu_1/1/1:13      enable       enable       operation    working
+gpon-onu_1/1/1:14      enable       enable       operation    working
+</code></pre>
+<h2 id="menampilkan-signal-rx-download-satu-olt">Menampilkan Signal RX (Download) Satu OLT</h2>
+<p>Apabila pada perintah sebelumnya yaitu <a href="#cek-signal-fiber-optic">Cek Signal Fiber Optic</a> hanya mengecek signal berdasarkan index ONU atau ONT nya, maka kita juga bisa mengecek signal fiber optic dalam satu OLT atau PON.</p>
+<p>Namun disini kita akan mengecek signal berdasarkan RX nya.</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show pon power onu-rx gpon-olt_1/1/1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">Onu                 Rx power
+------------------------------------
+gpon-onu_1/1/1:1    -16.676(dbm)
+gpon-onu_1/1/1:2    -24.948(dbm)
+gpon-onu_1/1/1:3    N/A
+gpon-onu_1/1/1:5    -26.198(dbm)
+gpon-onu_1/1/1:6    -26.576(dbm)
+gpon-onu_1/1/1:7    -17.424(dbm)
+gpon-onu_1/1/1:8    N/A
+gpon-onu_1/1/1:9    N/A
+gpon-onu_1/1/1:10   N/A
+gpon-onu_1/1/1:12   -23.098(dbm)
+gpon-onu_1/1/1:13   -20.810(dbm)
+gpon-onu_1/1/1:14   -17.826(dbm)
+</code></pre>
+<h2 id="menampilkan-signal-tx-upload-satu-olt">Menampilkan Signal TX (Upload) Satu OLT</h2>
+<p>Sama pada perintah sebelumnya yaitu <a href="#menampilkan-signal-rx-download-satu-olt">Menampilkan Signal RX (Download) Satu OLT</a>, bedanya disini kita mengecek signal berdasarkan TX nya.</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show pon power onu-tx gpon-olt_1/1/1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">Onu                 Tx power
+------------------------------------
+gpon-onu_1/1/1:1    2.445(dbm)
+gpon-onu_1/1/1:2    2.771(dbm)
+gpon-onu_1/1/1:3    N/A
+gpon-onu_1/1/1:5    2.329(dbm)
+gpon-onu_1/1/1:6    2.990(dbm)
+gpon-onu_1/1/1:7    2.119(dbm)
+gpon-onu_1/1/1:8    N/A
+gpon-onu_1/1/1:9    N/A
+gpon-onu_1/1/1:10   N/A
+gpon-onu_1/1/1:12   2.268(dbm)
+gpon-onu_1/1/1:13   2.136(dbm)
+gpon-onu_1/1/1:14   2.404(dbm)
+</code></pre>
+<h2 id="menampilkan-status-interface-xgei-10g">Menampilkan Status Interface xgei (10G)</h2>
+<p>Interface <code>xgei</code> merupakan interface yang dapat menampung speed atau kecepatan sebesar <code>10G</code>, maka pada umumnya interface ini biasanya dijadikan sebuah backbone atau sumber internet dari OLT.</p>
+<p>Untuk mengecek status interface xgei tersebut, kalian bisa menggunakan perintah ini</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show interface xgei_1/4/2
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">xgei_1/4/2 is up,  line protocol is up
+  Description is BACKBONE-XXX-via-XXX
+  Keepalive set:10 sec
+  The port negotiation is disable
+  The port is optical
+  Duplex full
+  scramble payload-enable
+</code></pre>
+<h2 id="menampilkan-informasi-interface-ethernet-lan">Menampilkan Informasi Interface Ethernet (LAN)</h2>
+<p>Apabila pada perintah sebelumya, yaitu <a href="#cara-mengecek-wan-ip-address-onu">Cara Mengecek WAN IP Address ONU</a> mengecek status interface arah <code>WAN</code>. Maka pada perintah kali ini kita bisa mengecek status interface ethernet untuk arah <code>LAN</code></p>
+<p>Untuk mengecek status interface ethernet arah <code>LAN</code> kalian bisa menggunakan perintah dibawah ini</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">show gpon remote-onu interface eth gpon-onu_1/1/1:1
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">Interface:     eth_0/1
+Speed status:  auto
+Operate status:disable
+Admin status:  unlock
+Arc:           0
+Arc-interval   0
+Expect-type:   0
+Speed config:  auto
+Eth-loop:      disable
+Max-frame:     1632
+Pause-time:    0
+Wiring :       dce
+BridgeOrIP:    either
+PPPOE-filter:  disable
+Power-control: disable
+
+Interface:     eth_0/2
+Speed status:  full-100
+Operate status:enable
+Admin status:  unlock
+Arc:           0
+Arc-interval   0
+Expect-type:   0
+Speed config:  auto
+Eth-loop:      disable
+Max-frame:     1632
+Pause-time:    0
+Wiring :       dce
+BridgeOrIP:    either
+</code></pre>
+<h2 id="masuk-ke-mode-pon-management">Masuk ke mode PON Management</h2>
+<p>Pada Operating System GPON OLT ini, terdapat beberapa mode diantaranya adalah PON Management. Untuk masuk kedalam mode tersebut kalian bisa menggunakan perintah dibawah ini.</p>
+<blockquote>
+<p><strong>Catatan</strong>:</p>
+<p>Untuk masuk kedalam mode PON Management, mempunyai format berikut ini</p>
+<pre><code class="language-shell">pon-onnu-mng gpon-onu_W/X/Y:Z
+</code></pre>
+<ul>
+<li><code>W</code> = Mengacu pada nomor slot fisik di OLT</li>
+<li><code>X</code> = Card number</li>
+<li><code>Y</code> = Nomor Port atau PON</li>
+<li><code>Z</code> = Index ONU</li>
+</ul>
+</blockquote>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">pon-onu-mng gpon-onu_1/1/7:2
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">host(gpon-onu-mng)#
+</code></pre>
+<h2 id="menampilkan-informasi-pon-management">Menampilkan Informasi PON Management</h2>
+<p>Untuk mengecek konfigurasi arah PON Management, kalian bisa menggunakan perintah dibawah ini.</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">host(gpon-onu-mng)#show onu running config gpon-onu_1/1/7:2
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<blockquote>
+<p><strong>Catatan</strong>:</p>
+<ul>
+<li><p><code>security-mng 211 state enable ingress-type lan protocol web</code> = berfungsi untuk mengizinkan membuka gateway onu di web dengan koneksi melalui port eth</p>
+</li>
+<li><p><code>security-mng 211 state enable mode permit protocol web</code> = berfungsi untuk mengizinkan remote gateway onu di web denga ip host nya</p>
+</li>
+</ul>
+</blockquote>
+<pre><code class="language-shell">pon-onu-mng gpon-onu_1/1/7:2
+  service internet gemport 1 vlan xxx
+  service mgmt gemport 2 vlan 88
+  service hotspot gemport 6 vlan xxx-yyy,xxx
+  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1
+  name XXXXXXX
+  vlan port eth_0/1 mode tag vlan xxx
+  vlan port eth_0/2 mode tag vlan xxx
+  vlan port eth_0/3 mode tag vlan xxx
+  vlan port eth_0/4 mode tag vlan xxx
+  vlan port wifi_0/1 mode tag vlan xxx
+  security-mng 211 state enable ingress-type lan protocol web
+  security-mng 212 state enable mode permit protocol web
+  ssid auth wep wifi_0/1 open-system
+  ssid ctrl wifi_0/1 name XXXX
+!
+</code></pre>
+<h2 id="menghapus-vlan-pada-port-ethernet">Menghapus VLAN pada Port Ethernet</h2>
+<p>Untuk menghapus konfigurasi <code>VLAN</code> pada port Ethernet kita harus masuk terlebih dahulu ke dalam mode <a href="#masuk-ke-mode-pon-management">PON Management</a>, setelah masuk kita bisa menggunakan perintah dibawah ini untuk menghapus konfigurasi <code>VLAN</code></p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">host(gpon-onu-mng)#no vlan port eth_0/1 mode
+</code></pre>
+<ul>
+<li>Output (Before)</li>
+</ul>
+<pre><code class="language-shell">pon-onu-mng gpon-onu_1/1/7:2
+  service internet gemport 1 vlan xxx
+  service mgmt gemport 2 vlan 88
+  service hotspot gemport 6 vlan xxx-yyy,xxx
+  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1
+  name XXXXXXX
+  vlan port eth_0/1 mode tag vlan xxx
+  ...
+  ...
+  ...
+  ...
+  security-mng 211 state enable ingress-type lan protocol web
+  security-mng 212 state enable mode permit protocol web
+  ssid auth wep wifi_0/1 open-system
+  ssid ctrl wifi_0/1 name XXXX
+!
+</code></pre>
+<ul>
+<li>Output (After)</li>
+</ul>
+<pre><code class="language-shell">pon-onu-mng gpon-onu_1/1/7:2
+  service internet gemport 1 vlan xxx
+  service mgmt gemport 2 vlan 88
+  service hotspot gemport 6 vlan xxx-yyy,xxx
+  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1
+  name XXXXXXX
+  ...
+  ...
+  ...
+  ...
+  security-mng 211 state enable ingress-type lan protocol web
+  security-mng 212 state enable mode permit protocol web
+  ssid auth wep wifi_0/1 open-system
+  ssid ctrl wifi_0/1 name XXXX
+!
+</code></pre>
+<h2 id="menambahkan-vlan-dengan-mode-trunk-pada-port-ethernet">Menambahkan VLAN dengan mode trunk pada port Ethernet</h2>
+<p>Untuk menambahakn <code>VLAN</code> dengan mode <code>Trunk</code> pada port Ethernet, kita bisa menggunakan perintah dibawah ini</p>
+<ul>
+<li>Command</li>
+</ul>
+<pre><code class="language-shell">vlan port eth_0/1 mode trunk
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">pon-onu-mng gpon-onu_1/1/7:2
+  service internet gemport 1 vlan xxx
+  service mgmt gemport 2 vlan 88
+  service hotspot gemport 6 vlan xxx-yyy,xxx
+  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1
+  name XXXXXXX
+  vlan port eth_0/1 mode trunk
+  ...
+  ...
+  ...
+  ...
+  security-mng 211 state enable ingress-type lan protocol web
+  security-mng 212 state enable mode permit protocol web
+  ssid auth wep wifi_0/1 open-system
+  ssid ctrl wifi_0/1 name XXXX
+!
+</code></pre>
+<h2 id="menambahkan-vlan-pada-interface-ethernet">Menambahkan VLAN pada Interface Ethernet</h2>
+<p>Apabila pada perintah sebelumnya yaitu <a href="#menambahkan-vlan-dengan-mode-trunk-pada-port-ethernet">Menambahkan VLAN dengan mode Trunk pada port Ethernet</a>, pada perintah kali ini kita dapat menambahkan identitas VLAN atau <code>VLAN ID</code> nya</p>
+<ul>
+<li>Command</li>
+</ul>
+<blockquote>
+<p><strong>Catatan</strong>:</p>
+<ul>
+<li><code>xxx</code> = start vlan</li>
+<li><code>yyy</code> = end vlan</li>
+</ul>
+</blockquote>
+<pre><code class="language-shell">vlan port eth_0/1 vlan xxx-yyy
+</code></pre>
+<ul>
+<li>Output</li>
+</ul>
+<pre><code class="language-shell">pon-onu-mng gpon-onu_1/1/7:2
+  service internet gemport 1 vlan xxx
+  service mgmt gemport 2 vlan 88
+  service hotspot gemport 6 vlan xxx-yyy,xxx
+  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1
+  name XXXXXXX
+  vlan port eth_0/1 mode trunk
+  ...
+  ...
+  ...
+  ...
+  vlan port eth_0/1 vlan xxx-yyy
+  security-mng 211 state enable ingress-type lan protocol web
+  security-mng 212 state enable mode permit protocol web
+  ssid auth wep wifi_0/1 open-system
+  ssid ctrl wifi_0/1 name XXXX
+!
+</code></pre>
+</div></div></div></div></div></main><div class="fixed bottom-9 right-7 md:bottom-10 md:right-10 z-[999] transition-all duration-300 bottom-[-50px] opacity-0"><button class="block bg-black dark:bg-white py-3 px-3.5 text-lg hover:opacity-80 hover:shadow-lg rounded-full transition-transform duration-300 "><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="text-white dark:text-dark" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"></path></svg></button></div><footer class="relative w-full border-t border-dark/20 dark:border-white/20 pt-12 transition duration-300 ease-in-out dark:bg-dark dark:opacity-90 lg:pt-20"><div class="absolute inset-x-0 top-4 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"><div class="aspect-[1500/632] w-[69.25rem] flex-none bg-gradient-to-r from-cyan-600 to-cyan-800 opacity-25 dark:block" style="clip-path:polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div></div><div class="mx-auto max-w-7xl px-6 pb-8 lg:px-8"><div class="xl:grid xl:grid-cols-2 xl:gap-8"><div class="space-y-2"><h2 class="flex h-10 shrink-0 items-center text-xl md:text-3xl font-bold focus:outline-none dark:text-white mb-5">zul.</h2><h3 class="mb-2 text-lg font-bold text-accents-300 dark:text-white/80">Contact Me</h3><a href="mailto:muhammadzulkiakbari@gmail.com" class="hover:text-primary text-accents-300 dark:text-white/80 dark:hover:text-primary"><span>muhammadzulkiakbari@gmail.com</span></a><div class="flex gap-x-1"><a href="https://github.com/mzulkiakbari" target="_blank" class="group mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-400 dark:border-slate-300 text-slate-400 dark:text-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" class="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><span class="absolute mt-20 scale-0 rounded bg-primary text-white p-2 text-xs group-hover:scale-100 whitespace-normal transition duration-300 ease-in-out font-bold">GitHub</span></a><a href="https://www.instagram.com/mzulkiakbari" target="_blank" class="group mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-400 dark:border-slate-300 text-slate-400 dark:text-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg><span class="absolute mt-20 scale-0 rounded bg-primary text-white p-2 text-xs group-hover:scale-100 whitespace-normal transition duration-300 ease-in-out font-bold">Instagram</span></a><a href="https://www.linkedin.com/in/mzulkiakbar" target="_blank" class="group mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-400 dark:border-slate-300 text-slate-400 dark:text-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg><span class="absolute mt-20 scale-0 rounded bg-primary text-white p-2 text-xs group-hover:scale-100 whitespace-normal transition duration-300 ease-in-out font-bold">LinkedIn</span></a></div></div><div class="mt-16 grid gap-8 sm:grid-cols-2 xl:mt-0"><div class="gap-8"><div><h3 class="leading text-xl font-bold dark:text-white">Links</h3><ul role="list" class="mt-6 space-y-4"><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/dashboard/">Dashboard</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/about-me/">About Me</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/experiences/">Experiences</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/skills/">Skills</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/education/">Education</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/certifications/">Certifications</a></li><li><a class="text-base leading-6 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="/my-projects/">My Projects</a></li></ul></div></div></div></div><div class="mt-16 flex items-center justify-center border-t border-dark pt-8 dark:border-white/10 sm:mt-20 lg:mt-24"><p class="text-accents-300 dark:text-white/80 text-xs leading-5">© Copyright <!-- -->2025<!-- --> zul. All rights reserved.</p></div></div></footer></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{"frontmatter":{"published":true,"title":"OLT - List Perintah atau Command pada OLT","tag":"Networking","date":"January 18 2023","excerpt":"Artikel yang berisi kumpulan perintah atau command untuk perangkat OLT","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"},"slug":"olt-command","content":"\n## Cek ONT Uptime dan History\n\n\u003e **Catatan**:\n\u003e\n\u003e GPON ONU pada OLT mempunyai format berikut ini\n\u003e\n\u003e ```shell\n\u003e gpon-onu_W/X/Y:Z\n\u003e ```\n\u003e\n\u003e - `W` = Mengacu pada nomor slot fisik di OLT\n\u003e - `X` = Card number\n\u003e - `Y` = Nomor Port atau PON\n\u003e - `Z` = Index ONU\n\nPada perangkat OLT kita bisa mengecek status detail dari perangkat ONU atau ONT, perintah berikut ini menghasilkan sebuah output mengenai detail perangkat diantaranya terdapat status `uptime` atau total nyala perangkat.\n\n- Command\n\n```shell\nshow gpon onu detail-info gpon-onu_1/1/1:1\n```\n\n- Output\n\n```shell\nONU interface:         gpon-onu_1/1/1:1\n  Name:                Client\n  Type:                F609\n  State:               ready\n  Admin state:         enable\n  Phase state:         working\n  Authentication mode: sn\n  SN Bind:             enable with SN check\n  Serial number:       XXXXXXXXXX\n  Password:\n  Device ID:\n  Description:         ONU-1:1\n  Vport mode:          gemport\n  DBA Mode:            Hybrid\n  ONU Status:          enable\n  OMCI BW Profile:     enable\n  Line Profile:        N/A\n  Service Profile:     N/A\n  Alarm Profile:       N/A\n  Performance Profile: N/A\n  ONU Distance:        3703m\n  Online Duration:     34h 45m 21s\n  FEC:                 none\n  1PPS+ToD:            disable\n------------------------------------------\n       Authpass Time          OfflineTime             Cause\n   1   2022-09-05 14:04:42    0000-00-00 00:00:00\n   2   0000-00-00 00:00:00    0000-00-00 00:00:00\n   3   0000-00-00 00:00:00    0000-00-00 00:00:00\n   4   0000-00-00 00:00:00    0000-00-00 00:00:00\n   5   0000-00-00 00:00:00    0000-00-00 00:00:00\n   6   0000-00-00 00:00:00    0000-00-00 00:00:00\n   7   0000-00-00 00:00:00    0000-00-00 00:00:00\n   8   0000-00-00 00:00:00    0000-00-00 00:00:00\n   9   0000-00-00 00:00:00    0000-00-00 00:00:00\n  10   0000-00-00 00:00:00    0000-00-00 00:00:00\n```\n\n## Cek Detail Config di Interface ke arah ONT\n\nUntuk mengecek status konfigurasi interface ke arah ONU atau ONT, dapat menggunakan perintah dibawah ini\n\n- Command\n\n```shell\nshow running-config interface gpon-onu_1/1/1:1\n```\n\n- Output\n\n```shell\nBuilding configuration...\n!\ninterface gpon-onu_1/1/1:1\n  name Client\n  tcont 1 profile UPTO-75M\n  tcont 2 profile UP-1M\n  gemport 1 name internet unicast tcont 1 dir both\n  gemport 1 traffic-limit downstream UPTO-75M\n  gemport 2 name mgmt unicast tcont 2 dir both\n  switchport mode hybrid vport 2\n  switchport mode hybrid vport 1\n  service-port 1 vport 1 user-vlan xxx vlan xxx\n  service-port 2 vport 2 user-vlan yyy vlan yyy\n  pppoe-plus enable vport 2\n!\nend\n```\n\n## Cek Signal Fiber Optic\n\nUntuk mengecek redaman atau sinyal fiber optic dari sebuah ONU atau ONT kita bisa mengecek nya menggunakan perintah dibawah ini\n\n- Command\n\n```shell\nshow pon power attenuation gpon-onu_1/1/1:1\n```\n\n- Output\n\n```shell\n           OLT                  ONU              Attenuation\n--------------------------------------------------------------------------\n up      Rx :-20.241(dbm)      Tx:2.423(dbm)        22.664(dB)\n\n down    Tx :5.369(dbm)        Rx:-16.676(dbm)      22.045(dB)\n```\n\n## Menampilkan MAC Perangkat Yang Terhubung ke ONU\n\nTentunya kita membutuhkan pengecekan MAC Address yang terhubung ke perangkat ONU atau ONT kita, kita bisa melihat MAC Address yang terhubung tersebut mengggunakan perintah dibawah ini. Untuk mengecek vendor perangkat yang digunakan, kalian bisa menggunakan website berikut ini [macvendors.com](https://macvendors.com/)\n\n![image](https://i.ibb.co/2PkrY21/image.png)\n\n- Command\n\n```shell\nshow mac gpon onu gpon-onu_1/1/1:1\n```\n\n- Output\n\n```shell\nTotal mac address : 1\n\nMac address      Vlan   Type      Port                         Vc\n------------------------------------------------------------------------\n8cdc.0294.a5cd   88     Dynamic   gpon-onu_1/1/1:1          vport 2\n```\n\n## Cara Mengecek WAN IP Address ONU\n\nUntuk melihat status IP Address untuk arah `WAN` (Wide Area Network) dari sebuah ONU atau ONT, gunakan perintah berikut ini\n\n- Command\n\n```shell\nshow gpon remote-onu wan-ip gpon-onu_1/1/1:1\n```\n\n- Ouput\n\n```shell\nWAN id:         1\nMode:           PPPoE\nAuthentication: auto\nUser name:      XXXXXXXXXX\nPassword:       XXXXXXXXXX\nStatus:         connected\nPing response:  enable\nTraceroute response: disable\nVLAN tag mode:  tag\nCVLAN:          88\nCVLAN priority: 0\nSVLAN:          0\nCurrent IP:     172.16.202.74\nCurrent mask:   255.255.255.255\nCurrent gateway:172.16.202.1\nCurrent primary DNS: 8.8.8.8\nCurrent secondary DNS: 8.8.4.4\nDomain name:\nHost name:      omci_ipv4_pppoe_1\nMAC address:    xxxx.xxxx.xxxx\nIP host id:     1\n```\n\n## Menampilkan Semua State OLT\n\nPada OLT kita bisa mengecek state atau keadaan seluruh perangkat ONU atau ONT, perintah dibawah ini akan mengecek semua PON.\n\nSebagai contoh dibawah ini OLT mempunyai 2 PON, maka output total nya akan menghasilkan 2 PON, yaitu `gpon-onu_1/1/1` dan `gpon-onu_1/1/2`\n\n- Command\n\n```shell\nshow gpon onu state\n```\n\n- Output\n\n```shell\nOnuIndex               Admin State  OMCC State   O7 State     Phase State\n----------------------------------------------------------------------------\ngpon-onu_1/1/1:1       enable       enable       operation    working\ngpon-onu_1/1/1:2       enable       enable       operation    working\ngpon-onu_1/1/1:3       enable       disable      unknown      LOS\ngpon-onu_1/1/1:5       enable       enable       operation    working\ngpon-onu_1/1/1:6       enable       enable       operation    working\ngpon-onu_1/1/1:7       enable       enable       operation    working\ngpon-onu_1/1/1:8       enable       disable      unknown      DyingGasp\ngpon-onu_1/1/1:9       enable       disable      unknown      DyingGasp\ngpon-onu_1/1/1:10      enable       disable      unknown      LOS\ngpon-onu_1/1/1:12      enable       enable       operation    working\ngpon-onu_1/1/1:13      enable       enable       operation    working\ngpon-onu_1/1/1:14      enable       enable       operation    working\ngpon-onu_1/1/2:1       enable       disable      unknown      DyingGasp\ngpon-onu_1/1/2:2       enable       disable      unknown      DyingGasp\ngpon-onu_1/1/2:3       enable       enable       operation    working\ngpon-onu_1/1/2:4       enable       enable       operation    working\ngpon-onu_1/1/2:6       enable       enable       operation    working\ngpon-onu_1/1/2:7       enable       disable      unknown      LOS\ngpon-onu_1/1/2:8       enable       enable       operation    working\ngpon-onu_1/1/2:14      enable       enable       operation    working\ngpon-onu_1/1/2:15      enable       disable      unknown      LOS\ngpon-onu_1/1/2:18      enable       disable      unknown      DyingGasp\ngpon-onu_1/1/2:20      enable       disable      unknown      DyingGasp\ngpon-onu_1/1/2:21      enable       disable      unknown      LOS\ngpon-onu_1/1/2:22      enable       disable      unknown      DyingGasp\ngpon-onu_1/1/2:23      enable       enable       operation    working\ngpon-onu_1/1/2:26      enable       enable       operation    working\ngpon-onu_1/1/2:27      enable       enable       operation    working\n```\n\n## Menampilkan State Satu OLT\n\nApabila pada perintah sebelumnya mengecek state atau keadaan seluruh PON, maka pada perintah kali ini kita bisa men-target kan PON mana yang ingin di cek, untuk melakukannya kalian bisa menggunakan perintah dibawah ini.\n\n- Command\n\n```shell\nshow gpon onu state gpon-olt_1/1/1\n```\n\n- Output\n\n```shell\nOnuIndex               Admin State  OMCC State   O7 State     Phase State\n----------------------------------------------------------------------------\ngpon-onu_1/1/1:1       enable       enable       operation    working\ngpon-onu_1/1/1:2       enable       enable       operation    working\ngpon-onu_1/1/1:3       enable       disable      unknown      LOS\ngpon-onu_1/1/1:5       enable       enable       operation    working\ngpon-onu_1/1/1:6       enable       enable       operation    working\ngpon-onu_1/1/1:7       enable       enable       operation    working\ngpon-onu_1/1/1:8       enable       disable      unknown      DyingGasp\ngpon-onu_1/1/1:9       enable       disable      unknown      DyingGasp\ngpon-onu_1/1/1:10      enable       disable      unknown      LOS\ngpon-onu_1/1/1:12      enable       enable       operation    working\ngpon-onu_1/1/1:13      enable       enable       operation    working\ngpon-onu_1/1/1:14      enable       enable       operation    working\n```\n\n## Menampilkan Signal RX (Download) Satu OLT\n\nApabila pada perintah sebelumnya yaitu [Cek Signal Fiber Optic](#cek-signal-fiber-optic) hanya mengecek signal berdasarkan index ONU atau ONT nya, maka kita juga bisa mengecek signal fiber optic dalam satu OLT atau PON.\n\nNamun disini kita akan mengecek signal berdasarkan RX nya.\n\n- Command\n\n```shell\nshow pon power onu-rx gpon-olt_1/1/1\n```\n\n- Output\n\n```shell\nOnu                 Rx power\n------------------------------------\ngpon-onu_1/1/1:1    -16.676(dbm)\ngpon-onu_1/1/1:2    -24.948(dbm)\ngpon-onu_1/1/1:3    N/A\ngpon-onu_1/1/1:5    -26.198(dbm)\ngpon-onu_1/1/1:6    -26.576(dbm)\ngpon-onu_1/1/1:7    -17.424(dbm)\ngpon-onu_1/1/1:8    N/A\ngpon-onu_1/1/1:9    N/A\ngpon-onu_1/1/1:10   N/A\ngpon-onu_1/1/1:12   -23.098(dbm)\ngpon-onu_1/1/1:13   -20.810(dbm)\ngpon-onu_1/1/1:14   -17.826(dbm)\n```\n\n## Menampilkan Signal TX (Upload) Satu OLT\n\nSama pada perintah sebelumnya yaitu [Menampilkan Signal RX (Download) Satu OLT](#menampilkan-signal-rx-download-satu-olt), bedanya disini kita mengecek signal berdasarkan TX nya.\n\n- Command\n\n```shell\nshow pon power onu-tx gpon-olt_1/1/1\n```\n\n- Output\n\n```shell\nOnu                 Tx power\n------------------------------------\ngpon-onu_1/1/1:1    2.445(dbm)\ngpon-onu_1/1/1:2    2.771(dbm)\ngpon-onu_1/1/1:3    N/A\ngpon-onu_1/1/1:5    2.329(dbm)\ngpon-onu_1/1/1:6    2.990(dbm)\ngpon-onu_1/1/1:7    2.119(dbm)\ngpon-onu_1/1/1:8    N/A\ngpon-onu_1/1/1:9    N/A\ngpon-onu_1/1/1:10   N/A\ngpon-onu_1/1/1:12   2.268(dbm)\ngpon-onu_1/1/1:13   2.136(dbm)\ngpon-onu_1/1/1:14   2.404(dbm)\n```\n\n## Menampilkan Status Interface xgei (10G)\n\nInterface `xgei` merupakan interface yang dapat menampung speed atau kecepatan sebesar `10G`, maka pada umumnya interface ini biasanya dijadikan sebuah backbone atau sumber internet dari OLT.\n\nUntuk mengecek status interface xgei tersebut, kalian bisa menggunakan perintah ini\n\n- Command\n\n```shell\nshow interface xgei_1/4/2\n```\n\n- Output\n\n```shell\nxgei_1/4/2 is up,  line protocol is up\n  Description is BACKBONE-XXX-via-XXX\n  Keepalive set:10 sec\n  The port negotiation is disable\n  The port is optical\n  Duplex full\n  scramble payload-enable\n```\n\n## Menampilkan Informasi Interface Ethernet (LAN)\n\nApabila pada perintah sebelumya, yaitu [Cara Mengecek WAN IP Address ONU](#cara-mengecek-wan-ip-address-onu) mengecek status interface arah `WAN`. Maka pada perintah kali ini kita bisa mengecek status interface ethernet untuk arah `LAN`\n\nUntuk mengecek status interface ethernet arah `LAN` kalian bisa menggunakan perintah dibawah ini\n\n- Command\n\n```shell\nshow gpon remote-onu interface eth gpon-onu_1/1/1:1\n```\n\n- Output\n\n```shell\nInterface:     eth_0/1\nSpeed status:  auto\nOperate status:disable\nAdmin status:  unlock\nArc:           0\nArc-interval   0\nExpect-type:   0\nSpeed config:  auto\nEth-loop:      disable\nMax-frame:     1632\nPause-time:    0\nWiring :       dce\nBridgeOrIP:    either\nPPPOE-filter:  disable\nPower-control: disable\n\nInterface:     eth_0/2\nSpeed status:  full-100\nOperate status:enable\nAdmin status:  unlock\nArc:           0\nArc-interval   0\nExpect-type:   0\nSpeed config:  auto\nEth-loop:      disable\nMax-frame:     1632\nPause-time:    0\nWiring :       dce\nBridgeOrIP:    either\n```\n\n## Masuk ke mode PON Management\n\nPada Operating System GPON OLT ini, terdapat beberapa mode diantaranya adalah PON Management. Untuk masuk kedalam mode tersebut kalian bisa menggunakan perintah dibawah ini.\n\n\u003e **Catatan**:\n\u003e\n\u003e Untuk masuk kedalam mode PON Management, mempunyai format berikut ini\n\u003e\n\u003e ```shell\n\u003e pon-onnu-mng gpon-onu_W/X/Y:Z\n\u003e ```\n\u003e\n\u003e - `W` = Mengacu pada nomor slot fisik di OLT\n\u003e - `X` = Card number\n\u003e - `Y` = Nomor Port atau PON\n\u003e - `Z` = Index ONU\n\n- Command\n\n```shell\npon-onu-mng gpon-onu_1/1/7:2\n```\n\n- Output\n\n```shell\nhost(gpon-onu-mng)#\n```\n\n## Menampilkan Informasi PON Management\n\nUntuk mengecek konfigurasi arah PON Management, kalian bisa menggunakan perintah dibawah ini.\n\n- Command\n\n```shell\nhost(gpon-onu-mng)#show onu running config gpon-onu_1/1/7:2\n```\n\n- Output\n\n\u003e **Catatan**:\n\u003e\n\u003e - `security-mng 211 state enable ingress-type lan protocol web` = berfungsi untuk mengizinkan membuka gateway onu di web dengan koneksi melalui port eth\n\u003e\n\u003e - `security-mng 211 state enable mode permit protocol web` = berfungsi untuk mengizinkan remote gateway onu di web denga ip host nya\n\n```shell\npon-onu-mng gpon-onu_1/1/7:2\n  service internet gemport 1 vlan xxx\n  service mgmt gemport 2 vlan 88\n  service hotspot gemport 6 vlan xxx-yyy,xxx\n  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1\n  name XXXXXXX\n  vlan port eth_0/1 mode tag vlan xxx\n  vlan port eth_0/2 mode tag vlan xxx\n  vlan port eth_0/3 mode tag vlan xxx\n  vlan port eth_0/4 mode tag vlan xxx\n  vlan port wifi_0/1 mode tag vlan xxx\n  security-mng 211 state enable ingress-type lan protocol web\n  security-mng 212 state enable mode permit protocol web\n  ssid auth wep wifi_0/1 open-system\n  ssid ctrl wifi_0/1 name XXXX\n!\n```\n\n## Menghapus VLAN pada Port Ethernet\n\nUntuk menghapus konfigurasi `VLAN` pada port Ethernet kita harus masuk terlebih dahulu ke dalam mode [PON Management](#masuk-ke-mode-pon-management), setelah masuk kita bisa menggunakan perintah dibawah ini untuk menghapus konfigurasi `VLAN`\n\n- Command\n\n```shell\nhost(gpon-onu-mng)#no vlan port eth_0/1 mode\n```\n\n- Output (Before)\n\n```shell\npon-onu-mng gpon-onu_1/1/7:2\n  service internet gemport 1 vlan xxx\n  service mgmt gemport 2 vlan 88\n  service hotspot gemport 6 vlan xxx-yyy,xxx\n  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1\n  name XXXXXXX\n  vlan port eth_0/1 mode tag vlan xxx\n  ...\n  ...\n  ...\n  ...\n  security-mng 211 state enable ingress-type lan protocol web\n  security-mng 212 state enable mode permit protocol web\n  ssid auth wep wifi_0/1 open-system\n  ssid ctrl wifi_0/1 name XXXX\n!\n```\n\n- Output (After)\n\n```shell\npon-onu-mng gpon-onu_1/1/7:2\n  service internet gemport 1 vlan xxx\n  service mgmt gemport 2 vlan 88\n  service hotspot gemport 6 vlan xxx-yyy,xxx\n  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1\n  name XXXXXXX\n  ...\n  ...\n  ...\n  ...\n  security-mng 211 state enable ingress-type lan protocol web\n  security-mng 212 state enable mode permit protocol web\n  ssid auth wep wifi_0/1 open-system\n  ssid ctrl wifi_0/1 name XXXX\n!\n```\n\n## Menambahkan VLAN dengan mode trunk pada port Ethernet\n\nUntuk menambahakn `VLAN` dengan mode `Trunk` pada port Ethernet, kita bisa menggunakan perintah dibawah ini\n\n- Command\n\n```shell\nvlan port eth_0/1 mode trunk\n```\n\n- Output\n\n```shell\npon-onu-mng gpon-onu_1/1/7:2\n  service internet gemport 1 vlan xxx\n  service mgmt gemport 2 vlan 88\n  service hotspot gemport 6 vlan xxx-yyy,xxx\n  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1\n  name XXXXXXX\n  vlan port eth_0/1 mode trunk\n  ...\n  ...\n  ...\n  ...\n  security-mng 211 state enable ingress-type lan protocol web\n  security-mng 212 state enable mode permit protocol web\n  ssid auth wep wifi_0/1 open-system\n  ssid ctrl wifi_0/1 name XXXX\n!\n```\n\n## Menambahkan VLAN pada Interface Ethernet\n\nApabila pada perintah sebelumnya yaitu [Menambahkan VLAN dengan mode Trunk pada port Ethernet](#menambahkan-vlan-dengan-mode-trunk-pada-port-ethernet), pada perintah kali ini kita dapat menambahkan identitas VLAN atau `VLAN ID` nya\n\n- Command\n\n\u003e **Catatan**:\n\u003e\n\u003e - `xxx` = start vlan\n\u003e - `yyy` = end vlan\n\n```shell\nvlan port eth_0/1 vlan xxx-yyy\n```\n\n- Output\n\n```shell\npon-onu-mng gpon-onu_1/1/7:2\n  service internet gemport 1 vlan xxx\n  service mgmt gemport 2 vlan 88\n  service hotspot gemport 6 vlan xxx-yyy,xxx\n  wan-ip 1 mode pppoe username XXXXXXXXXXXX password XXXXXXXXX vlan-profile MGMT-ONU host 1\n  name XXXXXXX\n  vlan port eth_0/1 mode trunk\n  ...\n  ...\n  ...\n  ...\n  vlan port eth_0/1 vlan xxx-yyy\n  security-mng 211 state enable ingress-type lan protocol web\n  security-mng 212 state enable mode permit protocol web\n  ssid auth wep wifi_0/1 open-system\n  ssid ctrl wifi_0/1 name XXXX\n!\n```\n","posts":[{"slug":"cloud-run-github-actions","frontmatter":{"published":true,"title":"Cloud Run - Implementasi DevOps CI/CD Pipeline Menggunakan GitHub Actions","tag":"DevOps","date":"May 06 2024","excerpt":"Pada artikel ini kita akan melakukan deployment simpel app Express.js menggunakan Cloud Run dan meng-implementasikan CI/CD Pipeline menggunakan GitHub Actions","cover_image":"/images/posts/Cloud Run - Implementasi DevOps CI CD Pipeline Menggunakan GitHub Actions.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"terraform-otomatisasi-deployment-infastructure-menggunakan-terraform","frontmatter":{"published":true,"title":"Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform","tag":"Cloud","date":"April 01 2024","excerpt":"Pada pembahasan kali ini saya akan mencoba menggunakan Terraform untuk mendeploy infrastructure pada Google Cloud Platform (GCP)","cover_image":"/images/posts/Terraform - Otomatisasi Deployment Infrastructure Menggunakan Terraform.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"tutorial-docker-instalasi-windows-11","frontmatter":{"published":false,"title":"Tutorial Docker - Instalasi Windows 11","tag":"SysAdmin","date":"February 17 2024","excerpt":"Test Thumbnail","cover_image":"/images/posts/Tutorial Docker - Instalasi Windows 11.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"vmware-workstation-player-instalasi-linux-debian","frontmatter":{"published":true,"title":"VMware Workstation Player - Instalasi Linux Debian","tag":"SysAdmin","date":"February 17 2024","excerpt":"Pada artikel kali ini kita akan mencoba melakukan instalasi Linux Debian pada Virtual Machine yang sudah dibuat pada pembahasan sebelumnya.","cover_image":"/images/posts/VMware Workstation Player - Instalasi Linux Debian.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"vmware-workstation-player-membuat-virtual-machine","frontmatter":{"published":true,"title":"VMware Workstation Player - Membuat Virtual Machine (VM)","tag":"SysAdmin","date":"February 17 2024","excerpt":"Pada artikel kali ini kita akan mencoba membuat sebuah Virtual Machine dengan sistem operasi Linux dengan distro nya adalah Debian pada VMware Workstation Player","cover_image":"/images/posts/VMware Workstation Player - Membuat Virtual Machine.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"vmware-workstation-player-instalasi-di-windows11","frontmatter":{"published":true,"title":"VMware Workstation Player - Instalasi di Windows 11","tag":"SysAdmin","date":"February 8 2024","excerpt":"Pada artikel kali ini kita akan mencoba menginstall VMware Workstation Player pada sistem operasi Windows 11","cover_image":"/images/posts/VMware Workstation Player - Instalasi di Windows 11.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-has-one-through","frontmatter":{"published":false,"title":"Laravel Eloquent - Relationship Has One Through","tag":"Programming","date":"February 4 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Has One Through","cover_image":"/images/posts/Laravel Eloquent - Relationship Has One Through.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-advanced-has-one-of-many","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Advanced Has One of Many","tag":"Programming","date":"January 30 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Advanced Has One of Many","cover_image":"/images/posts/Laravel Eloquent - Relationship Advanced Has One of Many.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-has-one-of-many","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Has One of Many","tag":"Programming","date":"January 28 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Has One of Many","cover_image":"/images/posts/Laravel Eloquent - Relationship Has One of Many.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-where-belongs-to","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Where Belongs To","tag":"Programming","date":"January 24 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Where Belongs To","cover_image":"/images/posts/Laravel Eloquent - Relationship Where Belongs To.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-default-models","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship Default Models","tag":"Programming","date":"January 22 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship Default Models","cover_image":"/images/posts/Laravel Eloquent - Relationship Default Models.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-one-to-many","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship One to Many","tag":"Programming","date":"January 22 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship untuk tipe One to Many atau hasMany","cover_image":"/images/posts/Laravel Eloquent - Relationship One to Many.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel-eloquent-relationship-one-to-one","frontmatter":{"published":true,"title":"Laravel Eloquent - Relationship One to One","tag":"Programming","date":"January 20 2024","excerpt":"Pada artikel kali ini kita akan membahas mengenai Laravel Eloquent Relationship untuk tipe One to One atau hasOne","cover_image":"/images/posts/Laravel Eloquent - Relationship One to One.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-authorization","frontmatter":{"published":true,"title":"Laravel 8 - #23 - Authorization","tag":"Programming","date":"January 7 2024","excerpt":"Pada pembahasan kali ini, kita akan membuat feature terakhir dari sistem blog kita, feature tersebut yaitu Authorization atau Otorisasi, setelah sebelumnya kita sudah membuat feature Autentikasi untuk login dan registrasi, sekarang kita akan membuat agar user yang tadi sudah berhasil registrasi dan juga login itu memiliki peran yang berbeda. Contohnya adalah terdapat user biasa dan juga user administrator.","cover_image":"/images/posts/Laravel 8 - Authorization.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-preview-update-dan-delete-image","frontmatter":{"published":true,"title":"Laravel 8 - #22 - Preview, Update dan Delete Image","tag":"Programming","date":"January 6 2024","excerpt":"Pada pembahasan kali ini kita akan melanjutkan feature pengelolaan gambar pada blog post kita sebelumnya, kali ini kita akan menerapkan 3 buah feature, yaitu preview, update dan delete image.","cover_image":"/images/posts/Laravel 8 - Preview, Update dan Delete Image.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-upload-image","frontmatter":{"published":true,"title":"Laravel 8 - #21 - Upload Image","tag":"Programming","date":"January 6 2024","excerpt":"Pada pembahasan kali ini kita akan mencoba menambahkan sebuah feature untuk melengkapi CRUD dari blog kita, yaitu menambahkan feature upload gambar yang dimana nantinya user dapat mengupload gambar sendiri dari komputer nya untuk menggantikan gambar yang sebelumnya kita ambil dari API nya Unsplash.","cover_image":"/images/posts/Laravel 8 - Upload Image.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-update-dan-delete-post","frontmatter":{"published":true,"title":"Laravel 8 - #20 - Update dan Delete Post","tag":"Programming","date":"January 4 2024","excerpt":"Pada pembahasan kali ini kita akan melengkapi aplikasi blog sederhana kita, setelah sebelumnya kita berhasil menambahkan feature CREATE dan READ data, kali ini kita akan melengkapi lagi dengan menambahkan feature UPDATE dan DELETE, sehingga feature CRUD nya sudah bisa dijalankan semua.","cover_image":"/images/posts/Laravel 8 - Update dan Delete Post.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-validation-dan-insert-post","frontmatter":{"published":true,"title":"Laravel 8 - #19 - Validation dan Insert Post","tag":"Programming","date":"January 4 2024","excerpt":"Setelah sebelumnya kita berhasil membuat sebuah form untuk create blog post kita, pada pembahasan kali ini kita akan mencoba untuk melengkapi nya dengan feature validasi pada form nya dan insert kedalam databasenya.","cover_image":"/images/posts/Laravel 8 - Validation dan Insert Post.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-create-post-form","frontmatter":{"published":true,"title":"Laravel 8 - #18 - Create Post Form","tag":"Programming","date":"January 3 2024","excerpt":"Kali ini kita akan melanjutkan kembali pembuatan feature CRUD pada aplikasi sistem blog sederhana kita, setelah sebelumnya kita berhasil membuat tampilan UI untuk bagian Dashboard kita sambil juga menampilkan data post dari user yang sudah berhasil login, feature tersebut sebetulnya sudah masuk kedalam CRUD yaitu bagian READ nya. Nah, sekarang tersisa 3 lagi yaitu CREATE, UPDATE dan DELETE.","cover_image":"/images/posts/Laravel 8 - Create Post Form.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-dashboard-ui","frontmatter":{"published":true,"title":"Laravel 8 - #17 - Dashboard UI","tag":"Programming","date":"January 2 2024","excerpt":"Setelah sebelumya kita sudah berhasil menambahkan feature login dan registrasi pada aplikasi blog sistem kita. Kali ini kita akan masuk kedalam dashboard dalam aplikasi kita, dimana nantinya kita bisa menambahkan feature pengelolaan postingan kita atau blog post kita seperti menambah, melihat detail, mengubah dan menghapus atau istilah nya disebut dengan CRUD (Create, Read, Update dan Delete) Operation.","cover_image":"/images/posts/Laravel 8 - Dashboard UI.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-user-login-dan-middleware","frontmatter":{"published":true,"title":"Laravel 8 - #16 - User Login dan Middleware","tag":"Programming","date":"January 1 2024","excerpt":"Pada pembahasan kali ini kita akan melanjutkan pembahasan mengenai aplikasi blog kita, setelah sebelumnya kita berhasil membuat feature registrasi untuk user kita. Nah, sekarang saatnya kita akan membuat dan meng-aplikasikan feature login nya, sehingga nantinya user yang berhasil registrasi itu bisa masuk kedalam aplikasi kita. Selain kita membuat feature login, kita juga akan sambil mempelajari featrue `middleware` yang ada didalam Laravel.","cover_image":"/images/posts/Laravel 8 - User Login dan Middleware.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-user-registration","frontmatter":{"published":true,"title":"Laravel 8 - #15 - User Registration","tag":"Programming","date":"December 31 2023","excerpt":"Pada pembahasan kali ini kita akan membuat feature registrasi untuk aplikasi blog laravel kita.","cover_image":"/images/posts/Laravel 8 - User Registration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-view-login-dan-registration","frontmatter":{"published":true,"title":"Laravel 8 - #14 - View Login dan Registration","tag":"Programming","date":"December 31 2023","excerpt":"Pada pembahasan kali ini kita akan membuat view untuk feature login dan registration. Seperti biasa disini kita akan menggunakan bantuan framework frontend yaitu Bootstrap untuk bagian komponen nya.","cover_image":"/images/posts/Laravel 8 - View Login dan Registration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-searching-dan-pagination","frontmatter":{"published":true,"title":"Laravel 8 - #13 - Searching dan Pagination","tag":"Programming","date":"December 30 2023","excerpt":"Pada pembahasan kali ini kita akan menambahkan 2 feature keren kedalam aplikasi blog kita yaitu Searching dan Pagination.","cover_image":"/images/posts/Laravel 8 - Searching dan Pagination.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-redesign-ui","frontmatter":{"published":true,"title":"Laravel 8 - #12 - Redesign UI","tag":"Programming","date":"December 29 2023","excerpt":"Pada pembahasan kali ini kita akan istirahat terlebih dahulu untuk mempelajari feature-feature utama yang ada didalam Laravel. Pada pembahasan kali ini kita akan mencoba memperbaiki tampilan halaman web blog kita agar lebih fresh lagi dan lebih mudah untuk digunakan.","cover_image":"/images/posts/Laravel 8 - Redesign UI.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-n1-problem","frontmatter":{"published":true,"title":"Laravel 8 - #11 - N+1 Problem","tag":"Programming","date":"December 28 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu problem pada query database kita yang sangat berpengaruh terhadap performa aplikasi. Problem tersebut dinamakan N+1 Problem","cover_image":"/images/posts/Laravel 8 - N1 Problem.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-factory-dan-faker","frontmatter":{"published":true,"title":"Laravel 8 - #10 - Factory dan Faker","tag":"Programming","date":"December 27 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu yang tidak kalah menarik yaitu Factory dan Faker pada Laravel, feature tersebut akan sangat berguna jika kita sedang mendevelop sesuatu yang berhubungan dengan dummy data.","cover_image":"/images/posts/Laravel 8 - Factory dan Faker.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-database-seeder","frontmatter":{"published":true,"title":"Laravel 8 - #9 - Database Seeder","tag":"Programming","date":"December 26 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu feature yang tidak kalah keren pada Laravel yaitu Seeder","cover_image":"/images/posts/Laravel 8 - Database Seeder.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-post-category-dan-eloquent-relationship","frontmatter":{"published":true,"title":"Laravel 8 - #8 - Post Category dan Eloquent Relationship","tag":"Programming","date":"December 25 2023","excerpt":"Pada pembahasan kali ini kita akan membahas sesuatu yang sangat menarik yaitu mengenai keterhubungan antar tabel atau didalam Laravel itu disebut nya dengan `Eloquent Relationship` (bagaimana hubungan antar model). Sehingga nantinya pada studi kasus sistem blog kita akan menerapkan sebuah category pada setiap post di blog kita.","cover_image":"/images/posts/Laravel 8 - Post Category dan Eloquent Relationship.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-post-model-dan-route-model-binding","frontmatter":{"published":true,"title":"Laravel 8 - #7 - Post Model dan Route Model Binding","tag":"Programming","date":"December 24 2023","excerpt":"Pada pembahasan kali ini kita akan membahas kembali mengenai model didalam Laravel, yang dimana akan kita perbaiki model `Post` kita yang sebelumnya dibuat secara manual, kali ini kita akan coba buat agar model nya dengan cara yang benar yaitu dengan merepresentasikan class model nya sebagai tabel didalam database. Hal tersebut nantinya kita juga harus membuat sebuah migrasi untuk tabel Post tersebut.","cover_image":"/images/posts/Laravel 8 - Post Model dan Route Model Binding.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-database-migration-dan-eloquent","frontmatter":{"published":true,"title":"Laravel 8 - #6 - Database, Migration dan Eloquent","tag":"Programming","date":"December 23 2023","excerpt":"Laravel, sebagai salah satu framework PHP yang paling populer, menyediakan pendekatan yang kuat dan efisien dalam mengelola basis data. Dalam artikel ini, kita akan menjelajahi aspek-aspek kunci terkait database di Laravel, dengan penekanan khusus pada konsep migrasi (migration) dan Eloquent, sistem ORM bawaan Laravel.","cover_image":"/images/posts/Laravel 8 - Database, Migration dan Eloquent.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-model-collection-dan-controller","frontmatter":{"published":true,"title":"Laravel 8 - #5 - Model, Collection dan Controller","tag":"Programming","date":"December 22 2023","excerpt":"Aplikasi yang sudah dibangun sebelumnya itu semua proses nya masih ditangani komponen `routes` kita, contohnya ketika kita melakukan request ke halaman `/posts` untuk menampilkan semua data dari blog post kita dilakukan di dalam routes, begitu pula dengan proses menampilkan halaman views, itu juga dilakukan di dalam routes. Hal tersebut tidak tepat, karena jika kita ingin menerapkan konsep MVC (Model, View, Controller) maka 2 proses tersebut seharusnya kita pisahkan sesuai dengan komponen nya.","cover_image":"/images/posts/Laravel 8 - Model, Collection dan Controller.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-blade-templating-engine","frontmatter":{"published":true,"title":"Laravel 8 - #4 - Blade Templating Engine","tag":"Programming","date":"December 21 2023","excerpt":"Templating Engine adalah sebuah fitur atau tools untuk membantu kita dalam mengelola tampilan halaman web, khususnya untuk sebuah framework dan untuk framework laravel, templating engine nya dinamakan dengan Blade.","cover_image":"/images/posts/Laravel 8 - Blade Templating Engine.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-struktur-folder-routes-dan-view","frontmatter":{"published":true,"title":"Laravel 8 - #3 - Struktur Folder, Routes dan View","tag":"Programming","date":"December 21 2023","excerpt":"Bagaimana struktur folder, routes dan view pada aplikasi Laravel?","cover_image":"/images/posts/Laravel 8 - Struktur Folder, Routes dan View.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-instalasi-dan-konfigurasi","frontmatter":{"published":true,"title":"Laravel 8 - #2 - Instalasi dan Konfigurasi","tag":"Programming","date":"December 20 2023","excerpt":"Bagaimana cara instalasi dan konfigurasi Laravel pada sistem operasi Windows, macOS dan Linux?","cover_image":"/images/posts/Laravel 8 - Instalasi dan Konfigurasi.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"laravel8-apa-itu-laravel","frontmatter":{"published":true,"title":"Laravel 8 - #1 - Apa itu Laravel?","tag":"Programming","date":"December 19 2023","excerpt":"Introduction Laravel 8, apa sih Laravel itu? Apa itu Web Application Framework? Siapa pembuat Laravel? Tujuan Laravel dibuat?","cover_image":"/images/posts/Laravel 8 - Apa itu Laravel.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-\u0026-github-menambahkan-ssh-key","frontmatter":{"published":true,"title":"Git \u0026 GitHub - Menambahkan SSH Key","tag":"Git","date":"October 31 2023","excerpt":"GitHub saat ini wajib menggunakan SSH Public atau Private keypair untuk melakukan autentikasi dari local (git) ke remote (github), oleh karena itu pada artikel kali ini saya akan membahas bagaimana cara generate SSH key nya.","cover_image":"/images/posts/Git Github - SSH key.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cloud-computing","frontmatter":{"published":false,"title":"Testing Heading","tag":"Cloud","date":"October 29 2023","excerpt":"Ini adalah testing heading","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"test","frontmatter":{"published":false,"title":"Testing Heading","tag":"Programming","date":"October 29 2023","excerpt":"Ini adalah testing heading","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"typescript-belajar-typescript","frontmatter":{"published":true,"title":"TypeScript - Belajar TypeScript","tag":"Programming","date":"October 16 2023","excerpt":"Pada artikel kali ini, saya akan membahas mengenai typescript","cover_image":"/images/posts/TypeScript - Belajar TypeScript.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"css-belajar-css","frontmatter":{"published":false,"title":"CSS - Belajar CSS","tag":"Programming","date":"October 10 2023","excerpt":"Pada artikel ini Saya akan membahas mengenai CSS seperti anatomi, penempatan dan lainnya","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"sistem-basis-data-1","frontmatter":{"published":false,"title":"Sistem Basis Data - 1","tag":"Programming","date":"October 6 2023","excerpt":"Pada artikel kali ini, saya akan membuat series untuk membahas mengenai Sistem Basis Data","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cacti-install-cacti-di-ubuntu-server","frontmatter":{"published":true,"title":"Cacti - Instalasi dan Konfigurasi Monitoring Traffic Menggunakan Cacti di Ubuntu Server","tag":"SysAdmin","date":"August 30 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi cacti pada sistem operasi Ubuntu Server 22.04","cover_image":"/images/posts/Cacti - Install Cacti di Ubuntu.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"ubuntu-instalasi-dan-konfigurasi-lemp-stack","frontmatter":{"published":false,"title":"Ubuntu - Instalasi dan Konfigurasi LEMP Stack","tag":"Linux","date":"August 30 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi LEMP atau Linux, Nginx, MariaDB, dan PHP pada sistem operasi Ubuntu Server 22.04","cover_image":"/images/posts/Ubuntu - Instalasi dan Konfigurasi LEMP Stack.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"monitoring-instalasi-dan-konfigurasi-monitoring-server-menggunakan-grafana-dan-prometheus","frontmatter":{"published":true,"title":"Monitoring - Instalasi dan Konfigurasi Monitoring Server Menggunakan Grafana dan Prometheus","tag":"SysAdmin","date":"August 25 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi untuk monitoring server menggunakan Grafana dan Prometheus","cover_image":"/images/posts/Monitoring - Grafana dan Prometheus.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"email-instalasi-dan-konfigurasi-mail-server-dengan-postfix-dovecot-roundcube","frontmatter":{"published":true,"title":"Email - Instalasi dan Konfigurasi Mail Server dengan Postfix, Dovecot dan Roundcube","tag":"SysAdmin","date":"August 23 2023","excerpt":"Pada artikel ini saya akan melakukan instalasi dan konfigurasi untuk mail server menggunakan Postfix, Dovecot dan Roundcube","cover_image":"/images/posts/Email - Instalasi dan Konfigurasi Mail Server dengan Postfix Dovecot dan Roundcube.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"protokol-email-yang-perlu-diketahui","frontmatter":{"published":true,"title":"Email - Protokol Email Yang Wajib Diketahui","tag":"SysAdmin","date":"August 15 2023","excerpt":"Pada artikel ini kita akan membahas protokol email apa saja yang wajib diketahui","cover_image":"/images/posts/Email - Protokol Email Yang Wajib Diketahui.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-authoritative-server-sebagai-recursor-untuk-client-dan-melayani-public-domain","frontmatter":{"published":true,"title":"PowerDNS - Authoritative Server Sebagai Recursor Untuk Client dan Melayani Public Domains","tag":"SysAdmin","date":"August 01 2023","excerpt":"Pada artikel ini saya akan melakukan konfigurasi DNS Server (PowerDNS) Authoritative Server agar berfungsi sebagai recursor untuk client dan sekaligus melayani public domains","cover_image":"/images/posts/PowerDNS - Authoritative As Recursor for Clients and serving public domains.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"domain-pointing-ke-vps","frontmatter":{"published":true,"title":"Domain - Pointing ke VPS","tag":"SysAdmin","date":"July 21 2023","excerpt":"Pada artikel ini saya akan melakukan konfigurasi domain dari registrar agar mengarah ke VPS","cover_image":"/images/posts/Domain - Pointing ke VPS.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-master-dan-slave","frontmatter":{"published":true,"title":"PowerDNS - Konfigurasi Master dan Slave","tag":"SysAdmin","date":"July 14 2023","excerpt":"Pada artikel ini saya akan melakukan konfigurasi master dan slave pada 2 DNS Server","cover_image":"/images/posts/PowerDNS - Master Slave.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-menambahkan-records","frontmatter":{"published":true,"title":"PowerDNS - Menambahkan DNS Records pada DNS Server","tag":"SysAdmin","date":"July 12 2023","excerpt":"Pada artikel ini saya akan menambahkan DNS Records pada DNS Server yang berjalan menggunakan PowerDNS dan backend nya menggunakan MySQL","cover_image":"/images/posts/PowerDNS - Menambahkan Record.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"dns-cara-kerja-dan-jenis-jenis-record","frontmatter":{"published":true,"title":"DNS - Apa itu DNS? Pengertian, Fungsi dan Cara Kerja","tag":"SysAdmin","date":"July 11 2023","excerpt":"Pada artikel ini kita akan membahas apa itu DNS, bagaimana cara kerja DNS dan jenis - jenis record pada DNS","cover_image":"/images/posts/DNS - Jenis Jenis DNS Record.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerdns-instalasi","frontmatter":{"published":true,"title":"PowerDNS - Install PowerDNS di Ubuntu Server","tag":"SysAdmin","date":"July 04 2023","excerpt":"Pada artikel ini saya akan membuat langkah - langkah instalasi PowerDNS pada sistem operasi Ubuntu Server","cover_image":"/images/posts/PowerDNS - Install PowerDNS di Ubuntu Server.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cpanel-error-401","frontmatter":{"published":true,"title":"cPanel - Cara memperbaiki error 401 pada WHM cPanel","tag":"SysAdmin","date":"June 27 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi server untuk mengatasi error 401 ketika mengakses WHM cPanel","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"proxmox-installation-process","frontmatter":{"published":true,"title":"Proxmox - #1 Installation Process","tag":"SysAdmin","date":"June 26 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Proxmox VE","cover_image":"/images/posts/Proxmox - Installation Process.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"ubuntu-server-instalasi-ubuntu-server","frontmatter":{"published":true,"title":"Ubuntu Server - Instalasi Ubuntu Server 22.04","tag":"Linux","date":"June 21 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi pada sistem operasi ubuntu server 22.04","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powerbeam-m5-400-sebagai-client","frontmatter":{"published":false,"title":"Ubiquiti - PowerBeam M5 400 Sebagai Client (Station Mode)","tag":"Networking","date":"April 23 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi pada perangkat antena wireless dari merek Ubiquiti yaitu PowerBeam M5 400 dengan mode station","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"codeigniter-hosting-di-cpanel","frontmatter":{"published":true,"title":"Codeigniter - Hosting di cPanel","tag":"Programming","date":"March 21 2023","excerpt":"Pada artikel ini kita akan melakukan hosting program codeigniter di cPanel","cover_image":"/images/posts/Codeigniter - Hosting di cPanel.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"archlinux-install-xdebug","frontmatter":{"published":true,"title":"Arch Linux - Install Xdebug","tag":"Linux","date":"March 01 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Xdebug untuk PHP dan berjalan di web server Apache","cover_image":"/images/posts/Arch Linux - Install Xdebug.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"xampp-phpmyadmin-allow-ip-from-remote-access","frontmatter":{"title":"XAMPP - Phpmyadmin Allow Ip From Remote Access","tag":"Setup","date":"Februrary 13 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi phpmyadmin agar dapat diakses melalui ip address","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png","published":true}},{"slug":"codeigniter-configurasi-dasar","frontmatter":{"published":true,"title":"Codeigniter - Configurasi Dasar","tag":"Programming","date":"February 4 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi dasar pada Framework Codeigniter","cover_image":"/images/posts/Codeigniter - Basic Configuration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"xampp-menambahkan-xdebug","frontmatter":{"published":true,"title":"XAMPP - Menambahkan Xdebug","tag":"Programming","date":"January 25 2023","excerpt":"Pada artikel ini kita akan mencoba menambahkan Xdebug pada configurasi Apache di XAMPP","cover_image":"/images/posts/XAMPP - Install Xdebug.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"archlinux-apache-config-untuk-htaccess","frontmatter":{"published":true,"title":"Arch Linux - Mengaktifkan Mod Rewrite Pada Configurasi Apache","tag":"Linux","date":"January 24 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi apache untuk enable .htaccess","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"php-js-select-option-form-input","frontmatter":{"published":true,"title":"PHP JS - Select Option Form Input","tag":"Programming","date":"January 24 2023","excerpt":"Pada artikel ini kita akan menggabungkan PHP dan JS untuk menangani select option pada form input","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powershell-install-neovim-dengan-scoop","frontmatter":{"published":true,"title":"PowerShell - Install Neovim Menggunakan Scoop","tag":"Setup","date":"January 24 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Neovim menggunakan Scoop","cover_image":"/images/posts/neovim.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"powershell-install-oh-my-posh","frontmatter":{"published":true,"title":"PowerShell - Install Oh-My-Posh","tag":"Setup","date":"January 24 2023","excerpt":"Pada artikel ini kita akan melakukan instalasi Oh-My-Posh","cover_image":"/images/posts/ohmyposh.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"olt-command","frontmatter":{"published":true,"title":"OLT - List Perintah atau Command pada OLT","tag":"Networking","date":"January 18 2023","excerpt":"Artikel yang berisi kumpulan perintah atau command untuk perangkat OLT","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"olt-registrasi-onu","frontmatter":{"published":true,"title":"OLT - Registrasi ONU","tag":"Networking","date":"January 18 2023","excerpt":"Pada artikel ini kita akan mencoba melakukan registrasi ONU di OLT","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"php-object-oriented-programming","frontmatter":{"published":true,"title":"PHP - Object Oriented Programming","tag":"Programming","date":"January 18 2023","excerpt":"Object Oriented Programming atau biasa disingkat OOP merupakan sebuah paradigma pada bahasa pemrograman","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"cara-membuat-vlan-pada-interface-router-cisco","frontmatter":{"published":true,"title":"Cisco - Cara Membuat VLAN Pada Interface Router Cisco","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan mencoba membuat VLAN pada interface router cisco","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-\u0026-github-kembali-ke-commit-sebelumnya","frontmatter":{"published":true,"title":"Git - Kembali Ke Commit Sebelumnya","tag":"Git","date":"January 17 2023","excerpt":"Pada artikel ini kita akan mencoba berpindah ke commit sebelumnya pada git","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-\u0026-github-multiple-user-account","frontmatter":{"published":true,"title":"Git \u0026 GitHub - Multiple User Account","tag":"Git","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan configurasi agar Git \u0026 GitHub dapat multiple user akun","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"git-squash-commit","frontmatter":{"published":true,"title":"Git - Squash Commit","tag":"Git","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan Squash pada Commit di Git","cover_image":"/images/posts/default.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"konfigurasi-vlan-access-pada-switch-cisco","frontmatter":{"published":true,"title":"Cisco - Konfigurasi VLAN Access Pada Switch Cisco","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi VLAN Access pada Switch Cisco","cover_image":"/images/posts/Cisco - Konfigurasi VLAN Access Pada Switch Cisco.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"konfigurasi-vlan-trunk-pada-switch-cisco","frontmatter":{"published":true,"title":"Cisco - Konfigurasi VLAN Trunk Pada Switch Cisco","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan melakukan konfigurasi VLAN Trunk pada Switch Cisco","cover_image":"/images/posts/Cisco - Konfigurasi VLAN Trunk Pada Switch Cisco.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}},{"slug":"mikrotik-basic-configuration","frontmatter":{"published":true,"title":"Mikrotik - Basic Configuration","tag":"Networking","date":"January 17 2023","excerpt":"Pada artikel ini kita akan mencoba basic configuration pada Router Mikrotik","cover_image":"/images/posts/Mikrotik - Basic Configuration.png","author_name":"Arman Dwi Pangestu","author_title":"Web Developer","author_image":"/images/posts/author/arman.png"}}]},"__N_SSG":true},"page":"/blog/posts/[slug]","query":{"slug":"olt-command"},"buildId":"kPye74dNv48A-A3nRZwbH","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
