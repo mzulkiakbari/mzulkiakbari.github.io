@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 align="center">Web Portofolio</h1>
 <p align="center">Repository ini merupakan web portofolio yang saya buat menggunakan teknologi NextJS dan Tailwind CSS</p>
 
@@ -97,3 +98,7 @@ utilities
 | ----------------- | ------ |
 | `/api/menu`       | GET    |
 | `/api/portofolio` | GET    |
+=======
+# mzulkiakbari.github.io
+My Personal Github Page
+>>>>>>> a8f4f0e67e3f567d952c4b95e57b056e025324d3
