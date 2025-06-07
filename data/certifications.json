@@ -111,5 +111,57 @@
         }
       ]
     }
+  },
+  {
+    "title": "IBM AI Engineering Professional Certificate",
+    "year_created": 2025,
+    "progress": "On Progress",
+    "total_courses": 4,
+    "technologies": [
+      "ChatGPT",
+      "Business Transformation",
+      "Ethical Standards And Conduct",
+      "Computer Vision",
+      "Artificial Intelligence",
+      "Artificial Intelligence and Machine Learning (AI/ML)",
+      "Machine Learning"
+    ],
+    "notes": "This courses by IBM",
+    "preview_images": null,
+    "live_url": null,
+    "description": {
+      "type": "list",
+      "text": null,
+      "items": [
+        {
+          "title": "",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Describe machine learning, deep learning, neural networks, and ML algorithms like classification, regression, clustering, and dimensional reduction."
+        },
+        {
+          "title": "",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Implement supervised and unsupervised machine learning models using SciPy and ScikitLearn."
+        },
+        {
+          "title": "",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Deploy machine learning algorithms and pipelines on Apache Spark."
+        },
+        {
+          "title": "",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Build deep learning models and neural networks using Keras, PyTorch, and TensorFlow."
+        }
+      ]
+    }
   }
 ]
