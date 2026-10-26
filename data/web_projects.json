@@ -10,12 +10,12 @@
       "Bootstrap",
       "QR Code Generator"
     ],
-    "notes": "Demo Account | email: demo@alkaysan.co.id | password: demo123",
+    "notes": "Demo Account | email: demo@alkaysan.com | password: demo123",
     "preview_images": [
       "https://example.com/project-a/image1.jpg",
       "https://example.com/project-a/image2.jpg"
     ],
-    "live_url": "https://kasir.alkaysan.co.id",
+    "live_url": "https://kasir.alkaysan.com",
     "description": {
       "type": "list",
       "text": null,
@@ -117,21 +117,23 @@
     }
   },
   {
-    "title": "Admin Panel Alkaysan",
+    "title": "Admin Panel Alkaysan With AI Chatbot",
     "year_created": 2024,
     "progress": "60% Progress",
     "technologies": [
       "Laravel",
       "NextJS",
       "MySQL",
-      "Tailwind CSS"
+      "Tailwind CSS",
+      "LLM",
+      "RAG"
     ],
-    "notes": "Demo Account | email: demo@alkaysan.co.id | password: demo123",
+    "notes": "Demo Account | email: demo@alkaysan.com | password: demo123",
     "preview_images": [
       "https://example.com/project-a/image1.jpg",
       "https://example.com/project-a/image2.jpg"
     ],
-    "live_url": "https://admin.alkaysan.co.id",
+    "live_url": "https://admin.alkaysan.com",
     "description": {
       "type": "list",
       "text": null,
@@ -223,6 +225,18 @@
             "Profit & Loss Report",
             "Export to PDF"
           ]
+        },
+        {
+          "title": "AI Chatbot",
+          "type": "list",
+          "symbol": "dot",
+          "items": [
+            "Context-Aware AI Replies using LLM and RAG",
+            "Admin Dashboard for AI Configuration",
+            "Chat History Management",
+            "Mark as Read",
+            "RAG Context from Documents and Sales Data"
+          ]
         }
       ]
     }
@@ -237,7 +251,7 @@
       "Python",
       "Google Mediapipe",
       "Face Recognition",
-      "Javascript",
+      "ViteJS",
       "MySQL",
       "SQLite",
       "Tailwind",
@@ -245,12 +259,12 @@
       "React Native",
       "Google Material"
     ],
-    "notes": "Demo Account | email: demo@alkaysan.co.id | password: demo123",
+    "notes": "Demo Account | email: demo@alkaysan.com | password: demo123",
     "preview_images": [
       "https://example.com/project-a/image1.jpg",
       "https://example.com/project-a/image2.jpg"
     ],
-    "live_url": "https://app.alkaysan.co.id",
+    "live_url": "https://app.alkaysan.com",
     "description": {
       "type": "list",
       "text": null,

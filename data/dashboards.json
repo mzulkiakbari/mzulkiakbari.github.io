@@ -28,25 +28,30 @@
   },
   {
     "title": "My Work History",
-    "notes": "RKN SMART SDN BHD (Converter from MYR to IDR)",
+    "notes": null,
     "chart": {
-      "type": "line",
+      "type": "bar",
       "data": {
-        "labels": ["Feb 2021", "Jun 2021", "April 2022", "May 2022", "September 2022", "Jan 2023", "March 2023", "Februari 2024", "March 2024", "Jan 2025", "Februari 2025", "March 2025", "Now"],
+        "labels": ["Feb 2021", "May 2022", "May 2023", "Now"],
         "datasets": [
           {
             "label": "CV ALKAYSAN ACEH",
-            "data": [1000000, 1500000, 0, 0, 0, 0, 0, 0, 1000000, 0, 0, 0, 0],
+            "data": [],
             "backgroundColor": "rgba(75, 192, 192, 1)"
           },
           {
             "label": "PT PONDO NETWORK INDONESIA",
-            "data": [0, 0, 0, 3000000, 4000000, 5000000, 0, 0, 0, 0, 0, 0, 0],
+            "data": [],
             "backgroundColor": "rgba(192, 192, 192, 1)"
           },
           {
+            "label": "CV ALKAYSAN ACEH",
+            "data": [],
+            "backgroundColor": "rgba(75, 192, 192, 1)"
+          },
+          {
             "label": "RKN SMART SDN BHD",
-            "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7200000, 8100000, 8100000],
+            "data": [],
             "backgroundColor": "rgba(255, 192, 192, 1)"
           }
         ]
@@ -54,27 +59,85 @@
     }
   },
   {
-    "title": "My Skill",
-    "notes": "RKN SMART SDN BHD (Converter from MYR to IDR)",
+    "title": "My Projects",
+    "notes": null,
     "chart": {
-      "type": "line",
+      "type": "bar",
       "data": {
-        "labels": ["Feb 2021", "Jun 2021", "April 2022", "May 2022", "September 2022", "Jan 2023", "March 2023", "Februari 2024", "March 2024", "Jan 2025", "Februari 2025", "March 2025", "Now"],
+        "labels": [],
         "datasets": [
           {
             "label": "CV ALKAYSAN ACEH",
             "data": [1000000, 1500000, 0, 0, 0, 0, 0, 0, 1000000, 0, 0, 0, 0],
             "backgroundColor": "rgba(75, 192, 192, 1)"
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "My Skills Uses",
+    "notes": null,
+    "chart": {
+      "type": "bar",
+      "data": {
+        "labels": [],
+        "datasets": [
           {
-            "label": "PT PONDO NETWORK INDONESIA",
-            "data": [0, 0, 0, 3000000, 4000000, 5000000, 0, 0, 0, 0, 0, 0, 0],
-            "backgroundColor": "rgba(192, 192, 192, 1)"
-          },
+            "label": "CV ALKAYSAN ACEH",
+            "data": [1000000, 1500000, 0, 0, 0, 0, 0, 0, 1000000, 0, 0, 0, 0],
+            "backgroundColor": "rgba(75, 192, 192, 1)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "My Skills Performance",
+    "notes": null,
+    "chart": {
+      "type": "bar",
+      "data": {
+        "labels": [],
+        "datasets": [
           {
-            "label": "RKN SMART SDN BHD",
-            "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7200000, 8100000, 8100000],
-            "backgroundColor": "rgba(255, 192, 192, 1)"
+            "label": "CV ALKAYSAN ACEH",
+            "data": [1000000, 1500000, 0, 0, 0, 0, 0, 0, 1000000, 0, 0, 0, 0],
+            "backgroundColor": "rgba(75, 192, 192, 1)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "My Investor Applied",
+    "notes": null,
+    "chart": {
+      "type": "bar",
+      "data": {
+        "labels": [],
+        "datasets": [
+          {
+            "label": "CV ALKAYSAN ACEH",
+            "data": [1000000, 1500000, 0, 0, 0, 0, 0, 0, 1000000, 0, 0, 0, 0],
+            "backgroundColor": "rgba(75, 192, 192, 1)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "My Jobs Applied",
+    "notes": null,
+    "chart": {
+      "type": "bar",
+      "data": {
+        "labels": [],
+        "datasets": [
+          {
+            "label": "CV ALKAYSAN ACEH",
+            "data": [1000000, 1500000, 0, 0, 0, 0, 0, 0, 1000000, 0, 0, 0, 0],
+            "backgroundColor": "rgba(75, 192, 192, 1)"
           }
         ]
       }

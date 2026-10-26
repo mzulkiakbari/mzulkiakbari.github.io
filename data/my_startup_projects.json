@@ -1,17 +1,24 @@
 [
   {
-    "title": "[Mini Project] NolSpam - AI-Powered Spam Removal for Content Creator",
-    "year_created": 2025,
-    "progress": "Soon On August",
+    "title": "KetikinAI - Integrated AI Platform for Academic Writing, Theses & Research Papers",
+    "year_created": 2026,
+    "progress": "In Development",
     "technologies": [
-      "Python FastAPI",
-      "Python Numpy",
-      "SQLite",
-      "Redis",
-      "Tailwind CSS",
-      "NextJS"
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "pgvector (RAG)",
+      "TipTap Editor",
+      "Tailwind CSS v4",
+      "Zustand",
+      "OpenAI API",
+      "Anthropic Claude API",
+      "Google Gemini API",
+      "iPaymu Payment Gateway"
     ],
-    "notes": "This is my mini project that I am currently working on. It is an AI Tool to eliminate spam comments, especially from illegal online gambling (Judol) with target market in Indonesia.",
+    "notes": "Platform AI penulisan akademik terintegrasi yang membantu mahasiswa dan peneliti menyelesaikan skripsi, tesis, jurnal, dan karya tulis ilmiah 10x lebih cepat dengan standar akademik tertinggi.",
     "preview_images": null,
     "live_url": null,
     "description": {
@@ -19,49 +26,98 @@
       "text": null,
       "items": [
         {
-          "title": "AI-Powered Anti-Spam Tool for Social Media Platforms",
+          "title": "Platform AI Penulisan Akademik Terintegrasi",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "NolSpam leverages AI to detect and automatically remove spam comments from Youtube, addressing a critical pain point for content creators and businesses."
+          "text": "KetikinAI adalah platform SaaS full-stack berbasis Next.js 15 & React 19 yang dirancang khusus untuk penulisan akademik berstandar tinggi. Platform ini mengintegrasikan tiga model AI terkemuka dunia — OpenAI GPT-4o, Anthropic Claude 3.7 Sonnet, dan Google Gemini 2.5 — dalam satu ekosistem terpadu, memungkinkan pengguna menghasilkan draft pertama skripsi, tesis, jurnal ilmiah, dan makalah secara 10x lebih cepat."
         },
         {
-          "title": "Focused Market Niche with Viral Potential (Judol)",
+          "title": "Fitur Utama: AI Idea-to-Draft Workflow",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "Specializes in filtering spam from high-risk categories like illegal gambling (Judol), which are rampant in Southeast Asia, particularly Indonesia. Creating a strong regional product-market fit with high demand."
+          "text": "Pengguna cukup mengetik ide mentah atau topik penelitian, lalu sistem AI secara otomatis membangun blueprint struktur dokumen (outline bab), menghasilkan konten per bagian, dan menyajikan draft yang siap diedit. Workflow ini didukung oleh IdeaWorkflow engine dengan komponen BlueprintView, GenerateProgress, dan FinalCheck yang bekerja secara bertahap sehingga pengguna dapat meninjau dan merevisi setiap langkah."
         },
         {
-          "title": "Saas with Monetization Potential (Service-Based or Subscription-Based)",
+          "title": "Multi-Model AI Engine dengan Cost Management Cerdas",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "With features like detailed analytics, auto reporting/blocking, and service offering, NolSpam has clear paths to monetization. Either as a subscription-based Saas tool or through managed services for influencers, agencies, and brands."
+          "text": "KetikinAI memiliki engineClient yang mendukung switching antar model AI (GPT-4o, Claude, Gemini) secara dinamis. Setiap model memiliki cost profile tersendiri yang di-seed ke database, dan sistem costEngine secara otomatis menghitung biaya token per request untuk memastikan penggunaan kredit yang transparan dan efisien bagi pengguna."
         },
         {
-          "title": "Secret...",
+          "title": "Editor Akademik TipTap dengan Ekspor Multi-Format",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": null
+          "text": "Dilengkapi editor berbasis TipTap (rich text) yang terintegrasi dengan paket @noonor/ketikin-editor-core (dikembangkan secara internal). Editor mendukung fitur character count, placeholder, text alignment, typography, dan underline. Dokumen dapat diekspor ke format DOCX (via library docx), PDF (via html2pdf.js), dan format lainnya — siap digunakan untuk pengumpulan akademik resmi."
+        },
+        {
+          "title": "Sistem RAG (Retrieval-Augmented Generation) dengan pgvector",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "KetikinAI mengimplementasikan sistem RAG berbasis pgvector di Supabase PostgreSQL, memungkinkan pengguna mengunggah guidelines institusi (PDF/DOCX) sebagai konteks. AI kemudian menghasilkan dokumen yang disesuaikan dengan format dan persyaratan spesifik universitas pengguna. Sistem ini juga mendukung document versioning untuk melacak semua revisi naskah."
+        },
+        {
+          "title": "Sistem Kredit & Pembayaran Terintegrasi (iPaymu + Dinoiki Balance)",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Platform menggunakan sistem kredit dua lapis: subscription plans (Free, Starter, Pro) dengan billing bulanan/6 bulan/tahunan, dan credit packs on-demand yang tidak pernah expired. Pembayaran diproses melalui iPaymu (payment gateway Indonesia). Sistem juga terintegrasi dengan Dinoiki Balance — ekosistem kredit internal — dengan rate limiting dan quota protection di level server."
+        },
+        {
+          "title": "Thesis Guide & Template Akademik Multi-Jenis",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Platform menyediakan Thesis Guides — panduan penulisan terstruktur untuk berbagai jenis dokumen akademik: Skripsi S1 (bab 1-5), Tesis S2, Jurnal (format IMRaD), Makalah, Essay Akademik, Proposal Penelitian, hingga Manuskrip Kreatif. Setiap template dilengkapi deskripsi dan panduan spesifik yang membantu pengguna memulai dengan struktur yang benar."
+        },
+        {
+          "title": "Keamanan, Integritas Akademik & Smart Citations",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "KetikinAI dibangun dengan komitmen pada integritas akademik: sistem Originality Tracker melacak kontribusi AI vs Human secara transparan, Smart Citations menghasilkan sitasi terformat otomatis (APA, IEEE, Harvard, Chicago) dengan DOI terverifikasi, serta output 100% plagiarism-safe. Secara teknis, platform menerapkan Supabase RLS, server-side quota protection, rate limiting, dan secure scraping system."
+        },
+        {
+          "title": "Internasionalisasi (i18n) Penuh: Bahasa Indonesia & English",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Platform mendukung dua bahasa penuh (Bahasa Indonesia & English) dengan sistem i18n custom yang mencakup language detector otomatis, LanguageProvider berbasis React Context, dan file locale terstruktur. Pengguna dapat beralih bahasa kapan saja — seluruh UI dari landing page, dashboard, editor, hingga pesan error ditampilkan dalam bahasa yang dipilih."
+        },
+        {
+          "title": "Multi-Account & AI Agent Conversations",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Mendukung sistem multi-account, memungkinkan satu pengguna mengelola beberapa workspace secara bersamaan. Platform juga memiliki sistem Agent Conversations yang memungkinkan percakapan kontekstual dengan AI secara persistent — AI dapat mengingat konteks dokumen, melanjutkan diskusi, dan memberikan saran berdasarkan riwayat percakapan sebelumnya."
         }
       ]
     }
   },
   {
-    "title": "Goora - Menyala Kuotaku (My Data On Fire)",
+    "title": "Pokonime - Platform Streaming Anime & Konten Kreator Komunitas Indonesia",
     "year_created": 2026,
-    "progress": "Soon",
+    "progress": "In Development",
     "technologies": [
-      "Python",
-      "MongoDB",
-      "React Native",
-      "Expo",
-      "NextJS",
-      "Others"
+      "Next.js 14",
+      "React 18",
+      "TypeScript",
+      "Prisma ORM",
+      "PostgreSQL (Supabase)",
+      "HLS.js & DASH.js",
+      "AWS S3 / Cloudflare R2",
+      "Tailwind CSS v3",
+      "Framer Motion",
+      "Zustand",
+      "TanStack React Query",
+      "Midtrans Payment",
+      "hCaptcha"
     ],
-    "notes": "A Data Saving & Multi User Video Platform Powered By Zoora AI (The Brain)",
+    "notes": "Platform streaming anime & konten kreator berbasis komunitas untuk pasar Indonesia, menggabungkan ekosistem video on-demand, fansub komunitas, sistem monetisasi kreator, dan fitur sosial yang kaya.",
     "preview_images": null,
     "live_url": null,
     "description": {
@@ -69,82 +125,74 @@
       "text": null,
       "items": [
         {
-          "title": "AI Accessibility & Inclusivity Engine (Zoora AI)",
+          "title": "Platform Streaming Anime & Video Komunitas Full-Stack",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "Zoora AI revolutionizes video accessibility, offering realtime sign language translation via animated avatars, multilingual auto subtitles/dubbing, and interaction via gestures, voice, or eye movement. A breakthrough for both global and disabled audiences."
+          "text": "Pokonime adalah platform streaming anime dan video komunitas berbasis Next.js 14 yang dibangun khusus untuk pasar Indonesia. Platform ini menggabungkan katalog anime terorganisir (dengan integrasi data MyAnimeList/MAL), konten video dari kreator dan fansub, sistem sosial komunitas yang kaya, serta ekosistem monetisasi kreator yang komprehensif — semuanya dalam satu aplikasi web yang mulus."
         },
         {
-          "title": "Hyper Personalized Video Experience",
+          "title": "Infrastruktur Video Streaming HLS & DASH Berstandar Enterprise",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "From mood-based recommendations to adaptive video themes and voice-tone adjusted ads, Goora positions itself as the Netflix meets Tiktok with AI-Powered user empathy, opening massive personalization and monetization potential."
+          "text": "Pokonime mengimplementasikan adaptive video streaming menggunakan HLS.js dan DASH.js dengan Secure HLS — sistem enkripsi dan pengamanan URL streaming untuk mencegah hotlinking dan pembajakan konten. Video disimpan di Cloudflare R2 / AWS S3 dengan presigned URL, didukung HLS preloading cerdas untuk pengalaman buffering minimal. Platform juga mendukung Progressive Web App (PWA), memungkinkan instalasi sebagai aplikasi native."
         },
         {
-          "title": "Data Saving & Smart Compression Focus for Emerging Markets",
+          "title": "Sistem Fansub Komunitas & Subtitle Quest (Gamifikasi)",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "With smart video compression (H.265 + AI), Goora targets low bandwidth regions like Southeast Asia, addressing one of the biggest streaming pain points making it ideal for mass adoption in mobile first economies."
+          "text": "Fitur unggulan Pokonime adalah SubtitleQuest — sistem gamifikasi untuk komunitas penerjemah subtitle anime. Pengguna dapat mengambil 'quest' penerjemahan episode, mengajukan subtitle yang melewati proses review (status: OPEN → LOCKED → REVIEW → PROVISIONAL → APPROVED/REJECTED). Sistem ini mendukung upvote/downvote subtitle, payout kreator berdasarkan kontribusi, dan SubtitleDraft untuk menyimpan draft terjemahan."
         },
         {
-          "title": "Secret...",
+          "title": "Ekosistem Monetisasi Kreator yang Komprehensif",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": null
-        }
-      ]
-    }
-  },
-  {
-    "title": "KetikinAI/Luno AI - Your AI Assistant for Thesis & Academic Papers",
-    "year_created": 2026,
-    "progress": "Soon",
-    "technologies": [
-      "Python",
-      "MongoDB",
-      "React Native",
-      "Expo",
-      "NextJS",
-      "Others"
-    ],
-    "notes": "Helping students finish their thesis faster & cleaner with AI",
-    "preview_images": null,
-    "live_url": null,
-    "description": {
-      "type": "list",
-      "text": null,
-      "items": [
-        {
-          "title": "Market Ready Academic SaaS with Mass Adoption Potential",
-          "type": "text",
-          "symbol": null,
-          "items": null,
-          "text": "KetikinAI addresses a massive pain point in higher education thesis writing. The platform offers real value to 10M+ university students in Indonesia alone and is easily expandable to international markets."
+          "text": "Platform menyediakan multiple stream pendapatan untuk kreator: sistem Tipping (penonton bisa mengirim tip lewat Midtrans), Creator Membership (harga berlangganan mingguan/bulanan), sistem Coin (pembelian paket koin untuk interaksi premium), Withdrawal otomatis ke rekening bank/e-wallet, hingga program SubtitleQuest Payout. Revenue-sharing antara kreator dan platform dikelola secara otomatis dengan pembukuan creatorRevenue vs systemRevenue."
         },
         {
-          "title": "Full Stack AI Ecosystem",
+          "title": "Sistem Sosial & Komunitas Lengkap Seperti Media Sosial",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "Unlike typical AI tools, KetikinAI is not just a chatbot, it's a robust ecosystem with AI for formatting, writing, research, defense simulation, time management, mental wellness, and plagiarism detection, covering the entire thesis lifecycle."
+          "text": "Pokonime hadir dengan fitur sosial selengkap platform media sosial: Follow/Following, Like pada post dan anime, Favorites, Komentar multi-tipe (TEXT, STICKER, GIF, GIFT, VOICE, VIDEO, IMAGE), Repost, Notifikasi real-time (LIKE, COMMENT, FOLLOW, REACTION, SYSTEM), dan Messaging. Pengguna juga dapat membuat Playlist pribadi, menyimpan anime favorit, dan mengikuti update anime tertentu."
         },
         {
-          "title": "Monetization Ready with Gamification & Community Hooks",
+          "title": "Profil Kreator dengan Sistem Dekorasi & Personalisasi Premium",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": "With built-in referral system, premium tiers, gamificiation, and even CV Tools. KetikinAI is built for virality, retention, and monetization. Especially among budget conscious students."
+          "text": "Setiap profil pengguna/kreator dapat dipersonalisasi dengan sistem Dekorasi premium: Frame profil, Name Style, Profile Effect, Profile Theme, dan Animated Avatar. Sistem badges, community score, dan streak months memberikan insentif gamifikasi keaktifan komunitas. Kreator terverifikasi mendapat status isVerified melalui proses KYC (NIK + foto KTP) via CreatorVerification."
         },
         {
-          "title": "Secret...",
+          "title": "Algoritma Feed Adaptif & Analytics Konten Granular",
           "type": "text",
           "symbol": null,
           "items": null,
-          "text": null
+          "text": "Platform menggunakan algoritma feed adaptif dengan FeedCache berbasis IndexedDB untuk scroll yang mulus. useInfiniteFeed mengimplementasikan infinite scroll dengan TanStack React Query, sementara halaman 'On Fire' menampilkan konten trending. PostDailyAnalytics dan PostTrafficSource memungkinkan kreator melacak performa konten secara granular — view count, watch time, likes, subscriber gain, dan estimated revenue."
+        },
+        {
+          "title": "Studio Upload & Manajemen Konten Kreator",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Kreator dapat mengunggah video melalui Studio dengan upload flow berbasis AWS S3/R2 presigned URL, tracking progress upload real-time, dan pemrosesan episode otomatis (status: PROCESSING → PUBLISHED/FAILED). Studio juga dilengkapi manajemen Playlist dengan drag-and-drop (@dnd-kit), thumbnail generation, dan media recorder untuk recording langsung dari browser."
+        },
+        {
+          "title": "Admin Panel & Analytics Platform Terintegrasi",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Platform dilengkapi Admin Panel komprehensif: moderasi konten & pengguna, manajemen katalog anime (data MAL, episode, source URL), persetujuan CreatorVerification KYC, pengelolaan AnimeRequest dari komunitas, pengaturan AdCampaign, pengelolaan CoinPackage, dan pemantauan AudienceAnalytics. SearchKeywordAnalytics memungkinkan admin memahami tren pencarian untuk pengembangan katalog."
+        },
+        {
+          "title": "Keamanan & Performa Enterprise-Grade",
+          "type": "text",
+          "symbol": null,
+          "items": null,
+          "text": "Pokonime dibangun dengan lapisan keamanan berlapis: hCaptcha untuk proteksi form, Supabase RLS untuk isolasi data antar pengguna, middleware autentikasi Next.js yang ketat, Secure HLS untuk proteksi konten video, dan crypto-js untuk enkripsi data sensitif. Performa dioptimalkan dengan Vercel Analytics & Speed Insights, IndexedDB caching, HLS preloading cerdas, dan Framer Motion untuk animasi smooth."
         }
       ]
     }
